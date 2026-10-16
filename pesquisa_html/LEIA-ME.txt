@@ -1,0 +1,17 @@
+PACOTE DE PESQUISA — 16/10/2026
+
+1. relatorio.html: pesquisa completa, fontes e tabelas copiáveis.
+2. proposta.html: Problem/Context + Solution + Required Investment; calculadora.
+3. slides.html: apresentação de gestão; setas, PageUp/PageDown e impressão.
+
+Abra os arquivos diretamente no navegador. Não requer servidor, conta ou internet para leitura.
+Mantenha a pasta assets ao lado dos HTMLs. Links de fontes externas precisam de internet.
+Imprimir / PDF usa a impressão do navegador. A apresentação imprime todos os slides.
+Os valores da calculadora permanecem no navegador e não são enviados a serviços.
+
+Dados: fontes.csv lista os links usados; github-search.json preserva a consulta e 102 correspondências;
+JSONs individuais registram metadados de três issues. Não são um censo de usuários afetados.
+As imagens incluem recortes de tabelas originais e figura acadêmica, com atribuição no documento.
+Não foram executados benchmarks dos LLMs. Foi verificada a renderização dos documentos.
+
+Regerar: python gerar_html.py (requer Python Markdown). Mantém os arquivos de pesquisa em Markdown.

@@ -1,0 +1,21 @@
+[
+  {
+    "file": "assets/figmatrace-tabela.webp",
+    "url": "https://arxiv.org/html/2608.21460v1",
+    "type": "captura da tabela original no navegador",
+    "retrieved_at": "2026-10-16"
+  },
+  {
+    "file": "assets/marginlab-tabela.webp",
+    "url": "https://marginlab.ai/blog/claude-code-degraded-before-opus-4-8/",
+    "type": "captura da tabela original no navegador",
+    "retrieved_at": "2026-10-16"
+  },
+  {
+    "file": "assets/experimento-em.webp",
+    "url": "https://arxiv.org/html/2610.14215v1/figures/board-crop.png",
+    "article": "https://arxiv.org/html/2610.14215v1",
+    "type": "figura original do experimento, convertida em WebP",
+    "retrieved_at": "2026-10-16"
+  }
+]

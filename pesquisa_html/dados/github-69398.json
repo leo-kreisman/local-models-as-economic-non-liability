@@ -1,0 +1,21 @@
+{
+  "html_url": "https://github.com/anthropics/claude-code/issues/69398",
+  "title": "[BUG] Severe Opus 4.8 quality/instruction-following degradation across BOTH Claude Code and Cowork (June 14–18, 2026) — agents ignore explicit instructions, act unprompted, draw conclusions from incomplete data",
+  "created_at": "2026-06-18T16:58:22Z",
+  "updated_at": "2026-08-24T14:22:35Z",
+  "state": "closed",
+  "comments": 3,
+  "reactions": {
+    "url": "https://api.github.com/repos/anthropics/claude-code/issues/69398/reactions",
+    "total_count": 0,
+    "+1": 0,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "retrieved_at": "2026-10-16"
+}

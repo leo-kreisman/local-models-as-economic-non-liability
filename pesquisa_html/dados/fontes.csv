@@ -1,0 +1,200 @@
+url,rotulo_no_documento
+https://research.google/blog/ml-enhanced-code-completion-improves-developer-productivity/?hl=en_GB&version=v1,Fonte
+https://arxiv.org/abs/2410.12944,Artigo
+https://www.ibm.com/case-studies/ibm-software-team,Caso
+https://arxiv.org/abs/2402.09171,Artigo
+https://machinelearning.apple.com/research/distributed-gpu-cloud,Publicação
+https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/,"tutorial de Granite 4 com Ollama, Continue e VS Code"
+https://www.tabnine.com/platform/,Tabnine
+https://metadesignsolutions.com/case-study/air-gapped-ai-ide-financial-institution,MetaDesign Solutions
+https://zachrattner.com/projects/ai-mac-cluster,Relato original
+https://blog.exolabs.net/day-2/,EXO
+https://huggingface.co/Qwen/Qwen3.6-35B-A3B,Fonte
+https://huggingface.co/Qwen/Qwen3.8-27B,Fonte
+https://huggingface.co/Qwen/Qwen3.8-Flash-Next,Fonte
+https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash,Fonte
+https://arxiv.org/html/2609.19969v1,relatório DeepSeek-V4.1
+https://arxiv.org/abs/2608.30320,artigo Qwen3.8-Next
+https://huggingface.co/rLLM/rLLM-FinQA-4B,model card oficial
+https://www.youtube.com/watch?v=TNwJ1LMiENk,palestra de Kobie Crawford
+https://www.youtube.com/watch?v=TNwJ1LMiENk&t=428s,7min08s
+https://www.youtube.com/watch?v=TNwJ1LMiENk&t=647s,10min47s
+https://www.youtube.com/watch?v=TNwJ1LMiENk&t=872s,14min32s
+https://www.youtube.com/watch?v=TNwJ1LMiENk&t=992s,16min32s
+https://www.youtube.com/watch?v=TNwJ1LMiENk&t=1110s,18min30s
+https://snorkel.ai/blog/building-finqa-an-open-rl-environment-for-financial-reasoning-agents/,Descrição do ambiente
+https://snorkel.ai/blog/how-tool-discipline-let-a-4b-model-outsmart-a-235b-giant-on-financial-tasks/,Publicação de 18 de fevereiro de 2026
+https://huggingface.co/rLLM/rLLM-FinQA-4B/tree/main,Arquivos publicados
+https://arxiv.org/abs/2510.05788,Artigo Mellum
+https://blog.jetbrains.com/ai/2025/04/mellum-how-we-trained-a-model-to-excel-in-code-completion/,Treinamento e métricas
+https://blog.jetbrains.com/ai/2025/07/whats-new-with-mellum-expanded-language-support-and-new-ways-to-use-it-locally/,Anúncio local
+https://marketplace.visualstudio.com/items?itemName=JetBrains.local-mellum,extensão demonstrável
+https://blog.google/innovation-and-ai/technology/developers-tools/functiongemma/,Anúncio e demonstrações
+https://github.com/google-gemini/gemma-cookbook/blob/main/FunctionGemma/%5BFunctionGemma%5DFinetune_FunctionGemma_270M_for_Mobile_Actions_with_Hugging_Face.ipynb,notebook oficial de ajuste para Mobile Actions
+https://rocketgraph.com/2025/10/distil-labs-enables-rocketgraphs-private-ai-on-ibm-power/,Relato da Rocketgraph
+https://www.distillabs.ai/blog/distil-labs-enables-rocketgraphs-private-ai-on-ibm-power-with-small-language-models/,Processo de adaptação
+https://www.distillabs.ai/blog/how-knowunity-used-distil-labs-cut-llm-bill-68-percent/,Caso Knowunity
+https://www.distillabs.ai/blog/teaching-small-language-models-new-skills-training-a-local-cybersecurity-agent/,Método e resultados
+https://www.distillabs.ai/use-cases/regulated-and-on-prem/,página de implantação
+https://mistral.ai/news/devstral/,Anúncio Devstral
+https://arxiv.org/abs/2509.25193,artigo técnico
+https://docs.mistral.ai/vibe/code/cli/offline-models,Guia de uso offline
+https://www.salesforce.com/blog/xlam-large-action-models/,Publicação de setembro de 2024
+https://arxiv.org/abs/2406.18518,artigo APIGen
+https://arxiv.org/abs/2505.21297,Artigo
+https://research.nvidia.com/labs/lpr/slm-agents/,Página do estudo
+https://aider.chat/docs/leaderboards/edit.html,Tabela original e protocolo
+https://swe-lego.github.io/,"Projeto, método e resultados"
+https://github.com/navikt/mlx-workspace/blob/main/reports/local-inference-findings.md,Relatório técnico
+https://arxiv.org/abs/2603.05974,Artigo
+https://github.com/RunanywhereAI/hybrid-arena,Repositório e limitações
+https://arxiv.org/abs/2502.15964,Artigo Minions
+https://hazyresearch.stanford.edu/blog/2025-02-24-minions,demonstração técnica
+https://arxiv.org/html/2504.00434v1,"HERA, configuração e tabela 3"
+https://arxiv.org/html/2607.13080v1,"Estudo, seção VI-C e tabela XIV"
+https://www.deloitte.com/content/dam/assets-zone3/us/en/docs/services/consulting/2025/deloittesage-case-study.pdf,"Caso DeloitteSage, especialmente páginas 3–4"
+https://arxiv.org/html/2604.12301v1,Limitações e configuração
+https://kraghavan.ca/llm/infrastructure/benchmarks/2026/03/21/inference-sentinel-benchmarks2.html,Resultados e limitações
+https://www.oflight.co.jp/en/columns/hybrid-ai-cloud-local-llm-cost-reduction-2026,Relato do fornecedor
+https://www.reddit.com/r/vibecoding/comments/1t9eqad/i_tested_a_hybrid_localmodel_frontiermodel_coding/,Relato do experimento
+https://gist.github.com/AlexanderIstomin/ac7469ebaf7cba1e23bba328f424a48f,configuração de orquestração
+https://www.irjet.net/archives/V13/i4/IRJET-V13I04372.pdf,"Artigo, seções 5 e 6"
+https://github.com/proffesor-for-testing/agentic-qe,README
+https://github.com/proffesor-for-testing/agentic-qe/blob/main/docs/guides/free-tier-local-models.md,guia com status da funcionalidade
+https://arxiv.org/html/2604.19201v1,Método de custo
+https://codelead.dev/case-study/,Demonstração e limites
+https://www.qamind.ai/local-ai,Arquitetura
+https://arxiv.org/abs/2601.07206,Artigo e recursos
+https://www.reddit.com/r/ollama/comments/1vrqi3d/qwen3827b_on_a_24gb_m4_pro_mac_mini_benchmarks/,Autor
+https://www.reddit.com/r/LocalLLM/comments/1wa0dl3/qwen3827b_on_m1_max_32gb_mlx_158_toks_vs_llamacpp/,Autor
+https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro,Registro
+https://github.com/robgil/local-ai-benchmark-mac-stuido-m2,Experimento
+https://www.reddit.com/r/LocalLLaMA/comments/1wk14il/qwen38flashnext_955_gib_on_a_64gb_mac_at_27_toks/,Autor e fork
+https://www.reddit.com/r/LocalLLaMA/comments/1wva7l2/running_955_gib_qwen38flashnext_at_4152_toks_on_a/,Comparação do autor
+https://omlx.ai/benchmarks/performance/pjf8s09q,Registro
+https://heretik.io/qwen38-flash-next-262k-macbook/,Heretik
+https://www.mtplx.com/models/qwen3.8-flash-next/,Desenvolvedor
+https://omlx.ai/benchmarks/performance/juqwik8d,Registro
+https://huggingface.co/rapid-mlx/Qwen3.8-Flash-Next-4bit,Model card e protocolo
+https://github.com/raullenchai/Rapid-MLX/blob/main/docs/benchmarks/recent-large-models-m3-ultra.md,Logs e metodologia
+https://www.reddit.com/r/oMLX/comments/1wusa85/omlx_070_vs_070rc1_benchmark_what_changed_7/,Experimento comunitário
+https://github.com/cnrai/llm-perfbench,Repositório
+https://github.com/atbender/deepseek-v41-flash-mac-mini,experimento de 16 GB
+https://argonautlabs.ai/,Argonaut Labs
+https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/discussions/56,"discussão com alegação de 8,2–9,5 tok/s em M3 Ultra 256 GB a 2-bit"
+https://www.mtplx.com/models/qwen3.8-27b/,Condições e quantizações
+https://github.com/jundot/omlx/discussions/2811,A
+https://github.com/NathanMaine/qwen-mlx-offline/blob/main/docs/BENCHMARKS.md,B
+https://qiita.com/sukimaengineer/items/43049f30df14cb06542b,C
+https://jacar.es/en/how-to-install-and-tune-omlx-on-m5-max-128-gb/,Ensaio do autor
+https://sleepyquant.rest/blog/mlx-vs-llama-cpp-35b-m1-max-benchmark/,Experimento SleepyQuant
+https://omlx.ai/benchmarks/performance/ehzfv9r6,Registro
+https://omlx.ai/benchmarks/performance/o39q2ywa,Registro
+https://github.com/raullenchai/Rapid-MLX/issues/472,Submissão original
+https://github.com/JustVugg/colibri/blob/main/docs/benchmarks.md,Benchmarks Colibri
+https://github.com/JustVugg/colibri/issues/180,Relato de ajuste
+https://github.com/JustVugg/colibri/issues/1696,Log do executor
+https://github.com/JustVugg/colibri/blob/main/docs/deepseek-v41.md,Documentação V4.1
+https://rapidmlx.com/blog/deepseek-v41-on-a-mac-and-the-router-problem,Medição e limitações
+https://github.com/navikt/mlx-workspace,E03
+https://news.samsung.com/uk/samsung-electronics-hosts-samsung-developer-conference-korea-2024-unveils-its-improved-gen-ai-model,E04
+https://huggingface.co/InfosysEnterprise/NT-Java-1.1B,E05
+https://arxiv.org/abs/2512.23747,E06
+https://research.google/blog/smart-paste-for-context-aware-adjustments-to-pasted-code/,E07
+https://www.linkedin.com/posts/kendall-eberly-914223161_at-home-i-like-to-mess-around-with-local-activity-7500220117461577729-bJ6p,E08
+https://code.claude.com/docs/en/costs,E09
+https://gautamkhorana.com/blog/claude-code-cost-agency-scale-2026/,E10
+https://www.fissionlabs.com/blog-posts/putting-ai-spend-under-control-without-slowing-engineering,E11
+https://platform.claude.com/docs/en/about-claude/pricing,"E12, tabela de preços"
+https://www.apple.com/newsroom/2026/09/the-new-mac-mini-and-mac-studio-are-available-today/,"E13, Apple"
+https://www.jeffgeerling.com/blog/2025/15-tb-vram-on-mac-studio-rdma-over-thunderbolt-5/,"E14, teste e preços"
+https://www.hpe.com/psnow/doc/a50014107enw,"E15, HPE"
+https://www.ibm.com/docs/en/SSK5UBS_2.0/pdf/watsonx_code_assistant_for_z_2.4.20.pdf,"E16, IBM"
+https://arxiv.org/html/2605.03195v1,R01
+https://arxiv.org/html/2602.03411v1,R02
+https://arxiv.org/html/2602.03419v1,R03
+https://arxiv.org/html/2604.01496v1,R04
+https://arxiv.org/html/2609.32459v1,R05
+https://arxiv.org/html/2609.05274v1,R06
+https://github.com/anthropics/claude-code/issues/68428,R07
+https://www.anthropic.com/engineering/april-23-postmortem,R08
+https://www.anyscale.com/blog/run-coding-agents-on-your-own-gpus,Anyscale: Run coding agents on your own GPUs
+https://github.com/anyscale/llm-serving-for-coding-agents/blob/main/part3-optimize/notes/COST-ESTIMATE.md,Anyscale: COST-ESTIMATE.md
+https://github.com/navikt/mlx-workspace/blob/main/reports/2026-09-23-local-model-evaluation/decision.md,Nav: decisão de modelos
+https://github.com/navikt/mlx-workspace/blob/main/reports/2026-10-12-open-questions/oq3a-results.md,Nav: resultados de perguntas abertas
+https://www.johal.in/we-saved-35-ai-coding-assistant-costs-switching,"Codeium, alegação de US$ 1,21M → US$ 787k para 112 engenheiros"
+https://agentcost.in/docs/guides/case-study/,AgentCost: case study
+https://www.hams.tech/blog/cto-case-study-self-hosted-ai-coding-agents-offshore-pods-2026.html,HAMS: agentes self-hosted offshore
+https://bytebell.dev/faqs/,ByteBell: FAQ e alegações de redução de tokens
+https://taicli.com/,Taicli: exemplo de roteamento
+https://docs.tabnine.com/main/welcome/readme/architecture/deployment-options,Tabnine: arquitetura
+https://www.tabnine.com/pricing-enterprise-context-engine/,Tabnine: Context Engine
+https://research.google/blog/ai-in-software-engineering-at-google-progress-and-the-path-ahead/,Google: AI in software engineering
+https://forums.developer.nvidia.com/t/2-23-2026-price-change-announcement/361713,"NVIDIA: reajuste DGX Spark, 23/02/2026"
+https://gist.github.com/karlhendrik/355bb6cbf98861b21177a6b7857e79f7,"Dois Mac minis M4, llama.cpp RPC"
+https://zenn.dev/oqamura/articles/85945cef3d7432,Avaliação comunitária sobre suposto nerf 4.8
+https://arxiv.org/html/2610.20394v1,What Should a Software Team Spend on Agents?
+https://arxiv.org/abs/2609.28919,"Control the Harness, Control the Cost"
+https://cadence.withremote.ai/blog/engineering-ai-spend-2026,Cadence: engineering AI spend
+https://cohrint.com/blog/ai-coding-cost-benchmarks-2026,Cohrint: custos
+https://snscratchpad.com/posts/reverse-information-paradox/,sn scratchpad
+https://x.com/satyanadella/article/2076323181154230284,2076323181154230284
+https://x.com/satyanadella/article/2066182223213293753,2066182223213293753
+https://www.itpro.com/technology/artificial-intelligence/a-company-should-be-able-to-use-a-model-without-giving-up-the-knowledge-that-makes-it-unique-microsoft-ceo-satya-nadella-says-enterprises-shouldnt-be-sharing-so-much-data-with-ai-providers,reportagem da ITPro de 14/07/2026
+https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf,"NIST AI 600-1, perfil de IA generativa"
+https://search.ftc.gov/news-events/news/press-releases/2025/01/ftc-issues-staff-report-ai-partnerships-investments-study,"FTC, estudo de parcerias de IA, janeiro/2025"
+https://www.ftc.gov/system/files/ftc_gov/pdf/p246201_aipartnerships6breport_redacted.pdf,relatório
+https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller,Anthropic: controlador/operador
+https://www.anthropic.com/legal/commercial-terms,Termos comerciais Anthropic
+https://www.ibm.com/docs/en/watsonx/w-and-w/2.3.x?topic=overview-security-foundation-models,Segurança e privacidade no watsonx
+https://www.ibm.com/docs/en/watsonx/saas?topic=atlas-sharing-ippiconfidential-information-user,IBM: compartilhamento de PI/IP/confidenciais
+https://resources.anthropic.com/code-modernization-playbook,Anthropic: Code Modernization Playbook
+https://resources.anthropic.com/hubfs/Code%20Modernization%20Playbook.pdf,PDF
+https://github.com/QwenLM/Qwen3.8/blob/main/README.md,Repositório oficial Qwen3.8
+https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~05~dell-technologies-delivers-production-ready-agentic-ai-from-deskside-to-data-center.htm,"anúncio oficial de Dell Deskside Agentic AI, de 18/05/2026"
+https://www.itpro.com/technology/artificial-intelligence/dell-unveils-deskside-agentic-ai-at-dell-technologies-world-2026,"ITPro, na cobertura do lançamento"
+https://www.dell.com/en-us/blog/own-your-ai-dell-pro-max-with-gb10/,"Own Your AI: Dell Pro Max with GB10, 09/07/2026"
+https://signal65.com/wp-content/uploads/2026/05/Signal65-Insights_The-Economics-of-Agentic-AI.pdf,"The Economics of Agentic AI, Mitch Lewis e Ryan Shrout, Signal65, maio/2026"
+https://frame.work/blog/the-best-framework-laptops-at-every-price-point,artigo Framework
+https://www.dell.com/en-us/shop/software/lp/dell-pro-ai-studio,Dell Pro AI Studio
+https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c09108524,brochura HP Z para ciência de dados
+https://arxiv.org/html/2608.21460v1,Artigo FigmaTrace
+https://huggingface.co/datasets/PatronusAI/figmatrace,dataset
+https://huggingface.co/PatronusAI/Qwen3.8-27B-Figmatrace-SFT,pesos ajustados
+https://arxiv.org/abs/2306.11644,"Textbooks Are All You Need, Microsoft Research, 2023"
+https://github.com/anthropics/claude-code/issues/63861,"GitHub #63861, 30/05/2026"
+https://github.com/anthropics/claude-code/issues/67606,"GitHub #67606, 11/06/2026"
+https://github.com/anthropics/claude-code/issues/69398,"GitHub #69398, 18/06/2026"
+https://www.reddit.com/r/Anthropic/comments/1ueevsb/degraded_performance_elevated_error_rate_on/,"Reddit: erros e lentidão, 24/06/2026"
+https://www.reddit.com/r/Claudeopus/comments/1ugdo34/opus_48_is_really_bad_did_they_downgrade_the/,Reddit: “Opus 4.8 is really bad”
+https://www.reddit.com/r/ClaudeCode/comments/1tt8mxx/why_48_feels_broken_if_youre_not_running_dynamic/,Reddit: workflows dinâmicos
+https://www.linkedin.com/posts/juanjramirez_opus-48-is-the-first-time-i-can-confidently-activity-7466552263008837632-hPeb,"Juan J. Ramirez, LinkedIn"
+https://www.linkedin.com/posts/kiritocode1_man-claude-opus-48-is-a-major-degradation-activity-7468209923391377409-jiFi,"Aryan Kathawale, LinkedIn"
+https://marginlab.ai/blog/claude-code-degraded-before-opus-4-8/,"Marginlab, 29/05/2026"
+https://security.googleblog.com/2022/12/trust-in-transparency-private-compute.html,Google descreve o Private Compute Core
+https://developer.android.com/ai/gemini-nano,documentação Gemini Nano/AICore
+https://docs.nvidia.com/openshell/latest/security/best-practices,NVIDIA documenta OpenShell
+https://developer.nvidia.com/blog/build-a-secure-always-on-local-ai-agent-with-nvidia-nemoclaw-and-openclaw/,tutorial de NemoClaw com inferência local
+https://brave.com/blog/indirect-prompt-injection/,Brave
+https://lmstudio.ai/docs/app/offline,LM Studio documenta operação offline
+https://lmstudio.ai/docs/developer/core/server/serve-on-network,autenticação ao servir na rede
+https://github.com/ollama/ollama/blob/main/docs/faq.mdx,FAQ oficial Ollama
+https://www.sitepoint.com/definitive-guide-local-llms-2026-privacy-tools-hardware/,SitePoint
+https://openai.com/index/introducing-openai-privacy-filter/,Anúncio oficial
+https://aimultiple.com/cloud-llm,AIMultiple
+https://ojs.aaai.org/index.php/AAAI/article/view/40876,AAAI
+https://lmstudio.ai/docs/developer/core/server,LM Studio API
+https://arxiv.org/html/2610.14215v1,"Physical Side-Channel Attacks on Edge LLMs, outubro/2026"
+https://www.usenix.org/conference/usenixsecurity25/presentation/gao-zibo,"I Know What You Said, USENIX Security 2025"
+https://www.usenix.org/system/files/usenixsecurity25-gao-zibo.pdf,paper completo
+https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md,Providers
+https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md,Settings
+https://opencode.ai/docs/providers/,Providers
+https://opencode.ai/docs/permissions/,Permissions
+https://docs.ollama.com/integrations/claude-code,Integração Ollama
+https://code.claude.com/docs/en/sandboxing,Sandbox Anthropic
+https://learn.chatgpt.com/docs/developer-commands?surface=cli,Referência oficial OpenAI
+https://learn.chatgpt.com/docs/agent-approvals-security,Segurança e aprovações
+https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models,BYOK e modo offline
+https://code.visualstudio.com/docs/agent-customization/language-models,Modelos no VS Code
+https://rllm-project.com/post.html?post=finqa.md,post rLLM

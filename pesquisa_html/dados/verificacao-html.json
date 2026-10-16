@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "file": "relatorio.html",
+      "broken_anchors": [],
+      "images": [
+        {
+          "src": "assets/figmatrace-tabela.webp",
+          "ok": true
+        },
+        {
+          "src": "assets/marginlab-tabela.webp",
+          "ok": true
+        },
+        {
+          "src": "assets/experimento-em.webp",
+          "ok": true
+        }
+      ],
+      "horizontal_overflow": false
+    },
+    {
+      "file": "proposta.html",
+      "broken_anchors": [],
+      "images": [],
+      "horizontal_overflow": false
+    },
+    {
+      "file": "slides.html",
+      "broken_anchors": [],
+      "images": [
+        {
+          "src": "assets/experimento-em.webp",
+          "ok": true
+        }
+      ],
+      "horizontal_overflow": false,
+      "tall_slides_desktop": []
+    },
+    {
+      "file": "relatorio.html",
+      "mobile_horizontal_overflow": false,
+      "widths": [
+        390,
+        390
+      ],
+      "overflow_elements": []
+    },
+    {
+      "file": "proposta.html",
+      "mobile_horizontal_overflow": false,
+      "widths": [
+        390,
+        390
+      ],
+      "overflow_elements": []
+    },
+    {
+      "file": "slides.html",
+      "mobile_horizontal_overflow": false,
+      "widths": [
+        390,
+        390
+      ],
+      "overflow_elements": []
+    }
+  ],
+  "js_errors": [],
+  "external_requests": []
+}

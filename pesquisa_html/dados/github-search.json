@@ -1,0 +1,518 @@
+{
+  "query": "repo:anthropics/claude-code is:issue \"4.8\" \"degradation\"",
+  "retrieved_at": "2026-10-16",
+  "total_count": 102,
+  "incomplete_results": false,
+  "items": [
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/97097",
+      "title": "[Bug] Model performance degradation during legitimate development work",
+      "comments": 0
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/74311",
+      "title": "[Feature Request] Configurable target model and effort for the Fable 5 classifier fallback",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63456",
+      "title": "Opus 4.8 not selectable in CLI `/model` despite being available on account",
+      "comments": 27
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/91160",
+      "title": "CLAUDE_CODE_SUBAGENT_MODEL acts as hard override — ignores agent frontmatter model and call-level model param (2.1.236)",
+      "comments": 0
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/67847",
+      "title": "Opus 4.8 fabricates entire tool executions inside extended thinking — no tool_use emitted, model believes tools ran and reports fake results",
+      "comments": 9
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/87938",
+      "title": "[BUG] cyber safeguard model-fallback is now session-scoped (2.1.229) and false-positives on legitimate security work — reproduced live on Opus 5",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/76689",
+      "title": "[BUG] 400 \"output_config.effort 'xhigh' is not supported when thinking is disabled\" on Opus 4.8 despite alwaysThinkingEnabled: true (VS Code, 2.1.205–2.1.207)",
+      "comments": 13
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70315",
+      "title": "[Bug] Still reproducing on 2.1.186: assistant hallucinates fake user/system turns with stop_reason=null (re-report of #64791, wrongly auto-closed)",
+      "comments": 17
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63538",
+      "title": "Model fabricates tool output (and even a user instruction) when a parallel batch is partially cancelled / appears empty",
+      "comments": 14
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/62123",
+      "title": "[Bug] Anthropic API Error: Model's tool call could not be parsed (retry also failed)",
+      "comments": 65
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69628",
+      "title": "[Bug] Opus 4.8 Model Quality Degradation",
+      "comments": 6
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/10199",
+      "title": "[BUG] API Error 400 - Thinking Block Modification Error",
+      "comments": 100
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/22264",
+      "title": "Sibling tool call errored: parallel tool calls cascade-fail when one fails",
+      "comments": 35
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68238",
+      "title": "[Bug] Performance degradation on current date",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/76661",
+      "title": "[MODEL] Non-Latin (Burmese) output corrupted during rapid sequential MCP generation, correct when generated in isolation",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68780",
+      "title": "[Bug] [URGENT] Claude Opus 4.8/5.0 reasoning degradation, speed and performance regression",
+      "comments": 42
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/79773",
+      "title": "[BUG] Max 20x upgrade not reflected in weekly limits — depleting at Max 5x rate or worse (upgraded July 16, 2026)",
+      "comments": 30
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/76723",
+      "title": "[Bug] Claude 3.5 Opus model performance degradation",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70307",
+      "title": "[Bug] Claude 3.5 Opus performance degradation: 25+ minutes for simple implementation tasks",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/87341",
+      "title": "[Bug] Opus 4.8 reasoning regression: failed document search and tool-use persistence",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68428",
+      "title": "[Bug] OPUS 4.8 performance degradation - significantly slower response times",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68624",
+      "title": "[Bug] Opus 4.8 xHigh: Severe model speed and performance degradation",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70883",
+      "title": "[Bug] Claude Opus 4.8 High: Reasoning accuracy degradation on context window quantification",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70514",
+      "title": "[Bug] Claude 3.5 Opus model degradation in performance",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/49535",
+      "title": "[BUG] Auto mode blocked by persistent \"safety classifier temporarily unavailable\" outage — Edit/Write/Bash   all fail",
+      "comments": 10
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70286",
+      "title": "API severe degradation since June 22 21:00 UTC — 3-18 min response times on Sonnet 4.6",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69701",
+      "title": "[MODEL] Opus 4.8 very bad, like cursor(auto) 1 year ago",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/65547",
+      "title": "[Bug] Claude Code CLI performance degradation - slow response times",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68617",
+      "title": "[Bug] Claude Code performance degradation with Opus model",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/78920",
+      "title": "[Bug] Model Performance Regression: Opus 4.5-4.6 Quality Degradation and Fable Hallucinations in Agentic Tasks",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/76660",
+      "title": "Fable 5 refusal fallback: silent degradation in desktop app, /model switch-back reverts next turn, /feedback blocked by CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/66539",
+      "title": "[MODEL] Severe multi-symptom degradation since 2026-06-08 on Opus 4.8 (Desktop app): ignores CLAUDE.md, bypasses permission prompts, hallucinates, refuses doable tasks, writes files unprompted",
+      "comments": 9
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/65195",
+      "title": "[Bug] Claude 4.8 code generation quality degradation with x-high effort setting",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/38335",
+      "title": "[BUG] Claude Max plan session limits exhausted abnormally fast since March 23, 2026 (CLI usage)",
+      "comments": 877
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/73833",
+      "title": "[Bug] Fable 5 fallback to Opus 4.8 preserves effort level instead of mapping to capability-equivalent tier",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/65001",
+      "title": "[Bug] Claude 3.5 Opus Response Quality Degradation in Extended Sessions",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/77402",
+      "title": "[MODEL] Opus 4.8 systemic failure in Claude Code — sustained hallucination spiral, context dropping, tool output loss",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63926",
+      "title": "[Bug] SQL query performance degradation in v4.8 vs v4.7",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/86776",
+      "title": "Fable 5 safeguards false-positive on camera-protocol dev and public court/registry browser automation — ~20 silent sticky switches to Opus 4.8 in 4 weeks",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70327",
+      "title": "[BUG] Opus 4.8 regression now also hits Sonnet 4.6 — the \"switch to Sonnet\" workaround no longer works (June 22–23, 2026)",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/67937",
+      "title": "[SYS-087] Fable 5 safety classifier false-positive on network/socket terminology forces mid-session model switch to Opus 4.8",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68743",
+      "title": "[Bug] Opus 4.8: Tool-call XML namespace prefix dropped in long sessions, serialized as text",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/72258",
+      "title": "Opus 4.8 quality regression: ignores its own rules, circular reasoning, worse than previous Opus versions",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69908",
+      "title": "[MODEL] Opus 4.8 ignores explicit CLAUDE.md rule and falsely reports multi-file alignment",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/71812",
+      "title": "[Bug] Tool-call markup leaks into assistant text after large context accumulation",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64977",
+      "title": "Tool calls become malformed (stray token + missing antml: namespace) late in long sessions — Opus 4.8",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69398",
+      "title": "[BUG] Severe Opus 4.8 quality/instruction-following degradation across BOTH Claude Code and Cowork (June 14–18, 2026) — agents ignore explicit instructions, act unprompted, draw conclusions from incomplete data",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64991",
+      "title": "[MODEL] Opus 4.8: forced balance-slot criticism, critique-for-its-own-sake baked into initial CoT, and attention-driven context collapse — plus a 71-issue failure inventory",
+      "comments": 6
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68129",
+      "title": "[BUG] Fable is not available",
+      "comments": 23
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/75971",
+      "title": "Advisor tool: Fable 5 (claude-fable-5) consistently returns error_code \"unavailable\"; Opus 4.8 succeeds under identical config",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63015",
+      "title": "[Bug] Auto-compact never triggers despite statusline reporting \"100% context used\" (v2.1.153, Max sub, 200K mode)",
+      "comments": 29
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/76048",
+      "title": "Opus 4.8: runaway invisible thinking burns entire 64k output budget (15+ min of silence), followed by token corruption and fabricated tool results",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68774",
+      "title": "[MODEL] claude-opus-4-8 hallucinated destructive OS commands (rm -rf / del /s /q) as prompt-injection warnings — confirmed clean via JSONL",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/83364",
+      "title": "WebSearch always returns HTTP 400 when session effort is xhigh/max on Opus 5 (regression from v2.1.219 default flip)",
+      "comments": 4
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63577",
+      "title": "[Bug] High-effort session tier not propagated to sub-agents with pinned models",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/73485",
+      "title": "[Bug] Silent model downgrade mid-session without user notification",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/74604",
+      "title": "Tool failure triggers cross-session context bleed — model fabricates another conversation's content instead of reporting the failure, and doesn't self-correct when challenged (Claude Code, Opus 4.8)",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/80988",
+      "title": "[BUG] v2.1.219 `heron_brook` prompt section injects \"Do not call the AgentTool unless the user requested it\" for Opus 5 only, silently overriding user-configured delegation policy, with no opt-out",
+      "comments": 37
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64900",
+      "title": "[BUG] Intermittent mid-stream SSE stall — Opus 4.7/4.8, Sonnet 4.6, pause token emission 40–600s mid-response, latency increasing (VS Code extension)",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68424",
+      "title": "[Bug] Claude Code CLI performance severely degraded - extremely slow execution",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70376",
+      "title": "Recurring HTTP 529 Overloaded + Rate Limit errors disrupting active sessions (45 errors in 50 sessions)",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/81581",
+      "title": "[Bug] Safeguards false positive flags legitimate sandbox escape analysis, forces model downgrade",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/74415",
+      "title": "[Bug] Opus 4.8: ignores loaded skill contract, misreports failed tool calls as successes, ignores direct user questions — same session recovers immediately on Opus 4.7",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68657",
+      "title": "[MODEL] Opus 4.8 agent breakdown: hallucinates \"corrupted / injected\" tool output on verifiably-clean inputs, then stops obeying system-prompt constraints (2 reproductions; Sonnet 4.6: 0 / 180+ on the identical harness)",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64260",
+      "title": "[MODEL] Opus 4.8 fabricated a present-tense user request and persisted on an invented task context",
+      "comments": 14
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/74710",
+      "title": "[MODEL] Opus 4.8 fabricated user messages 6+ times in one long session and \"answered\" them; cyber safeguard then blocked the user's request to audit the transcript",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/65823",
+      "title": "Runaway output: model repeats fixed string \"court placeholder\" thousands of times, exhausting output tokens (long-running session, large context)",
+      "comments": 8
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/68528",
+      "title": "[BUG] Excessive refusal to answer",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/72256",
+      "title": "False positive: API safeguards block legitimate security code reviews via custom subagents [skip-publish-guard]",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/77998",
+      "title": "[BUG] 2.1.211 \"always allow rules save at repository root\" breaks unattended runs in a linked git worktree under a worktree-scoped filesystem sandbox",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64093",
+      "title": "[BUG] 5h token usage massivly outstripping actual context (issue started about 8:45pm BST)",
+      "comments": 25
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/80009",
+      "title": "[BUG] AskUserQuestion tool_use input contains corrupted Korean syllables (confirmed at session-log level, not terminal rendering)",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/73808",
+      "title": "[BUG] Tool calls repeatedly emitted with bare <invoke> tags (missing antml: namespace), causing parse failures",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/77136",
+      "title": "[BUG] Claude 4.7, 4.8, 5.0, and Fable increasingly default to repetitive rhetorical tics and often struggle to produce coherent prose despite explicit style instructions",
+      "comments": 138
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/79024",
+      "title": "Regression (~v2.1.207–2.1.211): --permission-mode plan sessions no longer show the plan-approval dialog — ExitPlanMode degrades to a bare yes/no tool prompt and the session drops to manual mode",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69015",
+      "title": "[BUG] Claude Code long-running session invents tool results, fake user turns, and follow-up actions without user input",
+      "comments": 5
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63861",
+      "title": "[BUG] Opus 4.8 in Claude Code declares work \"verified\" / \"done\" without running the canonical build — false-green regression vs. Opus 4.7",
+      "comments": 9
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/82402",
+      "title": "Long session unrecoverable: writes blocked during upstream 529, then oversized tool result forces 'Prompt is too long' with no compaction escape",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/57699",
+      "title": "Weekly limit depletes disproportionately to 5h-session limit on Max 20x — quantified telemetry shows ~5x drift vs historical baseline",
+      "comments": 16
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64409",
+      "title": "[BUG] Hallucinated, empty, and duplicated tool results in a long-running session",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/81218",
+      "title": "[MODEL] Opus 5",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/77146",
+      "title": "[BUG] Subagent SendMessage-resume 400s: deferred tool (ReportFindings) referenced in transcript not rehydrated into tools[] on resume",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/70148",
+      "title": "[BUG] Model fabricates entire conversation turns (fake user messages + fake tool results) after an interrupted tool call under transmission latency",
+      "comments": 6
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/63989",
+      "title": "[BUG]",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/59454",
+      "title": "[BUG]  -    Windows: PowerShell tool pre-validation intermittently fails with pwsh exited with code 1: the command line is too long / pwsh timed out after 5000ms, blocking shell commands behind approval-prompt loops",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/83043",
+      "title": "[BUG] CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK=1 arms the silent refusal-fallback path instead of disabling it (2.1.220)",
+      "comments": 1
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/69682",
+      "title": "tool-call markup malformation (`antml:` namespace prefix drop) silently drops tool calls in long Opus-class sessions",
+      "comments": 2
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/66273",
+      "title": "Claude Code (Opus): self-favoring asymmetric skepticism, unstable calibration, and a false-completion claim across one session — the session transcript is the evidence",
+      "comments": 6
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/24207",
+      "title": "[BUG] No disk space management: ~/.claude grows unbounded, cascade failure destroys settings and auth at 0 bytes free",
+      "comments": 11
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/60438",
+      "title": "Persistent HTTP 429 on auto-mode classifier (xml_s1), account-side config",
+      "comments": 16
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64080",
+      "title": "Harness silently executes duplicated parallel tool_use blocks: subagent fan-out runs N× the intended count (6 → 24)",
+      "comments": 16
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/51686",
+      "title": "[BUG] CLAUDE.md language/dialect instructions drift during long sessions (Spanish voseo leaks into neutral-Spanish output)",
+      "comments": 19
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/65921",
+      "title": "[BUG] Severe latency on Sonnet 4.6 in VS Code extension despite green status page (Jun 6, 2026)",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/64323",
+      "title": "advisor server-tool emitted but silently returns no result (stop_reason=end_turn) → model confabulates; regression from ~2026-05-28",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/46465",
+      "title": "Harness-emitted <system-reminder> uses \"NEVER mention this reminder to the user\" phrasing indistinguishable from prompt injection",
+      "comments": 15
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/73125",
+      "title": "[BUG] AskUserQuestion: \"No response after 60s — continued without an answer\"",
+      "comments": 144
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/56913",
+      "title": "Make autonomous Claude Code actually viable: tiered Opus brains + Sonnet workers + persistent state",
+      "comments": 49
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/8477",
+      "title": "[FEATURE] Add Option to Always Show Claude's Thinking",
+      "comments": 94
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/19973",
+      "title": "[BUG] Orphaned Claude Code processes accumulate - 5 processes using 1.4GB when only 1 session expected",
+      "comments": 3
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/16157",
+      "title": "[BUG] Instantly hitting usage limits with Max subscription",
+      "comments": 1499
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/42796",
+      "title": "[MODEL] Claude Code is unusable for complex engineering tasks with the Feb updates",
+      "comments": 583
+    },
+    {
+      "url": "https://github.com/anthropics/claude-code/issues/24991",
+      "title": "Critical: Opus 4.6 Configuration Regression - 92/100 → 38/100 Performance Drop",
+      "comments": 3
+    }
+  ]
+}

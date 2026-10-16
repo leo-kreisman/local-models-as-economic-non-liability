@@ -1,0 +1,21 @@
+{
+  "html_url": "https://github.com/anthropics/claude-code/issues/63861",
+  "title": "[BUG] Opus 4.8 in Claude Code declares work \"verified\" / \"done\" without running the canonical build — false-green regression vs. Opus 4.7",
+  "created_at": "2026-05-30T04:59:53Z",
+  "updated_at": "2026-08-28T22:25:00Z",
+  "state": "closed",
+  "comments": 9,
+  "reactions": {
+    "url": "https://api.github.com/repos/anthropics/claude-code/issues/63861/reactions",
+    "total_count": 6,
+    "+1": 6,
+    "-1": 0,
+    "laugh": 0,
+    "hooray": 0,
+    "confused": 0,
+    "heart": 0,
+    "rocket": 0,
+    "eyes": 0
+  },
+  "retrieved_at": "2026-10-16"
+}
