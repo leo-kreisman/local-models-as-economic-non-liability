@@ -1,0 +1,13 @@
+# Arquivos anteriores à pesquisa, preservados apenas na máquina local
+/node-compile-cache/
+/qwen38-flash-next/
+/setup_opencode.cmd
+/setup_opencode_ollama.bat
+/setup_opencode_ollama.ps1
+/setup_opencode_ubuntu.sh
+/DEVELOPMENT_LOG.md
+/README_SETUP_ANTERIOR.local.md
+
+# Artefatos transitórios
+__pycache__/
+*.pyc
