@@ -11,3 +11,6 @@
 # Artefatos transitórios
 __pycache__/
 *.pyc
+
+# Browser CLI session metadata
+.playwright-cli/

@@ -1,0 +1,17 @@
+RESEARCH PACK — 10/16/2026
+
+1. report.html: complete research, sources and copyable tables.
+2. proposal.html: Problem/Context + Solution + Required Investment; calculator.
+3. slides.html: management presentation; arrows, PageUp/PageDown and printing.
+
+Open the files directly in the browser. It does not require server, account or internet for reading.
+Preserve the repository directory structure, including ../pesquisa_html/assets/. Links from external sources need internet.
+Print / PDF uses browser printing. The presentation prints all slides.
+Calculator values remain in the browser and are not sent to services.
+
+Data: data/sources.csv lists the links used; ../pesquisa_html/dados/github-search.json preserves the query and 102 matches;
+Individual JSONs record metadata from three issues. They are not a census of affected users.
+The images include clippings of original tables and academic figure, with attribution in the document.
+No LLM benchmarks were executed. Document rendering has been verified.
+
+Regenerate from the repository root: python scripts/build_english.py (requires Python Markdown). Keep the Markdown research source files.

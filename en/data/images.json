@@ -1,0 +1,21 @@
+[
+  {
+    "file": "../../pesquisa_html/assets/figmatrace-tabela.webp",
+    "url": "https://arxiv.org/html/2608.21460v1",
+    "type": "Screenshot of the original table in the browser",
+    "retrieved_at": "2026-10-16"
+  },
+  {
+    "file": "../../pesquisa_html/assets/marginlab-tabela.webp",
+    "url": "https://marginlab.ai/blog/claude-code-degraded-before-opus-4-8/",
+    "type": "Screenshot of the original table in the browser",
+    "retrieved_at": "2026-10-16"
+  },
+  {
+    "file": "../../pesquisa_html/assets/experimento-em.webp",
+    "url": "https://arxiv.org/html/2610.14215v1/figures/board-crop.png",
+    "article": "https://arxiv.org/html/2610.14215v1",
+    "type": "Original experiment figure, converted to WebP",
+    "retrieved_at": "2026-10-16"
+  }
+]

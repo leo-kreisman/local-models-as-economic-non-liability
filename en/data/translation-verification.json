@@ -1,0 +1,58 @@
+[
+  {
+    "pt": "RELATORIO_PESQUISA_MODELOS_LOCAIS.md",
+    "en": "en/RESEARCH_REPORT.md",
+    "tables": [
+      46,
+      46
+    ],
+    "headings": [
+      109,
+      109
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  },
+  {
+    "pt": "pesquisa_html/PROPOSTA_INVESTIMENTO.md",
+    "en": "en/INVESTMENT_PROPOSAL.md",
+    "tables": [
+      3,
+      3
+    ],
+    "headings": [
+      9,
+      9
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  },
+  {
+    "pt": "pesquisa_html/AGENTES_LOCAIS_E_SEGURANCA.md",
+    "en": "en/LOCAL_AGENTS_AND_SECURITY.md",
+    "tables": [
+      2,
+      2
+    ],
+    "headings": [
+      5,
+      5
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  },
+  {
+    "pt": "pesquisa_html/ATUALIZACAO_SEGURANCA_E_REGRESSOES.md",
+    "en": "en/SECURITY_AND_REGRESSIONS_UPDATE.md",
+    "tables": [
+      4,
+      4
+    ],
+    "headings": [
+      8,
+      8
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  }
+]

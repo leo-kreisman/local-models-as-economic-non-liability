@@ -1,0 +1,90 @@
+{
+  "pages": [
+    {
+      "file": "en/report.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "en/proposal.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "en/slides.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "en/report.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "en/proposal.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "en/slides.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/relatorio.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/proposta.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/slides.html",
+      "width": 1440,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/relatorio.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/proposta.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    },
+    {
+      "file": "pesquisa_html/slides.html",
+      "width": 390,
+      "anchors_ok": true,
+      "images_ok": true,
+      "overflow": false
+    }
+  ],
+  "js_errors": [],
+  "external_requests": []
+}

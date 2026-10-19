@@ -1,0 +1,114 @@
+[
+  {
+    "label": "Executive decision",
+    "title": "Bring AI capacity into engineering",
+    "body": "<p class=\"slide-lead\">A pilot of <strong>six weeks</strong> to reduce variable spending, retain sensitive context and maintain alternatives.</p><div class=\"bigline\">Local first.<br>Cloud when it adds value.</div><p>Scope: code, backend, UI and tests. Hybrid means local + cloud.</p>",
+    "source": "Planning proposal · 16 October 2026",
+    "dark": true
+  },
+  {
+    "label": "01 / The problem",
+    "title": "Per-token consumption changes the bill",
+    "body": "<p>The team report points out users with spending of <strong>$2,000–10,000</strong>. We assume monthly amounts per professional here; verify against invoices.</p><div class=\"metrics\"><div><strong>US$ 10 thousand</strong><span>5 people × US$ 2 thousand/month</span></div><div><strong>US$ 50 thousand</strong><span>5 people × US$ 10,000/month</span></div></div><p>This is not a market average. Cache, repeated context and parallel agents must appear in the baseline.</p>",
+    "source": "User-provided account · Arithmetic scenarios; no audited invoice",
+    "dark": false
+  },
+  {
+    "label": "02 / Opportunity",
+    "title": "Compact models deserve qualification",
+    "body": "<table><thead><tr><th>Benchmark</th><th>Qwen3.6 · 27B</th><th>Qwen3.8 · 27B</th></tr></thead><tbody><tr><td>Terminal Bench 2.1</td><td>63.4</td><td><strong>73.0</strong></td></tr><tr><td>SWE-bench Pro</td><td>53.5</td><td><strong>61.7</strong></td></tr><tr><td>NL2Repo</td><td>36.2</td><td><strong>42.3</strong></td></tr></tbody></table><p>The same nominal parameter count, with a higher published result. Validate quantization and internal tasks; the dataset was not isolated as the sole cause.</p>",
+    "source": "<a href=\"https://huggingface.co/Qwen/Qwen3.8-27B\" target=\"_blank\" rel=\"noopener noreferrer\">Qwen · evaluation of the authors themselves</a>",
+    "dark": false
+  },
+  {
+    "label": "03 / Business evidence",
+    "title": "Savings exist; cost allocation changes the result",
+    "body": "<table><thead><tr><th>Case</th><th>What it supports</th><th>Limit</th></tr></thead><tbody><tr><td>Pegatron</td><td>Modeled TCO: US$ 9,774 → US$ 5,859 with shared allocation</td><td>With dedicated infrastructure: US$ 14,051</td></tr><tr><td>Yembo</td><td>Mac Cluster; reported savings of $40,000/year</td><td>Transcription saving, not code generation</td></tr><tr><td>Nav</td><td>Qualification of code tasks with Qwen on Mac</td><td>No published monthly savings</td></tr></tbody></table>",
+    "source": "Sources: <a href=\"https://arxiv.org/html/2607.13080v1\" target=\"_blank\" rel=\"noopener noreferrer\">Pegatron</a> · <a href=\"https://zachrattner.com/projects/ai-mac-cluster\" target=\"_blank\" rel=\"noopener noreferrer\">Yembo</a> · <a href=\"https://github.com/navikt/mlx-workspace\" target=\"_blank\" rel=\"noopener noreferrer\">Nav</a>",
+    "dark": false
+  },
+  {
+    "label": "04 / Performance",
+    "title": "27B and 35B also fit in the larger Macs",
+    "body": "<table><thead><tr><th>Hardware/runtime</th><th>Model / Quant</th><th>Tok/s generation</th></tr></thead><tbody><tr><td>M5 Max 128 GB · MLX + MTP</td><td>Qwen3.8-27B · 4/8 bits</td><td>47.00 / 28.72</td></tr><tr><td>M5 Max 128 GB · oMLX + MTP</td><td>Qwen3.6-35B · 4/8 bits</td><td>119.2 / 117.5</td></tr><tr><td>M3 Ultra 512 GB · oMLX + MTP</td><td>Qwen3.8-27B · 4/8 bits</td><td>65.0 / 43.0</td></tr></tbody></table><p>Protocols and acceleration vary between lines. tok/s does not measure quality. Prefill and decode are separated in the full report.</p>",
+    "source": "<a href=\"https://github.com/NathanMaine/qwen-mlx-offline/blob/main/docs/BENCHMARKS.md\" target=\"_blank\" rel=\"noopener noreferrer\">27B / M5 Max</a> · <a href=\"https://jacar.es/en/how-to-install-and-tune-omlx-on-m5-max-128-gb/\" target=\"_blank\" rel=\"noopener noreferrer\">35B / M5 Max</a> · <a href=\"https://github.com/jundot/omlx/discussions/2811\" target=\"_blank\" rel=\"noopener noreferrer\">27B / M3 Ultra</a>",
+    "dark": false
+  },
+  {
+    "label": "05 / Architecture",
+    "title": "Preserve context. Escalate according to policy.",
+    "body": "<div class=\"flow\"><div><b>Repository + IDE</b><span>Identity and scope per project</span></div><i>↓</i><div><b>Local model + isolated tools</b><span>Search, editing, testing and controlled logs</span></div><i>↓</i><div><b>Automated validation + review</b><span>Build, tests, contracts and UI</span></div></div><p><strong>Authorised exceptions:</strong> the gateway minimizes context and calls the cloud. Data prohibited from leaving stays local.</p>",
+    "source": "Proposed architecture · fallback never replaces authorization to send data",
+    "dark": true
+  },
+  {
+    "label": "06 / Security",
+    "title": "Controls outside the prompt",
+    "body": "<div class=\"two\"><div><h3>Network and execution</h3><p>Egress blocked by default, sandbox, least privilege and authenticated API.</p><h3>Data and credentials</h3><p>Secrets in the proxy/vault; indexes and logs with ACLs, retention and encryption.</p></div><div><h3>Versions and supply chain</h3><p>Pinned weights and runtimes, hashes, tested updates and rollback.</p><h3>Physical environment</h3><p>Hosts and accessories under management; dedicated infrastructure for greater sensitivity.</p></div></div>",
+    "source": "References: <a href=\"https://docs.nvidia.com/openshell/latest/security/best-practices\" target=\"_blank\" rel=\"noopener noreferrer\">NVIDIA OpenShell</a> · <a href=\"https://developer.android.com/ai/gemini-nano\" target=\"_blank\" rel=\"noopener noreferrer\">Google AICore</a>",
+    "dark": false
+  },
+  {
+    "label": "06B / Agents and IDE",
+    "title": "Keep the tools. Control the backend.",
+    "body": "<table><thead><tr><th>Interface</th><th>Local Path</th></tr></thead><tbody><tr><td>Oh My Pi / OpenCode</td><td>Local providers + configurable permissions</td></tr><tr><td>Claude Code / Codex CLI</td><td>Ollama / explicit selection of local backend</td></tr><tr><td>Copilot CLI / VS Code</td><td>Own endpoint / local models in chat</td></tr></tbody></table><p>Qualify the harness with the same model, tests and policy. Permissive defaults must be reviewed; isolation and connection destinations are part of acceptance.</p>",
+    "source": "Sources: <a href=\"https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md\" target=\"_blank\" rel=\"noopener noreferrer\">OMP</a> · <a href=\"https://opencode.ai/docs/permissions/\" target=\"_blank\" rel=\"noopener noreferrer\">OpenCode</a> · <a href=\"https://docs.ollama.com/integrations/claude-code\" target=\"_blank\" rel=\"noopener noreferrer\">Claude</a> · <a href=\"https://learn.chatgpt.com/docs/developer-commands?surface=cli\" target=\"_blank\" rel=\"noopener noreferrer\">Codex</a> · <a href=\"https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models\" target=\"_blank\" rel=\"noopener noreferrer\">Copilot</a> · <a href=\"https://code.visualstudio.com/docs/agent-customization/language-models\" target=\"_blank\" rel=\"noopener noreferrer\">VS Code</a>",
+    "dark": false
+  },
+  {
+    "label": "07 / Side channels",
+    "title": "Real risk requires a well-defined threat",
+    "body": "<div class=\"two\"><div><img src=\"../pesquisa_html/assets/experimento-em.webp\" alt=\"Probe next to the Raspberry Pi board in the experiment\" class=\"slide-photo\"></div><div><p>Research in Raspberry Pi, CPU and Llama 1B showed electromagnetic leak with probe and laboratory equipment.</p><p>It does not establish universal reading of Mac prompts from a meter away.</p><p><strong>Response:</strong> physical control and workloads; evaluation of emissions for high sensitivity scenarios.</p></div></div>",
+    "source": "<a href=\"https://arxiv.org/html/2610.14215v1\" target=\"_blank\" rel=\"noopener noreferrer\">Alhalawani et al. · preprint and figure 3</a>",
+    "dark": false
+  },
+  {
+    "label": "08 / Stability",
+    "title": "Programmers’ reports inform the decision",
+    "body": "<div class=\"metrics\"><div><strong>102</strong><span>issues encountered by specific search</span></div><div><strong>3</strong><span>examined issues with preserved metadata</span></div></div><p>These are signals of user experience and operational risk. The search includes indirect mentions and duplicates; it does not measure incidence across the full user base.</p><p>There are recognized regressions from earlier versions. Intention to release datacenters remains a hypothesis, not a conclusion.</p>",
+    "source": "<a href=\"../pesquisa_html/dados/github-search.json\" target=\"_blank\" rel=\"noopener noreferrer\">Sample and consultation in JSON</a> · <a href=\"https://github.com/anthropics/claude-code/issues/63861\" target=\"_blank\" rel=\"noopener noreferrer\">Report #63861</a> · <a href=\"https://www.anthropic.com/engineering/april-23-postmortem\" target=\"_blank\" rel=\"noopener noreferrer\">Post-mortem April</a>",
+    "dark": false
+  },
+  {
+    "label": "09 / What changes at work",
+    "title": "Start with verifiable tasks",
+    "body": "<table><thead><tr><th>Workstream</th><th>Initial application</th><th>Gate</th></tr></thead><tbody><tr><td>Backend</td><td>APIs, SQL and Delimited Refactoring</td><td>Contracts + tests</td></tr><tr><td>QA</td><td>Cases, fixtures and regressions</td><td>Execution + useful coverage</td></tr><tr><td>UI</td><td>Components and visual corrections</td><td>Captures + accessibility + E2E</td></tr><tr><td>Legacy</td><td>Explanation and changes per module</td><td>Behavior characterization</td></tr></tbody></table><p>Accepting code requires evidence of execution, even when the agent says it has finished.</p>",
+    "source": "Proposed engineering plan; internal rates will be measured during the pilot",
+    "dark": false
+  },
+  {
+    "label": "10 / Investment",
+    "title": "US$ 41,400 to qualify the approach",
+    "body": "<table><thead><tr><th>Component</th><th>Assumption</th><th>US$</th></tr></thead><tbody><tr><td>Workstations</td><td>5 × 5,000</td><td>25,000</td></tr><tr><td>Integration</td><td>80 h × 100</td><td>8,000</td></tr><tr><td>Security + validation</td><td>30 h × 100</td><td>3,000</td></tr><tr><td>Contingency</td><td>15%</td><td>5,400</td></tr></tbody></table><p>Estimated additional operation: <strong>US$ 500/month</strong>. Configurations and prices still require quotations.</p>",
+    "source": "Planning scenario, not a commercial quotation from a supplier",
+    "dark": false
+  },
+  {
+    "label": "11 / Full payback",
+    "title": "The avoided portion determines payback",
+    "body": "<table><thead><tr><th>API/person/month</th><th>Team savings / month</th><th>Payback</th></tr></thead><tbody><tr><td>US$ 2,000</td><td>US$ 4,500</td><td>9.20 months</td></tr><tr><td>US$ 5,000</td><td>US$ 12,000</td><td>3.45 months</td></tr><tr><td>US$ 10,000</td><td>US$ 24,500</td><td>1.69 month</td></tr></tbody></table><p>5 users · 50% of invoice avoided · $500/month of operation · full investment of US$ 41,400.</p><p><strong>Sensitivity:</strong> in the first scenario, avoiding only 20% leads to a return to 27.6 months.</p>",
+    "source": "Own calculation · additional rework must be discounted · calculator in the proposal",
+    "dark": false
+  },
+  {
+    "label": "12 / Pilot",
+    "title": "Six weeks, with criteria defined in advance",
+    "body": "<div class=\"timeline\"><div><b>1</b><h3>Baseline</h3><p>Invoices, tasks, quality and review</p></div><div><b>2</b><h3>Implementation</h3><p>Configuration, isolation and controls</p></div><div><b>3–5</b><h3>Comparison</h3><p>Real tasks, current flow versus hybrid</p></div><div><b>6</b><h3>Decision</h3><p>Savings, quality, security and capacity</p></div></div><p>Proposed targets: ≥30% total savings; ≤5 pp loss of acceptance; ≤10% increase in cycle; no exposure in defined tests.</p>",
+    "source": "Criteria for negotiation; these are not results already achieved",
+    "dark": false
+  },
+  {
+    "label": "13 / Recommendation",
+    "title": "Buy evidence before scaling",
+    "body": "<p class=\"slide-lead\">Approve the pilot, confirm the baseline and make the expansion result dependent.</p><div class=\"bigline\">Cost per accepted task.<br>Data governed by policy.<br>Versions under control.</div><p>Platform + Security + FinOps + Engineering/QA share the decision.</p>",
+    "source": "Next proposed step · no purchase, hiring or automatic publication",
+    "dark": true
+  },
+  {
+    "label": "14 / Supporting reading",
+    "title": "From decision to detail",
+    "body": "<div class=\"two\"><div><h3>Full research</h3><p>Business cases, Macs tables 16–512 GB, MLX/llama.cpp, SSD, experts and security.</p><p><a href=\"report.html\">Open Report →</a></p></div><div><h3>Investment proposal</h3><p>Problem/Context, Solution, Required Investment and sensitivity calculator.</p><p><a href=\"proposal.html\">Open Proposal →</a></p></div></div><p class=\"small\">Sources appear in the footnotes and documents. Arrow keys navigate between slides; “Print / PDF” exports the entire presentation.</p>",
+    "source": "Offline package · 16 October 2026",
+    "dark": false
+  }
+]
