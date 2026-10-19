@@ -1,5 +1,11 @@
 # Local and specialized models for development and QA
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UC** — University of California; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 Cumulative research report. Updated on October 19, 2026.
 
 Smaller specialized models can outperform larger generalist models in bounded workflows. Local deployment can reduce external dependencies and make inference accessible on workstations. The decision depends on quality in the actual workflow, required memory, concurrency and the full operating cost.
@@ -10,7 +16,19 @@ This report brings together business cases, open model benchmarks, Apple Silicon
 
 Research update: October 19, 2026. The economic target is recurring engineering work with executable acceptance criteria. Three paths must be compared: deterministic automation, a local model, and local + cloud collaboration. A cloud model can also build reusable procedures offline; that investment need not recur on every task. The following separates measured results, vendor implementations and the proposed enterprise architecture. No model-performance or penetration tests were executed for this update.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SLM** — small language model; **HERA** — local–cloud task-allocation system evaluated in the cited study; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Hybrid economics: the evidence that most directly informs engineering
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **HERA** — local–cloud task-allocation system evaluated in the cited study; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Evidence | Configuration and workload | Published result | Decision implication |
 |---|---|---|---|
@@ -27,13 +45,31 @@ Sources: [Nav measurement report](https://raw.githubusercontent.com/navikt/mlx-w
 
 HERA also reports the quality and local-use tradeoff for HumanEval: Mistral + GPT-4 reaches 47.8% accuracy with 28.4% SLM use and US$ 0.044/request; Llama + Claude reaches 44.2%, 36.6% and US$ 0.053. These compare two hybrid pairs, not hybrid against their cloud-only baselines. More local use does not by itself establish better quality or lower cost. [HERA table 4](https://arxiv.org/html/2504.00434v1).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **DTO** — data transfer object; **LRU** — least recently used; cache eviction policy; **TTL** — time to live; expiry interval.
+
+<!-- acronym-note:end -->
+
 ### Real repositories and test cases, rather than generic chat prompts
 
 Nav identifies `navikt/isoppfolgingstilfelle` (Ktor), `navikt/ia-tjenester-metrikker` (Spring) and `navikt/familie-tilbake-frontend` (React/Express). These are public repositories from a real organization serving the welfare system. Checks include compilation and repository tests; the frontend uses 61 test files and 572 tests. The baseline backend suite already had failures, so “verified” means no new failures, not universal correctness. Local-only sessions passed simple questions, comments, renames and DTO changes in small samples; creating a new test file succeeded in 0/3 attempts. These results support qualification by task, not blanket replacement of QA. [Nav study and limitations](https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md).
 
 Arena's harder D6 suite contains an LRU/TTL cache, a token bucket, topological sorting and a mini-template parser: four tasks with 80 tests, repeated with three seeds. The published results are 8/12 local-only, 9/12 cascade and 12/12 cloud-only. The headline success on easier tasks therefore does not transfer unchanged to harder work. Release notes and README also differ on some failure classifications and cloud fractions; preserve raw runs and the selected revision when reproducing. [D6 specification and results](https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.5.0.md).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **QA** — quality assurance.
+
+<!-- acronym-note:end -->
+
 ### Industry evidence for specialization and reusable automation
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **SQL** — Structured Query Language; database query language; **US$** — United States dollars; **NUS** — National University of Singapore; **ACH** — Meta's Automated Compliance Hardening system for finding faults through tests.
+
+<!-- acronym-note:end -->
 
 | Organization or study | Concrete engineering activity | Evidence and boundary |
 |---|---|---|
@@ -43,6 +79,12 @@ Arena's harder D6 suite contains an LRU/TTL cache, a token bucket, topological s
 | NUS, Gungnir | Evolve reusable SQL test generators for SQLite, DuckDB and PostgreSQL | 44 developer-confirmed bugs, 34 fixed; a separate DuckDB run reports five confirmed bugs for US$ 20.85. After evolution, generation runs without LLM calls. This is research on real database engines, not a demonstrated local-LLM deployment. [Paper](https://arxiv.org/html/2610.14161v1) |
 
 Gungnir is particularly relevant to recurring QA: spend inference on improving the generator, validate the change, then reuse the program. This is a complementary savings mechanism, not a local + cloud LLM benchmark. A local model can later assist triage, but that extension is proposed here, not measured in the paper.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GRPO** — Group Relative Policy Optimization; reinforcement-learning method; **GEPA** — reflective prompt-optimization method discussed in the cited study; **US$** — United States dollars; **ICLR** — International Conference on Learning Representations; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Cloud-assisted harness development, with local execution afterward
 
@@ -54,6 +96,12 @@ Microsoft also reports an internal Rust formal-verification agent improved by ov
 
 **Proposed lifecycle:** select one recurring task family; assemble de-identified training cases and an untouched evaluation set; establish the existing cloud-only baseline; ask the cloud model to propose concise instructions, tool schemas and bounded recovery procedures; run candidates locally; promote only candidates that improve accepted-task cost without violating quality or security thresholds; retain rollback and periodically reassess drift. The optimizer must not edit its own acceptance tests or security policy. Hidden tests and final human review remain outside the agent's writable workspace.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **UI** — user interface; **API** — application programming interface; connects software components; **CI** — continuous integration; automated build and test checks; **E2E** — end-to-end tests covering the complete workflow; **DTO** — data transfer object; **AST** — abstract syntax tree; structured representation of source code.
+
+<!-- acronym-note:end -->
+
 | Reusable harness | Local work | Independent acceptance gate | Escalation condition |
 |---|---|---|---|
 | DTO/API propagation | Apply a specified field through types, mappers and call sites | Build, schema compatibility and contract tests | Ambiguous business rule or incompatible contract |
@@ -64,6 +112,12 @@ Microsoft also reports an internal Rust formal-verification agent improved by ov
 | CI triage/documentation | Classify sanitized failures and draft references | Links to actual code/log evidence; human acceptance | Missing evidence, sensitive data or uncertain diagnosis |
 
 These are pilot candidates, not a measured claim that most of the organization's workload is already covered. Measure their frequency in completed tickets and pull requests. Start with repetitive, bounded operations; retain human ownership of requirements, architecture and production approval.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GPU** — graphics processing unit; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **VM** — virtual machine.
+
+<!-- acronym-note:end -->
 
 ### Secure internet-enabled workstations: practical architecture
 
@@ -84,9 +138,21 @@ On Apple Silicon, MLX can remain on the host for GPU access while agent tools ex
 
 **Industrial implementations demonstrate feasibility, not immunity.** Docker documents OpenCode in local microVM sandboxes and policy-controlled connectivity. Anthropic reports an 84% reduction in permission prompts in its internal sandbox usage and publishes a runtime for filesystem/network restrictions on arbitrary processes. That percentage measures prompts, not attack prevention. These mechanisms can support a local-model architecture without adopting Hermes or OpenClaw. [Docker OpenCode integration](https://docs.docker.com/ai/sandboxes/agents/opencode/), [Anthropic implementation](https://www.anthropic.com/engineering/claude-code-sandboxing), [sandbox-runtime](https://github.com/anthropics/sandbox-runtime).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **VM** — virtual machine; **OS** — operating system; **MCP** — Model Context Protocol; connects agents to tools and data; **SSH** — Secure Shell; authenticated remote access protocol; **DLP** — data loss prevention.
+
+<!-- acronym-note:end -->
+
 ### Control design and acceptance tests
 
 The table is a proposed enterprise baseline. Each control must be verified on the exact OS, runtime, agent and policy version. Tests use synthetic secrets and isolated fixtures, never actual production credentials.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **UI** — user interface; **API** — application programming interface; connects software components; **CI** — continuous integration; automated build and test checks; **MCP** — Model Context Protocol; connects agents to tools and data; **DNS** — Domain Name System; resolves network names; **SSH** — Secure Shell; authenticated remote access protocol; **URL** — uniform resource locator; address of a resource.
+
+<!-- acronym-note:end -->
 
 | Surface | Required control | Acceptance test and evidence |
 |---|---|---|
@@ -109,7 +175,19 @@ Domain allowlists alone do not prevent leaks to an allowed service, including a 
 
 Docker's documentation explicitly notes that clone mode can still expose untracked `.env` files and that SSH forwarding grants usable authority even when keys stay outside the VM. A local MCP process can also execute with host privileges outside sandbox isolation. These are configuration obligations, not reasons to abandon containment. [Docker isolation layers](https://docs.docker.com/ai/sandboxes/security/isolation), [Docker security boundaries](https://docs.docker.com/ai/sandboxes/security/).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **OMP** — Oh My Pi; coding agent.
+
+<!-- acronym-note:end -->
+
 ### Runtime and agent-specific implementation decisions
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MLX-LM** — language-model tools built on MLX; **OS** — operating system; **TLS** — Transport Layer Security; protects data in transit.
+
+<!-- acronym-note:end -->
 
 | Component | Verified capability or limitation | Deployment consequence |
 |---|---|---|
@@ -121,6 +199,12 @@ Docker's documentation explicitly notes that clone mode can still expose untrack
 
 There is no demonstrated universal security ranking placing one of these agents above all others. OMP, OpenCode and Aider are the proposed qualification candidates. Hermes and OpenClaw are outside the proposed deployment. Physical side channels remain a specialist appendix; the primary workstation controls address code execution, credential theft, network export, supply chain and persistence.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Measure savings without confusing tokens, requests and money
 
 Record local and cloud input/output tokens, cache reads/writes, retries, routing decisions, tool use, latency and acceptance. The remote bill must use each provider's actual billing categories; raw token counts alone are misleading when cached tokens dominate. Report both cost per attempted task and cost per accepted task, counting failed attempts and repairs. Include human review and waiting, amortized hardware, energy, operations and harness development.
@@ -129,6 +213,12 @@ For a task family, let B be cloud-only cost per accepted task, L local operating
 
 Illustrative assumptions, not market measurements: B = US$ 0.50, L = US$ 0.04, q = 0.20, F = US$ 0.60, H = US$ 0.03, R = US$ 0.06 gives US$ 0.25/task, a 50% reduction. Adding US$ 0.30 of incremental review makes it US$ 0.55 and removes the economic advantage. If building and validating a harness costs US$ 300 and saves US$ 0.25 per subsequent accepted task after recurring costs, break-even is 1,200 tasks. Charge that initial investment once; do not also amortize it into H in the same calculation.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface.
+
+<!-- acronym-note:end -->
+
 ### Pilot with business-relevant repositories and measurable gates
 
 Select completed, reviewable tasks from the company's own repository history, with approval to use them and synthetic data. Include a backend service, a React/TypeScript interface and a PostgreSQL-backed application; add a database-engine fixture suite where relevant. Public Nav repositories and Arena tasks are reproducibility references, not substitutes for the company's workload distribution.
@@ -136,6 +226,12 @@ Select completed, reviewable tasks from the company's own repository history, wi
 Compare four arms on the same pinned tasks: existing cloud workflow; local with a generic harness; local with a specialized harness; specialized local + cloud. Add a deterministic baseline for mechanical transformations. Preserve independent acceptance tests, fixed attempt budgets, cold/warm cache conditions and all failures. Hold out entire task families or modules when testing generalization; never tune against the final evaluation set. Repeat enough tasks to show uncertainty and report separate outcomes for backend, UI and QA rather than one misleading aggregate.
 
 The six-week pilot remains the investment framework, but security qualification and harness development require allocated engineering time. The existing 80 integration hours and 30 security/validation hours are provisional allocations, not proof that every control and task family fits. Start with two task-specific harnesses and the minimum necessary tool surface; revise the budget before expanding. No monthly team savings should be attributed to a published task-level benchmark without measuring volume, utilization and total costs.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **VPC** — virtual private cloud; isolated cloud network.
+
+<!-- acronym-note:end -->
 
 ## How to interpret the evidence
 
@@ -150,7 +246,19 @@ The six-week pilot remains the investment framework, but security qualification 
 
 Execution on the professional machine, on-premises server and VPC are different modalities. An internal big tech tool does not itself prove inference on notebooks or a local desktop cluster.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **GPU** — graphics processing unit; **IBM** — International Business Machines; company.
+
+<!-- acronym-note:end -->
+
 ## Business cases in development and QA
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **GPU** — graphics processing unit; **IBM** — International Business Machines; company.
+
+<!-- acronym-note:end -->
 
 | Organisation | Use and published results | Evidence Scope |
 |---|---|---|
@@ -170,15 +278,33 @@ The [MetaDesign Solutions](https://metadesignsolutions.com/case-study/air-gapped
 
 ## Mac minis and shared servers
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **LLM** — large language model; **CI** — continuous integration; automated build and test checks; **VAD** — voice activity detection; **US$** — United States dollars; **CTO** — chief technology officer.
+
+<!-- acronym-note:end -->
+
 ### Yembo
 
 CTO Zach Rattner describes eight M4/M4 Pro Mac minis, initially with two machines dedicated to AI. whisper.cpp and Silero VAD replaced cloud transcription, with reported savings of US$ 40 thousand per year. The cluster also runs GitHub Actions, CircleCI and Playwright regressions; build and lint reportedly went from four minutes to 40 seconds. [Original report](https://zachrattner.com/projects/ai-mac-cluster)
 
 The published financial savings relate to transcription. The build improvement relates to CI infrastructure. Neither metric should be presented as a proven benefit of an LLM writing code.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **GB** — gigabyte, a decimal unit of data capacity.
+
+<!-- acronym-note:end -->
+
 ### EXO
 
 Demonstration on eight 64 GB M4 Pro Mac minis, with 512 GB in aggregate and 4-bit models:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Model | First token | Generation |
 |---|---:|---:|
@@ -190,9 +316,21 @@ Source: [EXO](https://blog.exolabs.net/day-2/). The values demonstrate execution
 
 For an internal API, there are two options to compare: dividing the weights of a model between machines or distributing requests between complete replicas. The first increases the memory capacity; the second can increase the ability to serve users. The choice requires measuring prefill, generation, queues and latency under concurrency.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SWE** — software engineering; benchmark family for software tasks.
+
+<!-- acronym-note:end -->
+
 ## Open models and coding benchmarks
 
 Results declared by developers, consulted in the first round of this research:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **SWE** — software engineering; benchmark family for software tasks; **MoE** — mixture of experts; activates a subset of expert networks per token; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Model | Architecture | Published results |
 |---|---|---|
@@ -203,17 +341,41 @@ Results declared by developers, consulted in the first round of this research:
 
 The table is not a uniform ranking. There are different versions of benchmarks, agents, contexts and budgets. Qwen informs task fixes in SWE-bench Pro. DeepSeek himself reports DeepSWE 69.8 with Claude Code and 74.2 with mini-SWE, illustrating the influence of the agent that involves the model.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **KV** — key–value cache; stores attention state; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Memory and SSD offloading
 
 Active parameters indicate a computing feature, not the total weights to store. Approaches of pure weights in 4 bits: 35B correspond to 17.5 GB and 27B to 13.5 GB. Cache, metadata, buffers and operating system require additional memory.
 
 The [DeepSeek-V4.1 report](https://arxiv.org/html/2609.19969v1) describes reduction of persistent KV cache to about 1/8 of the one used by V4-Flash. This does not mean reducing the memory of the entire model in the same proportion. The [Article Qwen3.8-Next](https://arxiv.org/abs/2608.30320) describes n-gram embeddings kept out of the accelerator. Sparse access to tables, expert transfer and cache offload are different mechanisms.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UC** — University of California; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ## Snorkel and UC Berkeley study of a 4B specialist
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **MoE** — mixture of experts; activates a subset of expert networks per token; **GRPO** — Group Relative Policy Optimization; reinforcement-learning method; **FinQA** — financial question answering; verify the dataset variant in each study; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Main result
 
 The rLLM-FinQA-4B was adjusted from Qwen3-4B-Instruct-2507 with GRPO. The published comparison uses Qwen3-235B-A22B, a MoE; the approximate ratio of 59 times refers to total parameters, not to a 59-fold reduction in cost or latency.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **FinQA** — financial question answering; verify the dataset variant in each study; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Model | FINQA | FinQA Reasoning |
 |---|---:|---:|
@@ -225,9 +387,21 @@ Source: [official model card](https://huggingface.co/rLLM/rLLM-FinQA-4B). Calcul
 
 These are financial analysis benchmarks with tools. The result demonstrates effective specialization in this distribution of tasks; it does not measure general software development or adoption by a business team.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AIE** — AI Engineer; conference series referenced in the research; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### The example of YouTube advertising revenue
 
 In the transcript provided by [Kobie Crawford’s lecture](https://www.youtube.com/watch?v=TNwJ1LMiENk), 235B tries to consult a non-existent table, repeats the attempt and responds without obtaining the data. The adjusted 4B discovers the tables, inspects schema, query, finds a column error and corrects the query before responding.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GRPO** — Group Relative Policy Optimization; reinforcement-learning method; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Video Excerpt | Subject |
 |---|---|
@@ -238,6 +412,12 @@ In the transcript provided by [Kobie Crawford’s lecture](https://www.youtube.c
 | [18min30s](https://www.youtube.com/watch?v=TNwJ1LMiENk&t=1110s) | Rubrics for diagnosing behaviors |
 
 The example illustrates the mechanism; the aggregate table is the performance evidence. The video and AIE page links could not be read by this research browser; the narrative details and timestamps above come from the transcript supplied by the user, corroborated as to the overall result by the authors’ publications.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model.
+
+<!-- acronym-note:end -->
 
 ### Environment data and versions
 
@@ -253,11 +433,23 @@ Snorkel publishes the following internal ablations of Pass@1: only single table,
 
 The training with simple tasks presented transfer to multiple table questions. This maintains that discovering resources and reacting to errors were relevant behaviors in that environment. It does not establish that complex tasks should always be excluded from training.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GPU** — graphics processing unit.
+
+<!-- acronym-note:end -->
+
 ### Cost of training and inference savings
 
 Snorkel reports eight H100 GPUs and costs less than $500 per execution. The lecture mentions approximately 21 hours. The publication also projects a 90% reduction in the cost of inference to a scenario of 50,000 monthly queries. The projection is not an audited savings on an identified client. [Snorkel Source](https://snorkel.ai/blog/how-tool-discipline-let-a-4b-model-outsmart-a-235b-giant-on-financial-tasks/)
 
 The value per execution should not be interpreted as a complete cost of creating the expert. For business budgets, data, experts, environmental engineering, evaluations, unsuccessful experiments and maintenance should be separately accounted for. The published cost does not mean that the training took place on a notebook.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GPU** — graphics processing unit; **GB** — gigabyte, a decimal unit of data capacity; **BF16** — bfloat16; 16-bit floating-point format.
+
+<!-- acronym-note:end -->
 
 ### Developer machine execution
 
@@ -267,9 +459,21 @@ As an engineering estimate, a 16 GB GPU is a plausible candidate to test this mo
 
 An entirely local application needs also to maintain necessary tools, data and services within the defined infrastructure. Hosting the weights locally does not automatically make all the flow local.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **RL** — reinforcement learning; **FinQA** — financial question answering; verify the dataset variant in each study.
+
+<!-- acronym-note:end -->
+
 ## Applying specialization to developers and QA professionals
 
 The hypothesis supported by the study is that a small model can learn recurring tool procedures and outperform a larger generalist in that workflow. Transfer to development should be measured using software tasks, because the FinQA experiment did not test it directly.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components.
+
+<!-- acronym-note:end -->
 
 | Behavior in the study | Hypothesis of software application | Proposed assessment criteria |
 |---|---|---|
@@ -287,6 +491,12 @@ For a pilot, compare original model, original model with improved instructions a
 
 Complementary research October 16, 2026. The cases below distinguish results of specialization, usable products and published savings. No percentage is a general promise to another environment.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **DPO** — Direct Preference Optimization; training from preference pairs; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### JetBrains and Mellum for code completion
 
 JetBrains describes an industrial pipeline of 4B models with contextual training, fill-in-the-middle and DPO alignment. The October 2025 article reports deployment for hundreds of thousands of users and evaluations with production telemetry. [Article Mellum](https://arxiv.org/abs/2510.05788)
@@ -297,6 +507,12 @@ In July 2025, the company announced local execution of Mellum-all by Ollama or L
 
 Classification: product in use, specialized model and documented local path. The main specialty of this version is completion, not autonomous resolution of any engineering task.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **QA** — quality assurance.
+
+<!-- acronym-note:end -->
+
 ### Google and FunctionGemma for tools on device
 
 FunctionGemma is a 270M variant specialized in function calls. Google reports an increase from 58% to 85% in the Mobile Actions review after fine-tuning, in separate evaluation set. The December 2025 announcement includes Tiny Garden at the AI Edge Gallery and Physics Playground in the browser as local demonstrations. [Announcement and demonstrations](https://blog.google/innovation-and-ai/technology/developers-tools/functiongemma/)
@@ -304,6 +520,12 @@ FunctionGemma is a 270M variant specialized in function calls. Google reports an
 There's one [Official tuning notebook for Mobile Actions](https://github.com/google-gemini/gemma-cookbook/blob/main/FunctionGemma/%5BFunctionGemma%5DFinetune_FunctionGemma_270M_for_Mobile_Actions_with_Hugging_Face.ipynb). The result connects specific training and execution on the device, but measures mobile actions, not programming. For QA, a restricted tool controller is an application to investigate; the study does not demonstrate a general test agent.
 
 Classification: benchmark of the authors and reproducible demonstrations; no identified business client or monetary savings measured in this announcement.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **API** — application programming interface; connects software components; **IBM** — International Business Machines; company; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Rocketgraph with distil labs and IBM Power
 
@@ -315,9 +537,21 @@ The publication of distil labs explains the specialization: generalist models ge
 
 Classification: commercial solution reported by the company incorporating it, with identified infrastructure. It is a precedent close to specializing a model for APIs, libraries or internal languages.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CTO** — chief technology officer.
+
+<!-- acronym-note:end -->
+
 ### Knowunity and savings from specialization in production
 
 Knowunity uses custom distil labs models for selected tasks, including classification of questions by school subject. The supplier shall publish a separate comparison of the test set and costs obtained from use in production for several days:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Metric | Gemini 2.5 Flash Lite | Specialized model |
 |---|---:|---:|
@@ -330,6 +564,12 @@ The report assigns approximately 68% of savings to the selected tasks. The laten
 
 Classification: identified commercial case and supplier metrics with CTO statement. It documents reported savings of specialization; the described implementation uses the supplier's inference platform and does not prove on-premises execution. The exact number of parameters of the deployed model is not reported.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **CI** — continuous integration; automated build and test checks; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Octodet and specialized log analysis
 
 Distil labs reports adjustment of Llama 8B for Octodet, using security knowledge and synthetic examples. The evaluation assigns scores by LLM evaluator to four parts of the response. The aggregate was 57% versus 47% of the best LLM compared; in the classification section, 88% versus 63% of Qwen3-235B-A22B. [Method and results](https://www.distillabs.ai/blog/teaching-small-language-models-new-skills-training-a-local-cybersecurity-agent/)
@@ -337,6 +577,12 @@ Distil labs reports adjustment of Llama 8B for Octodet, using security knowledge
 These numbers are scores of the described protocol, not sensitivity, specificity or detection rate proven in actual incidents. The [deployment page](https://www.distillabs.ai/use-cases/regulated-and-on-prem/) informs execution on-premises.
 
 Classification: customer identified in supplier's report, with comparison of specialization and private deployment. The use case is security; the application to triage of test logs and CI is a transfer hypothesis.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **API** — application programming interface; connects software components; **SWE** — software engineering; benchmark family for software tasks; **GPU** — graphics processing unit; **GB** — gigabyte, a decimal unit of data capacity; **FinQA** — financial question answering; verify the dataset variant in each study; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Mistral and All Hands AI with Devstral
 
@@ -348,11 +594,23 @@ For the later Devstral Small 2 generation, the Vibe documentation provides deplo
 
 Classification: open model, benchmark and documented local integration; no corporate productivity gain assigned here.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **BFCL** — Berkeley Function Calling Leaderboard; evaluates tool/function calls; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Salesforce with APIGen and xLAM
 
 Salesforce published xLAM in sizes of 1B and 7B, among others, specialized in function calls. APIGen pipeline combines 3,673 executable APIs into 21 categories and validates example format, execution, and semantics. In the BFCL V1 at the time, the company reported that xLAM-7B surpassed models GPT-4 and Claude 3 Opus. [Publication of September 2024](https://www.salesforce.com/blog/xlam-large-action-models/) and [APIGen article](https://arxiv.org/abs/2406.18518).
 
 Classification: research with public models and data. The historical comparison supports specialization for tools; it is not a current classification of models or proof that Salesforce customers run xLAM on their own computers.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **FinQA** — financial question answering; verify the dataset variant in each study; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Microsoft Research with rStar-Coder
 
@@ -360,13 +618,31 @@ The RStar-Coder article, from May 2025, describes 418,000 competitive programmin
 
 Classification: specialization research with gain measured in programming. Benchmark is not equivalent to repository maintenance, and the study does not feature a team of developers using the locally in production model. It also does not show adjustment cost comparable to the FinQA $500.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **LLM** — large language model; **SLM** — small language model.
+
+<!-- acronym-note:end -->
+
 ### NVIDIA Research and architectures with various model sizes
 
 The position article Small Language Models are the Future of Agentic AI recommends specializing small models for repetitive steps and booking larger models for broader needs. It proposes a heterogeneous architecture and an approach to converting LLM-based agents to SLM. [Study Page](https://research.nvidia.com/labs/lpr/slm-agents/)
 
 Classification: technical argument and architectural proposal, not customer case or universal proof of savings. It is useful as a basis for separating subtasks from a development agent.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GRPO** — Group Relative Policy Optimization; reinforcement-learning method; **DPO** — Direct Preference Optimization; training from preference pairs; **FinQA** — financial question answering; verify the dataset variant in each study.
+
+<!-- acronym-note:end -->
+
 ### What these cases add to the decision
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **SWE** — software engineering; benchmark family for software tasks; **IBM** — International Business Machines; company.
+
+<!-- acronym-note:end -->
 
 | Question | Evidence more directly related |
 |---|---|
@@ -380,6 +656,12 @@ Classification: technical argument and architectural proposal, not customer case
 
 The methods differ: GRPO in FinQA, adjustment and DPO in Mellum, supervised data and distillation in other cases. The set supports specialization, assessment by task and choice of adequate size; it does not allow all gains to be attributed to the same training method.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **MoE** — mixture of experts; activates a subset of expert networks per token; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ## Small models specialized in code: benchmarks and scope of evidence
 
 Enlarged research on October 16, 2026. “Little” in this section mainly identifies dense models of 4B–14B; 24B–32B come as comparison. Cheap API model does not imply few parameters, and active MoE parameters do not equal the memory required to store all weights.
@@ -387,6 +669,12 @@ Enlarged research on October 16, 2026. “Little” in this section mainly ident
 ### External model evaluation: Aider
 
 Aider’s historical editing benchmark requires modifying Python files in 133 Exercism exercises and correctly applying the changes. It is an evaluation external to the model developers, run with the Aider agent; it does not represent all engineering work. It was replaced by the harder Polyglot benchmark.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Model | Editing historical result | Registered format |
 |---|---:|---|
@@ -397,13 +685,31 @@ Aider’s historical editing benchmark requires modifying Python files in 133 Ex
 
 These results show useful ability of small editing experts, but should not be read as percentages of productivity or resolution of business issues. The formats and settings differ. [Original table and protocol](https://aider.chat/docs/leaderboards/edit.html)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SWE** — software engineering; benchmark family for software tasks; **TTS** — test-time scaling; additional inference effort such as multiple candidates and verification; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Specialization to solve issues: SWE-Lego 8B
 
 The SWE-Lego adjusts Qwen3-8B by supervised training, with agent trajectories and intermediate error management. Report **42.2% pass@1 in SWE-bench Verified**; with 16 trajectories and selection by verifier, comes to **49.6%**. 32B reaches 52.6% and 58.8%, respectively. There are code, data and scripts published.
 
 It is evidence directly related to the maintenance of repositories, closer to development work than competitive programming. However, the numbers are of the authors, not an independent reproduction. TTS@16 consumes multiple attempts and a verifier: it is not equivalent to the cost of an 8B call. The publication does not prove the same score after quantization or on a notebook. [Project, method and results](https://swe-lego.github.io/)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SWE** — software engineering; benchmark family for software tasks.
+
+<!-- acronym-note:end -->
+
 ### Business evidence and other experts already documented
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Case | What it supports | What remains unproven |
 |---|---|---|
@@ -414,9 +720,21 @@ It is evidence directly related to the maintenance of repositories, closer to de
 
 The sources and numbers of these cases are in the respective previous sections. Among the cases found, Mellum is the most direct example of small code product; SWE-Lego is an issue resolution research. I did not gather both under the proven corporate deployment label.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **API** — application programming interface; connects software components.
+
+<!-- acronym-note:end -->
+
 ## Hybrid architectures exclusively local + cloud
 
 Scope fixed by user's express request: the hybrid must run an LLM on the developer's machine or on its own server and another on the cloud. Combinations exclusively between remote APIs were removed from this section and from synthesis. The execution of local tools by a remote model without a local LLM does not meet the criteria.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **TCO** — total cost of ownership, including acquisition and operation; **GB** — gigabyte, a decimal unit of data capacity; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Nav: Code delegation to Qwen on Mac, with Claude in the cloud
 
@@ -426,11 +744,23 @@ In Ktor tasks, the median dropped from US$ 0.106 to US$ 0.085 in renaming and fr
 
 It is organizational evidence with code and public results, no independent audit or savings of the entire organization. The cost does not include TCO from Mac. The model has 35B total parameters and 3B active: it does not occupy the memory of a dense 3B model. [Technical report](https://github.com/navikt/mlx-workspace/blob/main/reports/local-inference-findings.md)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model.
+
+<!-- acronym-note:end -->
+
 ### MCCom: autocomplete with a 121M local model and a cloud model
 
 The article Balancing Latency and Accuracy of Code Completion via Local-Cloud Model Cascading describes a local model of 121 million parameters and remote model drive guided by user actions. Includes speculative decoding and iterative context retrieval.
 
 In RepoEval and StmtEval, authors report up to 47.9% less latency and 46.3% less use of LLM, with reported improvement of 8.9% in exact match. Reduction of use does not automatically equate to the same monetary reduction. It is accepted research in the FSE 2026, according to registration, not corporate case in production. The result is autocomplete lines, not complete resolution of issues. [Article](https://arxiv.org/abs/2603.05974)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 ### Hybrid Coding Arena: a reproducible laptop benchmark
 
@@ -438,19 +768,43 @@ RunAnywhere publishes an environment comparing local, remote and hybrid routes i
 
 Configuration, results and methodology files are available. It is benchmark of the proponents themselves, with few types of tasks and repetitions; 24 executions do not mean 24 distinct tasks. The historical label “refactors” includes functionality additions and scripts. It is not customer deployment or performance proof in large repositories. [Repository and limitations](https://github.com/RunanywhereAI/hybrid-arena)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **TCO** — total cost of ownership, including acquisition and operation.
+
+<!-- acronym-note:end -->
+
 ### MinionS: Local execution with cloud coordination
 
 The work of Stanford et al. makes the remote model decompose the task and local model process parts of the documents, returning selected results. Report **5.7 times less remote cost**, preserving **97.9% of performance** the exclusively remote execution. This corresponds to approximately 82.5% reduction in remote expenditure, with small relative loss of performance.
 
 The tests involve financial, medical and scientific documents; they are not programming benchmarks. The number is remote inference cost, not TCO with purchase of hardware, power and local operation. It is a demonstration of research, with no business case of proven code in this publication. It serves as the basis for testing local reading of files and sending of reduced context, application that here is our inference. [Article Minions](https://arxiv.org/abs/2502.15964) and [technical demonstration](https://hazyresearch.stanford.edu/blog/2025-02-24-minions).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation.
+
+<!-- acronym-note:end -->
+
 ## Use cases to demonstrate savings with local + cloud
 
 Extension of October 16, 2026, focused on economic results. API savings, reduction of tokens and TCO are different metrics. The numbers below belong to the study conditions and prices; they are not automatic projections for current models or for any team.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **HERA** — local–cloud task-allocation system evaluated in the cited study; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### HERA: code generation and agents with locally executed steps
 
 Research by the University of Virginia with Microsoft authors, using local models via llama.cpp in RTX 4090 and remote API models. The main pair is Mistral 7B + GPT-4; there is also evaluation with Llama 8B + Claude 3.5.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Evaluated use | Cloud only, US$/request | Hybrid, US$/request | Reduction calculated from the table |
 |---|---:|---:|---:|
@@ -460,9 +814,21 @@ Research by the University of Virginia with Microsoft authors, using local model
 
 The table monetizes remote use, treating the local model as zero cost; it does not include acquisition, energy and maintenance. There is a loss of quality in relation to the entirely remote execution. The text also alternates references to GPT-4/GPT-4o and roundes the economic range, so the values serve as historical experimental evidence, not current budget. It is not Microsoft's productive deployment or independent validation. [HERA, configuration and table 3](https://arxiv.org/html/2504.00434v1)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **GPU** — graphics processing unit; **FCR** — share of commits classified as fixes in the cited study.
+
+<!-- acronym-note:end -->
+
 ### Enterprise engineering: simulated total hybrid savings, including repairs
 
 Inference Economics of Enterprise Coding Agents accompanies a developer in two 28-day periods, comparing Claude by API and GLM on-premises. Then simulate hybrid routing over 613 commits, assigning infrastructure, operation and repair work costs.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Policy in the replay | Estimated TCO | Savings versus API | Simulated proportion of repair commits |
 |---|---:|---:|---:|
@@ -472,13 +838,31 @@ Inference Economics of Enterprise Coding Agents accompanies a developer in two 2
 
 It is counterfactual simulation with observed data, not savings performed by a hybrid gateway. It depends on shared GPU allocation, Taiwan's work costs and linear scalability hypothesis. The periods were not randomized and also change tools/configurations; they do not causally isolate the model. FCR is a proportion of commits classified as repair, not percentage of users affected by bugs. [Study, section VI-C and table XIV](https://arxiv.org/html/2607.13080v1)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **CPU** — central processing unit; **AWS** — Amazon Web Services; cloud provider; **IT** — information technology; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### DeloitteSage: a business case for a cost-efficient architecture, without a published percentage
 
 Deloitte and Intel document an accelerator with Llama 3.1 8B on AI PC and Claude via Bedrock for IT support. For summarization, it combines the same local 8B with remote Llama 3.1 70B. TechSage attends queries and troubleshooting; MeetingBuddy summarizes meetings and schedule follow-up. Routing considers complexity, available resources and data sensitivity.
 
 The material demonstrates a concrete business application of local + cloud designed to reduce remote spending, but does not present financial table before/after, number of users, audited savings or independent benchmark. It should illustrate architecture and uses, not substantiate a percentage of savings. We did not attribute to it the 55% of another Deloitte CPU study in AWS, which is outside this scope. [DeloitteSage case, especially pages 3–4](https://www.deloitte.com/content/dam/assets-zone3/us/en/docs/services/consulting/2025/deloittesage-case-study.pdf)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance.
+
+<!-- acronym-note:end -->
+
 ### What to use in economic argumentation
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **HERA** — local–cloud task-allocation system evaluated in the cited study; **IT** — information technology.
+
+<!-- acronym-note:end -->
 
 | Usage | Proper evidence | Sustained statement |
 |---|---|---|
@@ -490,11 +874,23 @@ The material demonstrates a concrete business application of local + cloud desig
 
 For QA, the studies consulted do not yet offer a strong case of monetary savings in production with local + cloud test generation and equivalent quality. Code benchmark and acceptance of patches do not replace rate of defects detected by tests.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Results not accepted as proof of savings in production
 
 - **Local-Splitter:** announces 45–79% less tokens, but the evaluation also executes the model that represents the cloud locally: Gemma 3 4B, with Llama 3.2 3B on the other role. Use ten synthetic samples per class and limited quality evaluator. It is exploratory simulation of techniques, not demonstration of reduction of a real cloud invoice. [Limitations and configuration](https://arxiv.org/html/2604.12301v1)
 - **Inference Sentinel:** reports US$ 0.0844 against US$ 0.2687 of hypothetical baseline, or 68.6%. There are 200 synthetic prompts, zeroed local cost, greater local latency and no demonstration of functional equivalence. There is divergence between legend and table in the local fraction. We do not use it as a business case or as evidence of savings while maintaining quality. [Results and limitations](https://kraghavan.ca/llm/infrastructure/benchmarks/2026/03/21/inference-sentinel-benchmarks2.html)
 - **Oflight:** it presents anonymous client and divergent numbers between the title of 55% and the table of 65.6%; does not publish logs or comparable quality evaluation. It does not integrate the main set of economic proof. [Supplier report](https://www.oflight.co.jp/en/columns/hybrid-ai-cloud-local-llm-cost-reduction-2026)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation.
+
+<!-- acronym-note:end -->
 
 ### How to turn these cases into a return calculation
 
@@ -506,15 +902,33 @@ For a proposed implementation, first measure the difference of remote expenditur
 
 For TCO accounting, include depreciation and recurring hardware costs; for payback, use the initial investment without again discounting its depreciation in cash flow. Existing equipment has lower incremental disbursement, but can still have opportunity cost and impact on the developer's work. These are calculation guidelines, not economies observed in sources.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **UI** — user interface.
+
+<!-- acronym-note:end -->
+
 ## Engineering focus: backend, frontend/UI and testing
 
 Enlarged research on October 16, 2026. Maintained the requirement of a local LLM effectively combined with a remote LLM. Economic evidence is more solid for delimited editing than for integral application creation or test generation.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 ### Nav: extending the analysis to TypeScript frontend and tests
 
 In addition to the previously described backends, the study evaluated renaming in `familie-tilbake-frontend`, with React 19 and Express 5. The remote median dropped from **US$ 0.227 to US$ 0.121**, calculated reduction of **46.7%**; eight executions per arm passed through checks, in suite of 61 files and 572 tests. This measures frontend code maintenance, not visual UI quality.
 
 In unit tests, encouraging local delegation resulted in a failure between two delegated samples. In the investigation of three frontend bugs, the isolated local model solved none. They are small samples and distinct conditions; they do not show savings in QA. The report itself excludes generalizations for sustained use by the team. [Nav study, sections 3.4, 7.3 and 7.4](https://github.com/navikt/mlx-workspace/blob/main/reports/local-inference-findings.md)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **GB** — gigabyte, a decimal unit of data capacity; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Pulpcut: implementing visual effects with a local executor
 
@@ -524,11 +938,23 @@ In one session, reported about US$ 10.60 of remote cost and US$ 1.80 of equivale
 
 It is an individual primary report, with published instructions, without audit or controlled repetition. It is useful for describing concrete UI work, but weak to design business savings. [Experience report](https://www.reddit.com/r/vibecoding/comments/1t9eqad/i_tested_a_hybrid_localmodel_frontiermodel_coding/) and [orchestration configuration](https://gist.github.com/AlexanderIstomin/ac7469ebaf7cba1e23bba328f424a48f).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **LLM** — large language model; **QA** — quality assurance; **UI** — user interface; **API** — application programming interface; connects software components; **CI** — continuous integration; automated build and test checks; **E2E** — end-to-end tests covering the complete workflow.
+
+<!-- acronym-note:end -->
+
 ### UI and backend E2E tests: local vision + remote generation
 
 The paper Agentic AI-Based Automated Test Case Generation and Execution describes a shift-management application: DOCX requirements are processed by an LLM through the Groq API; eight screenshots are analyzed by local LLaVA through Ollama. The workflow produces Gherkin scenarios, human review and Python scripts with Playwright/Pytest, including UI interactions and API checks.
 
 It is an effective example of the requested architecture applied to tests. However, the published comparison mainly uses qualitative classifications, does not disclose cost before/after and does not isolate the gain of performing vision locally. The implementation in CI appears as future work. Therefore, classified as a limited academic demonstration of hybrid QA, without proven economics. [Article, sections 5 and 6](https://www.irjet.net/archives/V13/i4/IRJET-V13I04372.pdf)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QE** — quality engineering; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Agentic QE: local generation with repair, integration still to be verified
 
@@ -536,13 +962,31 @@ The project offers Qwen3-Coder-30B via Ollama to generate tests and repeat the a
 
 The objective test described verifies the presence of test blocks and assertions; this is not equivalent to compilation, execution or mutation score. Without cost measured by useful test published on these pages, it is an implementation candidate, not a case of savings. [README](https://github.com/proffesor-for-testing/agentic-qe) and [functionality status guide](https://github.com/proffesor-for-testing/agentic-qe/blob/main/docs/guides/free-tier-local-models.md).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model.
+
+<!-- acronym-note:end -->
+
 ### Related examples that do not count as local + cloud hybrids
 
 - **Cascaded Code Editing:** combines large and small model, but monetary valuation uses call prices to DeepInfra. It does not sustain the savings of a local deployment + cloud. [Cost method](https://arxiv.org/html/2604.19201v1)
 - **CodeLead/Silicon Exchange** demonstrates React/TypeScript application construction, business rules and testing with local model, comparing separate local and remote executions. It does not show the cost of a hybrid joint execution. [Demonstration and limits](https://codelead.dev/case-study/)
 - **QAMind:** generates tests with local Qwen, although the application uses servers for other components. The page informs that remote inference is a future possibility; local LLM hosted application does not equal two local LLMs + cloud. [Architecture](https://www.qamind.ai/local-ai)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface.
+
+<!-- acronym-note:end -->
+
 ### Evidence Matrix for Software Engineering
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **QE** — quality engineering; **UI** — user interface; **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **E2E** — end-to-end tests covering the complete workflow.
+
+<!-- acronym-note:end -->
 
 | Area | Case within the scope | Evidence of savings | Limit |
 |---|---|---|---|
@@ -555,6 +999,12 @@ The objective test described verifies the presence of test blocks and assertions
 | Autocomplete | MCCom, previous section | Less remote usage, no invoice comparison | Completing lines is not delivering features |
 
 To support an savings proposal, prioritize maintenance tasks with verifiable output and compare the cost per approved change. For UI, add visual criteria, accessibility and interaction; for QA, measure defects found and non-trivial tests. These criteria are a proposal for our evaluation, not results already demonstrated by the cases.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **API** — application programming interface; connects software components.
+
+<!-- acronym-note:end -->
 
 ## How to reduce bias in evaluation
 
@@ -576,7 +1026,19 @@ A minimum account for the waterfall that always tries the small first is:
 
 The large-model cost after escalation may include all previous context and a new attempt. With direct routing, the small-model call does not occur on every task. For hybrids organized by subtask, the costs of all components are added. The final metric should divide the full expense by the number of accepted tasks, including spending on failures.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model.
+
+<!-- acronym-note:end -->
+
 ### Summary for adoption
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **SWE** — software engineering; benchmark family for software tasks; **TCO** — total cost of ownership, including acquisition and operation; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Need | Evidence That Helps Most | Main limitation |
 |---|---|---|
@@ -590,11 +1052,29 @@ The large-model cost after escalation may include all previous context and a new
 
 The evidence favors small specialists for bounded tasks and hybrid systems evaluated by cost per correct task. We have still not found, in these sources, a case that simultaneously combines a small local coding LLM, an identified user company, audited total savings and an independent controlled comparison. This defines the limits of what has been demonstrated, without invalidating the partial product and research results.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **NR** — not reported in the cited measurement.
+
+<!-- acronym-note:end -->
+
 ## 32, 48 and 64 GB workstations: local capacity with proportional investment
 
 Update: October 19, 2026. The pilot should also start on existing 32, 48 and 64 GB machines. Memory capacity, chip speed, quantization and implementation are separate variables. Published measurements reach 20–30 tokens/s and above in selected configurations; a 128–512 GB workstation is not required to begin. The figures below were published by their executors, not reproduced in this research. NR means not reported in this selection.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **WARP** — Weight-Aware Runtime and Paging; weight-streaming inference runtime.
+
+<!-- acronym-note:end -->
+
 ### Benchmarks directly useful for smaller configurations
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **CPU** — central processing unit; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TTFT** — time to first token; **KV** — key–value cache; stores attention state; **NR** — not reported in the cited measurement; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **IQ2_K** — low-bit quantization format used for model weights; **NVFP4** — NVIDIA 4-bit floating-point format; **WARP** — Weight-Aware Runtime and Paging; weight-streaming inference runtime; **tok/s** — tokens per second; a throughput measure; **K4/V4** — key and value caches quantized to 4 bits; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Physical machine | Model / format | Runtime and residency | PP tok/s | Decode tok/s | Condition and source |
 |---|---|---|---:|---:|---|
@@ -613,7 +1093,19 @@ Update: October 19, 2026. The pilot should also start on existing 32, 48 and 64 
 
 The WARP result fills the earlier gap in documented DeepSeek V4.1 Flash execution on a 64 GB Mac; it does not demonstrate 20–30 tokens/s for this model and hardware, or establish the ceiling of other runtimes. The Bonsai model remains excluded. Colibri remains in the earlier technical comparison, without turning DeepSeek V4 results into V4.1 results.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **TTFT** — time to first token.
+
+<!-- acronym-note:end -->
+
 ### What to buy or reuse at each capacity
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **IDE** — integrated development environment; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Memory | Priority path | Precision and headroom | Expansion criterion |
 |---|---|---|---|
@@ -625,6 +1117,12 @@ In the [Nav capacity experiment](https://github.com/navikt/mlx-workspace/blob/ma
 
 The llm-speed 48 GiB experiment published TTFT of 8.17 / 27.66 / 113.21 s for the table's three inputs, with thinking disabled. Its peak of 27.17 tokens/s on the smallest input does not replace the median of 13.70. Concurrent load explains why testing must include the working environment, although this study does not isolate its causal contribution.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **TCO** — total cost of ownership, including acquisition and operation; **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **VRAM** — video memory available to the graphics processor; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **PP** — prompt processing or prefill; processes input tokens; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### From speed to engineering savings
 
 A home-operation account reports approximately 60 tokens/s with a 32 GB VRAM GPU, 64 GB RAM and SSD. This is evidence supplied by the proposal owner, without attached logs, GPU model, checkpoint, quantization, context or reasoning/output separation. It is not a Mac measurement and does not allow the same rate to be assigned to each cited model. Reproduction should record these fields and compare the same accepted task on smaller workstations.
@@ -635,9 +1133,21 @@ The proposed economic workflow is: recurring local tasks → independent tests �
 
 The budget should compare reuse with gradual purchasing. The US$ 2500–5000 per workstation range is a planning assumption, not a quotation or an automatic mapping between price and RAM. Five workstations represent US$ 12500–25000 in hardware alone; integration, security, operation and rework remain in TCO. Do not multiply local tokens by nominal remote token prices to claim savings: measure the net invoice reduction, including caching and escalations.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **NR** — not reported in the cited measurement.
+
+<!-- acronym-note:end -->
+
 ## Mac benchmarks from 16 to 512 GB: RAM, SSD and generation
 
 Research consulted on **16/10/2026**. The numbers below are measurements published by users and runtime developers, not tests performed by us. There is no single test here that simultaneously controls chip, quantization, context and software in all capabilities. **Do not interpret the table as a ranking by RAM capacity.** The section “Expanded coverage: 4 and 8 bits” below complements this cutout with controlled pairs and faster settings; the first tables do not represent a performance ceiling. NR means unreported/verified in the source consulted.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **TTFT** — time to first token; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
 
 ### What to Measure: Prefill, Reasoning and Final Response
 
@@ -649,9 +1159,21 @@ Research consulted on **16/10/2026**. The numbers below are measurements publish
 
 In sources that do not separate the phases, we report **Aggregated decode**, without inventing two speeds. Approach to plan an execution: `time = loading + prefill + reasoning_tokens / reasoning_rate + response_tokens / response_rate + tools`. For example, 4,000 tokens of reasoning at 20 tok/s already require 200 seconds before the answer; this is an illustrative calculation, not a benchmark.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Memory-resident models: measurements on smaller and midrange Macs
 
 “Resident” in this table describes compute weights loaded into memory, without deliberate streaming of experts. It does not guarantee the absence of memory pressure caused by other applications. GB and GiB are maintained according to the sources.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **TTFT** — time to first token; **NR** — not reported in the cited measurement; **Q4** — 4-bit quantization family; suffixes identify the specific format; **IQ4** — importance-aware quantization family near 4 bits per weight; **NVFP4** — NVIDIA 4-bit floating-point format; **tok/s** — tokens per second; a throughput measure; **pp** — percentage points when comparing percentages; lowercase pp in benchmark commands denotes prompt processing; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token; **UD** — Unsloth Dynamic; quantization label in the cited checkpoints.
+
+<!-- acronym-note:end -->
 
 | RAM / chip | Model and format | Runtime and load | PP tok/s | TG tok/s | Memory/observation | Source |
 |---|---|---|---:|---:|---|---|
@@ -665,9 +1187,21 @@ In sources that do not separate the phases, we report **Aggregated decode**, wit
 
 In the last pair, MoE 35B is approximately four times faster than the dense 27B in this test. This does not demonstrate four times more quality, nor does it guarantee the same advantage with another runtime. The repository publishes scripts, but indicates output files ignored by Git; we do not treat this as independent reproduction.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTPLX** — MLX-based inference runtime with speculative generation; **PP** — prompt processing or prefill; processes input tokens; **KV** — key–value cache; stores attention state; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
+
 ### Flash-Next and larger models: memory and SSD
 
 There are three different situations: **resident weights**, **lookup of embeddings on SSD** and **streaming experts on SSD**. The second makes sparse access to tables; the third moves weights necessary for calculation. macOS Swap is a fourth situation and does not equal an optimized offloading mechanism.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTPLX** — MLX-based inference runtime with speculative generation; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **KV** — key–value cache; stores attention state; **NR** — not reported in the cited measurement; **Q4** — 4-bit quantization family; suffixes identify the specific format; **IQ4** — importance-aware quantization family near 4 bits per weight; **CSV** — comma-separated values; tabular data format; **tok/s** — tokens per second; a throughput measure; **pp** — percentage points when comparing percentages; lowercase pp in benchmark commands denotes prompt processing; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token; **UD** — Unsloth Dynamic; quantization label in the cited checkpoints.
+
+<!-- acronym-note:end -->
 
 | RAM / chip | Model / format | Residence and runtime | Load | PP tok/s | TG tok/s | Source |
 |---|---|---|---|---:|---:|---|
@@ -695,7 +1229,19 @@ Notes on interpretation:
 - **256 GB/GLM:** active memory of 180.6 GB and peak 195.6 GB in test up to 32K. The test was not physically qualified on 192 GB Mac.
 - **512 GB:** the repository calls the input metric “input tokenization”, without definition clear enough to match it to PP. We kept out of the PP column the published values of 114.6 and 12.9. V3 occupies 381 GB in MLX; R1 occupies 435 GB on llama.cpp. The title announces 21.4 tok/s for V3, but the table records 20.9; we adopted the table. These are previous models, not DeepSeek V4.1.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **WARP** — Weight-Aware Runtime and Paging; weight-streaming inference runtime; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
+
 ### DeepSeek V4.1 Flash: minimum demo and useful streaming
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **PP** — prompt processing or prefill; processes input tokens; **TTFT** — time to first token; **NR** — not reported in the cited measurement; **FP4** — 4-bit floating point; **FP8** — 8-bit floating point; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
 
 | Host | Implementation | PP tok/s | Decode tok/s | TTFT / condition |
 |---|---|---:|---:|---|
@@ -710,9 +1256,21 @@ The [Argonaut Labs](https://argonautlabs.ai/) compares the same hardware and che
 
 **October 19 update:** the 64 GB WARP benchmark has been added to the smaller-workstation section. The earlier documented-execution gap has been filled; the 20–30 tokens/s target remains unverified in this configuration. There's one [discussion with claim of 8.2–9.5 tok/s in M3 Ultra 256 GB to 2-bit](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/discussions/56), but it gathers references from third parties and does not control runtime/quantization against the M5 Max. We don't use it to conclude that SSD beats RAM.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **GB** — gigabyte, a decimal unit of data capacity; **MTPLX** — MLX-based inference runtime with speculative generation; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **KV** — key–value cache; stores attention state; **IQ4** — importance-aware quantization family near 4 bits per weight; **tok/s** — tokens per second; a throughput measure; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token; **UD** — Unsloth Dynamic; quantization label in the cited checkpoints.
+
+<!-- acronym-note:end -->
+
 ### Long context: the same machine can deliver very different speeds
 
 Flash-Next UD-IQ4_XS on M5 Max 128 GB, llama.cpp initial, without MTP. The author measured an increase of **512 tokens** at different depths of the KV; these PPs are not the average to fill the entire window from scratch.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
 
 | Depth already filled | PP512 tok/s | TG128 tok/s |
 |---:|---:|---:|
@@ -726,9 +1284,21 @@ One run per depth; peak 106 GB wired and approximately 126 GB total at the extre
 
 For Qwen3.8-27B, the developer MTPLX publishes 58.7 tok/s on a code task with medium reasoning and 35.1–37.3 on long generations with xhigh, M5 Max and Pack Optimized Speed. That compares. **different complete loads**, does not measure alone Reasoning against final response. The same page documents 30.4 tok/s at 88K and 18.4 to 147K in another version. [Conditions and quantizations](https://www.mtplx.com/models/qwen3.8-27b/)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **BF16** — bfloat16; 16-bit floating-point format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### What actually fits in each range
 
 The table below is interpretation of capacity from measurements, not a promise of speed or exhaustive enumeration of all possible models.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **IDE** — integrated development environment; **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **IQ4** — importance-aware quantization family near 4 bits per weight; **tok/s** — tokens per second; a throughput measure; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | RAM | Range of use sustained by evidence | Relevant limit |
 |---|---|---|
@@ -746,11 +1316,23 @@ In the example of approximately 64 GB, **27B and 35B MoE can stay fully in memor
 
 There is no “largest model that fits” without defining acceptable accuracy and latency: streaming allows you to run much larger checkpoints than RAM, such as DeepSeek in 16 GB, but this execution can be impractical for programming. To choose the working machine, reserve memory for developer tools and compare **time and cost per approved task**.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **TTFT** — time to first token; **KV** — key–value cache; stores attention state.
+
+<!-- acronym-note:end -->
+
 ### Recommended protocol for a reproducible pilot
 
 Our proposal: register complete chip, cores GPU, RAM, SSD/model/interface, runtime/commit, checkpoint review, quantization, KV, MTP/drafter and GPU memory limit. Measure one request at a time and, separately, concurrency from 2 and 4 users. Use 4K, 32K and 128K code prompts; register warmup, at least three repetitions, cold/hot cache, 1,024 generated tokens or natural ending.
 
 Separate tokens and reasoning/response times when protocol provides both; also store TTFT, first final token, first tool, active/peak memory, swap and physical bytes of SSD. Evaluate quants with the same backend, UI and test tasks. Report median and dispersion, and distinguish correct output only fast. These data allow you to compare resident versus SSD without confusing runtime optimization, less accuracy or hot cache with hardware advantage.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **NR** — not reported in the cited measurement; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ## Expanded coverage: 4 and 8 bits, MLX, llama.cpp, Colibri and Engram
 
@@ -758,7 +1340,19 @@ Update from 10/16/2026, after the review requested by the user. **Previous selec
 
 Numbers continue to be published by third parties. Primary source means reporting of the executor itself, not independent validation. A single independent test covering the entire RAM × chip × quantization × runtime × context matrix has not been found. NR = not reported in this selection. RAM in the hardware column is the ability of the tested machine, **not the minimum memory required**.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **KV** — key–value cache; stores attention state; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **BF16** — bfloat16; 16-bit floating-point format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Qwen3.8-27B: 4 and 8 bit comparison
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **NR** — not reported in the cited measurement; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **tok/s** — tokens per second; a throughput measure; **UD** — Unsloth Dynamic; quantization label in the cited checkpoints.
+
+<!-- acronym-note:end -->
 
 | Hardware | Runtime / acceleration | Weight quantization | Load | PP tok/s | TG tok/s | Source |
 |---|---|---|---|---:|---:|---|
@@ -777,7 +1371,19 @@ Numbers continue to be published by third parties. Primary source means reportin
 
 These pairs show the advantage of 4 bit generation in measured conditions. They do not show that 4 bits always improve prefill: in B pair with zero depth, 8 bits had nominally higher PP. MLX and llama.cpp lines use different protocols, quants and acceleration; the table does not establish an isolated victory of a runtime.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **Q8** — 8-bit quantization family; suffixes identify the specific format; **VLM** — vision-language model; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Qwen3.6-35B-A3B: 4/8 bits and acceleration on same Mac
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **GB** — gigabyte, a decimal unit of data capacity; **oMLX** — model-serving software built on MLX; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **TG** — token generation or decode; generates new tokens.
+
+<!-- acronym-note:end -->
 
 | Hardware | Runtime | Weights | Load | TG without MTP reported | TG with MTP | Source |
 |---|---|---|---|---:|---:|---|
@@ -790,9 +1396,21 @@ The 4-bit path uses Lightning MTP; the 8-bit path, VLM MTP. Temperature 0.6; the
 
 An additional comparison in **M1 Max 64 GB** published 35B in 8 bits: **MLX 26.22 TG / ~190 PP**, against **llama.cpp Q8_0 Metal 34 TG / ~245 PP**, with input of approximately 1K. The protocol describes five prompts, three repetitions and outputs of 50/500 tokens; memory peaks of 42 and 44 GB, respectively. Versions and use of MTP are not sufficiently specified for a definitive modern comparison. [SleepyQuant Experiment](https://sleepyquant.rest/blog/mlx-vs-llama-cpp-35b-m1-max-benchmark/)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **TG** — token generation or decode; generates new tokens; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### 27B and 35B also on 256 and 512 GB Macs
 
 These are additional measurements, not extrapolations from smaller Macs. Larger machines can run small models; you don't need to choose a model that fills your RAM.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **KV** — key–value cache; stores attention state; **VLM** — vision-language model; **tok/s** — tokens per second; a throughput measure; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Hardware | Model / weights | Runtime / acceleration | Input or context | PP tok/s | TG tok/s | Source |
 |---|---|---|---|---:|---:|---|
@@ -810,9 +1428,21 @@ Pairs 27B **4/8-bit on M3 Ultra 512 GB** are in the first table of this expansio
 
 **Accelerated result to follow:** a submission for Rapid-MLX, in M3 Ultra 512 GB with 35B 8-bit, compares 72.94 TG without DFlash with **235.75 TG with DFlash**, generating 1,024 tokens; the acceptance reported was 88.87%. With 4,096 tokens, it records 71.84 against 189.89 TG. Prompt, context, repetitions and version are not sufficiently documented. It is evidence of a faster configuration reported by the executor, but not a sustained guaranteed rate for agents. The repetition of the table in the project documentation does not constitute a second reproduction. [Original submission](https://github.com/raullenchai/Rapid-MLX/issues/472)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CPU** — central processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **Q4** — 4-bit quantization family; suffixes identify the specific format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Colibri: offloading measurements and comparison limits
 
 Colibri is an inference runtime with CPU/Metal paths and streaming/cache mechanisms. It is not a quantization equivalent to Q4 or an automatic feature present in MLX or llama.cpp. In this collection, their most documented Mac trials involve large models; we did not find controlled pairs Colibri × MLX × llama.cpp for the same 27B/35B and checkpoint.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **CPU** — central processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **PP** — prompt processing or prefill; processes input tokens; **TG** — token generation or decode; generates new tokens; **TTFT** — time to first token; **NR** — not reported in the cited measurement; **tok/s** — tokens per second; a throughput measure.
+
+<!-- acronym-note:end -->
 
 | Hardware | Model and implementation | PP tok/s | TG tok/s | Condition | Source |
 |---|---|---:|---:|---|---|
@@ -826,6 +1456,12 @@ Colibri is an inference runtime with CPU/Metal paths and streaming/cache mechani
 In the 256 GB test, MTP was turned off; there were additional adjustments, including selection of experts, and contention with another service. Do not assign all gain exclusively to RAM. In the 48 GB test, it is about **V4 Flash, not V4.1**, and the measured path is CPU. The maintainer clarifies that there is batch prefill; the numbers do not prove absence of this feature and do not estimate the speed of the Metal path.
 
 These Colibri rates do not replace the results ds4/Argonaut and Flash-Next presented above. They are different models, formats, backends and residence policies. Selecting only the lower rates would again produce a slightly representative image of what SSD allows.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **KB** — kilobyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **TG** — token generation or decode; generates new tokens; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **FP4** — 4-bit floating point; **FP8** — 8-bit floating point.
+
+<!-- acronym-note:end -->
 
 ### Engram: what is in the SSD matters as much as capacity
 
@@ -841,6 +1477,12 @@ This distinction also applies when comparing Flash-Next n-gram tables with DeepS
 
 **New point for DeepSeek V4.1 resident:** Rapid-MLX published 7.31 TG in M3 Ultra 256 GB, GPU 60 cores, MLX 0.32.2, 199 GiB artifact and reported peak 213.51 GB. But it's an experimental variant **2-bit with 336 out of 384 experts per layer**, no vision/MTP. Therefore, it is not equivalent quality comparison to the complete official checkpoint in streaming and does not enter Q4/Q8 pairs. The developer reports preservation of routing mass, which does not replace code and tool evaluation. [Measurement and limitations](https://rapidmlx.com/blog/deepseek-v41-on-a-mac-and-the-router-problem)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **IDE** — integrated development environment; **RAM** — random-access memory; working memory; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **TG** — token generation or decode; generates new tokens; **KV** — key–value cache; stores attention state; **Q4** — 4-bit quantization family; suffixes identify the specific format; **IQ4** — importance-aware quantization family near 4 bits per weight; **SQL** — Structured Query Language; database query language.
+
+<!-- acronym-note:end -->
+
 ### How to interpret better results on smaller machines
 
 The expanded selection maintains that it is possible to obtain rates much higher than the initial selection. It does not support ordering the machines only by RAM. To compare the user's result with the publications, they must coincide:
@@ -854,6 +1496,12 @@ The expanded selection maintains that it is possible to obtain rates much higher
 **4-bit and 8-bit also need quality comparison.** The benchmarks of this expansion measure speed; they do not prove equivalence in tests, multifile editing, SQL, tools or UI. For economic decision, repeat the same tasks and register approval, rework and total time. A gain in TG with more errors can increase the cost per correct task.
 
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **USD** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ## Enterprise savings: per token, developer, team and infrastructure
 
 Consultation: **16/10/2026**. This expansion distinguishes measured data, modeled accounting, commercial claims and our calculations. Hybrid in this report continues to mean **local inference + cloud inference**. Hosting only the gateway locally does not meet that criterion. Values in USD, no exchange rate conversion or taxes, unless otherwise stated.
@@ -864,7 +1512,19 @@ Consultation: **16/10/2026**. This expansion distinguishes measured data, modele
 
 **State of the record:** the previous sections preserve synthesis and references, not an integral transcription of every query or open page. There is no complete retrospective file of all previous search results. This update adds sources, inclusion/exclusion criteria and reproducible accounts. Third-party texts are synthesized, with short links and snippets when needed; full reproduction of protected articles is not promised. The transcription provided by the user about Snorkel was previously analyzed, but is not fully reproduced in this file.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **CAPEX** — capital expenditure; initial investment; **IBM** — International Business Machines; company.
+
+<!-- acronym-note:end -->
+
 ### Companies and organizations: what has been effectively demonstrated
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **AI** — artificial intelligence; **LLM** — large language model; **IDE** — integrated development environment; **TCO** — total cost of ownership, including acquisition and operation; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **Q4** — 4-bit quantization family; suffixes identify the specific format; **NVFP4** — NVIDIA 4-bit floating-point format; **CI** — continuous integration; automated build and test checks; **US$** — United States dollars; **AWS** — Amazon Web Services; cloud provider; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Organisation / documented size | Implementation | Verifiable result in this research | Economic evidence and limit |
 |---|---|---|---|
@@ -878,9 +1538,21 @@ Consultation: **16/10/2026**. This expansion distinguishes measured data, modele
 
 **Search results by organization size:** there is own implementation in large organization and an identified case of Mac cluster with expense reduction. We did not find a comparable public series of medium/large companies with all fields: local LLM for code, number of active users, accounts before/after, equivalent quality, CAPEX, operation and net savings. Therefore, we do not assign to Samsung, Google, IBM or Infosys monetary savings that their sources do not publish.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components.
+
+<!-- acronym-note:end -->
+
 ### Pegatron: a detailed case of self-hosted infrastructure
 
 One developer, two periods of 28 days, non-randomized; local allocation valued by equivalent rent of four B200, without acquisition audit. [E01, tables XI and discussion VI-A](https://arxiv.org/html/2607.13080v1)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Metric | Claude Opus 4.7/4.8 | Local GLM Shared | GLM local dedicated |
 |---|---:|---:|---:|
@@ -891,7 +1563,19 @@ One developer, two periods of 28 days, non-randomized; local allocation valued b
 
 Shared computing: −70.9%; repair commits: 45.9% → 74.9%. API: $4.90 entry, 675.38 writing, 7601.01 cache reading, 503.92 output. The volumes of tokens differ. **It's not a business average.** The previous hybrid replay is counterfactual.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### How much companies spend per developer
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **QA** — quality assurance; **API** — application programming interface; connects software components; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Origin | Person/month | Team effectively informed | What the number means |
 |---|---:|---|---|
@@ -901,6 +1585,12 @@ Shared computing: −70.9%; repair commits: 45.9% → 74.9%. API: $4.90 entry, 6
 | LifeArc / Fission Labs | Uncalculable | Rollout in 12–15 Dev/Infra/QA engineers | Snapshot of **a group**: US$ 42.08, 1,042 requests and ceiling US$ 50; do not divide by the whole rollout. Local Gateway doesn't prove local inference. [E11](https://www.fissionlabs.com/blog-posts/putting-ai-spend-under-control-without-slowing-engineering) |
 
 **There is no basis for a representative average combining these lines.** There are no sample weights, number of active users, distribution and uniform cost definition. $200 below is just the midpoint of the Anthropic track for planning. $1,300 is an agency report, not a market percentile. We did not multiply US$ 13 by 22 to “correct” the monthly average: the source uses active days and aggregate populations.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **USD** — United States dollars.
+
+<!-- acronym-note:end -->
 
 ### From tokens to monthly costs: a reproducible calculation
 
@@ -924,11 +1614,23 @@ Official prices consulted on the research date, USD by **1 million** tokens; sta
 
 Formula: `cost = input_M × input_price + write_M × write_price + read_M × read_price + output_M × output_price`. By token, divide the price/MTok by 1,000,000. The scenario equals counts, nontext or tasks: tokenizers and behavior of the models differ. Thought tokens, attempts and tools need to be included in the actual measurement. A local model has no external invoice for token, but has cost amortized by useful token and approved task.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **RAM** — random-access memory; working memory; **GB** — gigabyte, a decimal unit of data capacity; **TTFT** — time to first token; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### What a team's budget would buy
 
 **Equivalence of budget, no recommendation of purchase or proof of simultaneous capacity.** American reference prices: Mac Studio M5 Max from US$2,499; M5 Ultra from $5,499. These are input settings, not the Macs 128/256/512 GB of benchmarks. [E13, Apple](https://www.apple.com/newsroom/2026/09/the-new-mac-mini-and-mac-studio-are-available-today/)
 
 As a reference with explicit RAM, Jeff Geerling's test documented M3 Ultra 256 GB at $8,099 and 512 GB at $11,699 in December 2025. They're historical prices from that configuration. The set of two of each totals **US$ 39,596**, before network/rack. [E14, test and prices](https://www.jeffgeerling.com/blog/2025/15-tb-vram-on-mac-studio-rdma-over-thunderbolt-5/)
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GB** — gigabyte, a decimal unit of data capacity; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Persons | Reference US$ 150–250/dev/month: time/month | Average point $200: annual budget | How many M3 Ultra 512 GB to $11,699 this budget equals | Annual balance before any operation |
 |---:|---:|---:|---:|---:|
@@ -946,6 +1648,12 @@ Buy RAM does not automatically buy service to N developers. For 27B/35B, it can 
 
 **Our illustrative scenarios**, not company results. Baseline $200/dev/month; amortization in 36 months; migration eliminates 70% of **invoice** remote, preserving 30% to cloud. This does not presuppose that 70% of tokens or tasks are local.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **CAPEX** — capital expenditure; initial investment.
+
+<!-- acronym-note:end -->
+
 | Scene | CAPEX | Depreciation/month | Energy/maintenance/month | Human/month operation | Residual cloud/month | Total/month | Baseline/month | Savings |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | A dev, new machine | 4,000 | 111.11 | 20 | 50 | 60 | **241.11** | 200 | **−20.6%** |
@@ -953,6 +1661,12 @@ Buy RAM does not automatically buy service to N developers. For 27B/35B, it can 
 | Team of ten, pilot-sized server | 8,000 | 222.22 | 100 | 250 | 600 | **1172.22** | 2,000 | **41.4%** |
 
 The third scenario only works if the pilot proves capacity and quality. For him, the minimum fraction of the invoice eliminated is `(222,22 + 100 + 250) / 2.000 = 28,6%`, before rework. With 70%, the simple return of the initial disbursement would be `8,000 / (2,000 − 600 − 100 − 250) = 7.62 months`. Do not depreciate again in the cash flow. Add difference of human hours of repair, cost of unavailability, backup and possible license.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **QA** — quality assurance; **GPU** — graphics processing unit; **GB** — gigabyte, a decimal unit of data capacity; **TB** — terabyte, a decimal unit of data capacity; **CI** — continuous integration; automated build and test checks; **RDMA** — remote direct memory access; **US$** — United States dollars; **IBM** — International Business Machines; company; **HPE** — Hewlett Packard Enterprise; company; **tok/s** — tokens per second; a throughput measure; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Who is clustering Macs — and what not to conflate
 
@@ -962,9 +1676,21 @@ The third scenario only works if the pilot proves capacity and quality. For him,
 - **Pegatron:** Internal GPU cluster, not Mac. The savings depends on the ratio of resources; assign the cost of an entire rack to a user or promise that a fraction serves a hundred users distorts the case.
 - **HPE + Tabnine and IBM watsonx Code Assistant for Z:** on-prem architectures documented. The existence of the product does not confirm specific customer, number of servers purchased or invoice reduction. [E15, HPE](https://www.hpe.com/psnow/doc/a50014107enw), [E16, IBM](https://www.ibm.com/docs/en/SSK5UBS_2.0/pdf/watsonx_code_assistant_for_z_2.4.20.pdf)
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **SWE** — software engineering; benchmark family for software tasks; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **Q4** — 4-bit quantization family; suffixes identify the specific format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Academic and industry research: small models and harnesses
 
 The results below support specialization, decomposition and well-adjusted tools. **They do not establish a universal number of billions of parameters from which any model equals any Sonnet/Opus in daily work.** They also do not automatically measure the Q4/MLX version running on your Mac.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **AI** — artificial intelligence; **SWE** — software engineering; benchmark family for software tasks; **RL** — reinforcement learning; **SFT** — supervised fine-tuning; **TTS** — test-time scaling; additional inference effort such as multiple candidates and verification; **TUM** — Technical University of Munich; **BOSS** — BOSS Zhipin; company participating in the cited research; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Work / institution / date | Model and result | What it shows; limit |
 |---|---|---|
@@ -978,6 +1704,12 @@ The results below support specialization, decomposition and well-adjusted tools.
 
 **Reading applicable to day to day:** there is good justification to test 4B in delimited execution tasks and 27–35B in edits, code questions and verifiable tasks. The Nav case offers practical evidence of qualification of these classes. Visual UI, architecture, extensive changes and difficult fixes need their own ratings; they do not automatically inherit the terminal success rate or SWE-bench. Harness can improve or worsen performance and does not invariably recover absent model capabilities.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **ID** — identifier.
+
+<!-- acronym-note:end -->
+
 ### Opus 4.8: capacity, degradation and hypothesis about datacenters
 
 The proposed hypothesis contains three different statements:
@@ -990,9 +1722,21 @@ There is an official post-mortem of **23/04/2026**: effort changes, incorrect th
 
 To test the claim, it would be necessary to compare the same ID/review, tasks, harness, effort, budget and environment, with repeated executions and recorded dates. Latency, commercial limit, prompt alteration, routing and weight quality are distinct variables. Fixing local weights and runtime facilitates reproducibility, but quantization updates, models and harness also need controlled regression.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **ID** — identifier.
+
+<!-- acronym-note:end -->
+
 ### Record of additional sources and inclusion decisions
 
 All consulted on October 16, 2026. The above IDs allow you to locate each claim; the links below also record sources that did not support the desired framework. They're not a transcript of the articles.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **AI** — artificial intelligence; **LLM** — large language model; **GPU** — graphics processing unit; **RPC** — remote procedure call; **US$** — United States dollars; **IBM** — International Business Machines; company; **AWS** — Amazon Web Services; cloud provider; **WCA** — watsonx Code Assistant; IBM coding-assistance product; **HAMS** — organization publishing the cited offshore-agent case study; **MSRP** — manufacturer's suggested retail price; **FAQ** — frequently asked questions.
+
+<!-- acronym-note:end -->
 
 | Source / link | Type and decision |
 |---|---|
@@ -1018,12 +1762,24 @@ All consulted on October 16, 2026. The above IDs allow you to locate each claim;
 | [Control the Harness, Control the Cost](https://arxiv.org/abs/2609.28919) | Company emulated of 10,000 seats; no evidence of savings performed in site+cloud. |
 | [Cadence: engineering AI spand](https://cadence.withremote.ai/blog/engineering-ai-spend-2026) and [Cohrint: costs](https://cohrint.com/blog/ai-coding-cost-benchmarks-2026) | Market ranges; do not replace comparable primary sample. Not used to manufacture weighted average. |
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **LLM** — large language model; **CI** — continuous integration; automated build and test checks; **IBM** — International Business Machines; company; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Research trail and remaining gaps
 
 Consultations included combinations of `company engineering local LLM self hosted coding cost savings per developer Mac cluster`, `Mac Studio cluster developers cost savings`, `Mac mini cluster company LLM engineers`, `coding assistant on-prem case study`, Samsung/Infosys/IBM/Google/Bosch/Agoda/Criteo companies, `Opus 4.8 degradation`, and `harness small coding site:arxiv.org 2026`. Authors' sources, documentation, repositories and full articles were followed when accessible. Results unrelated to code inference, such as medical coding and generic CI migration, were not converted into cases of LLM.
 
 The documentable economic conclusion is **conditional**: there is a large company with significant savings under shared allocation and there is a business Mac cluster with AI savings; there are still comparable public accounts missing to calculate an average savings of programming teams with Macs. Small expert studies support delegation of specific tasks. They do not support the universal equivalence of any 27B/35B to any frontier model, nor a guarantee of savings only by the size of the model.
 
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface.
+
+<!-- acronym-note:end -->
 
 ## Intensive costs per token, proprietary knowledge and evolution without increasing parameters
 
@@ -1052,6 +1808,12 @@ Simple payback in months = incremental investment / net monthly savings
 
 Categories should not count twice the same tokens. Cache ratio, discounts and hired model greatly alter the conversion of tokens into dollars. To compare quality, add cost per accepted task and human review time.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence.
+
+<!-- acronym-note:end -->
+
 ### Nadella: the original statement found and what it actually says
 
 Primary source: Satya Nadella, **The Reverse Information Paradox**, July 12, 2026, on his blog [sn scratchpad](https://snscratchpad.com/posts/reverse-information-paradox/).
@@ -1066,7 +1828,19 @@ Translation: “You essentially pay twice for intelligence.” Nadella describes
 
 About X/Twitter: two addresses attributed to the article were found in secondary sources: [2076323181154230284](https://x.com/satyanadella/article/2076323181154230284) and [2066182223213293753](https://x.com/satyanadella/article/2066182223213293753). Both failed to open the tool. **The correct permalink on X remains unauthenticated; the above quote was checked in the primary blog**, also linked by [ITPro's report of 14/07/2026](https://www.itpro.com/technology/artificial-intelligence/a-company-should-be-able-to-use-a-model-without-giving-up-the-knowledge-that-makes-it-unique-microsoft-ceo-satya-nadella-says-enterprises-shouldnt-be-sharing-so-much-data-with-ai-providers).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **IBM** — International Business Machines; company; **HP** — Hewlett-Packard; company name used in the cited context.
+
+<!-- acronym-note:end -->
+
 ### Intellectual property, liability and competition: evidence with different scopes
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **AI** — artificial intelligence; **API** — application programming interface; connects software components; **PDF** — Portable Document Format; **IBM** — International Business Machines; company; **HP** — Hewlett-Packard; company name used in the cited context; **NIST** — US National Institute of Standards and Technology; **FTC** — US Federal Trade Commission; **IP** — intellectual property, or Internet Protocol in network controls; context determines the meaning; **PI** — personal information.
+
+<!-- acronym-note:end -->
 
 | Question | Evidence consulted | Supported conclusion and limitation |
 |---|---|---|
@@ -1083,6 +1857,12 @@ About X/Twitter: two addresses attributed to the article were found in secondary
 
 Remote processing, retention, training and property are different issues. A supplier can process code for inference without acquiring its title and without authorization for training. Even so, the company may prefer local execution to reduce the exposure surface, control versions, and retain evaluations and feedback. Nadella's criticism is relevant to this decision, but it does not replace the reading of the contract and configuration of the product used.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **GB** — gigabyte, a decimal unit of data capacity; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Dell: additional evidence directly related to intensive spending and code
 
 The [Official announcement of Dell Deskside Agentic AI of 18/05/2026](https://www.dell.com/en-us/dt/corporate/newsroom/announcements/detailpage.press-releases~usa~2026~05~dell-technologies-delivers-production-ready-agentic-ai-from-deskside-to-data-center.htm) presents local execution, sandbox and security policies for agents, including programming assistants. Claims reduction of up to 87% in two years and return in certain scenarios from three months. The notes identify Signal65/Futurum analysis with prices and performance provided by Dell, as well as hypotheses of use. It is evidence of business strategy and modeling; not an savings carried out by an identified client company.
@@ -1090,6 +1870,12 @@ The [Official announcement of Dell Deskside Agentic AI of 18/05/2026](https://ww
 The [ITPro, in the launch coverage](https://www.itpro.com/technology/artificial-intelligence/dell-unveils-deskside-agentic-ai-at-dell-technologies-world-2026), assigns to executive Jon Seigal the report of a developer Dell consuming **1 billion tokens and $3,400 in 24 hours**. This is arithmetically equivalent to $3.40 per million aggregated tokens, but does not reveal the input/output/cache mix. It is executive report to the press, without published invoice; not average per developer. It corroborates the existence of users with expenses much higher than seat fees.
 
 The official article [Own Your AI: Dell Pro Max with GB10, 09/07/2026](https://www.dell.com/en-us/blog/own-your-ai-dell-pro-max-with-gb10/) compares a machine of approximately **US$ 6,300** with a **US$ 15 thousand–25 thousand/year** for a team of ten. It's a commercial proposal from the manufacturer, out of the $2,500–5,000 budget. Do not literally adopt their cost expressions “only electricity” or total lack of risk: support, administration, quality and security remain relevant.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **API** — application programming interface; connects software components; **GB** — gigabyte, a decimal unit of data capacity; **SQL** — Structured Query Language; database query language; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 #### Examination of the Signal65 study, instead of reproducing only the advertising percentage
 
@@ -1105,9 +1891,21 @@ Average cost/agent/month = 34.70472 × 260 / 12 = US$ 751.94
 
 An agent is not equivalent to an employee. The result is also not a single effective per-token rate. The study covers programming, testing, review, SQL and API integration, but does not provide a comparison per accepted patch. The economic conclusion requires validating quality, prefill capacity and concurrency in the actual workflow. Persistent use favors amortization; a laptop used for a few hours does not inherit the same percentage.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **CAPEX** — capital expenditure; initial investment; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Payback for a US$ 2,500–5,000 machine within the range reported by the user
 
 **Calculated scenarios, not observed cases.** Monthly expense, effective drop of 50% of API invoice and additional $100/month for local operation are assumed. The latter value is an illustrative hypothesis; it must be replaced by the measured cost. It is not assumed that 50% of requests are 50% of dollars: the table uses money effectively avoided after local routing + cloud. Additional human costs should still be discounted.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Current API per person/month | Remaining API | Local operation | Net monthly savings before additional work | Payback $2,500 | Payback $5,000. | Savings in 12 months after purchase of $5,000 |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -1121,6 +1919,12 @@ Sensitivity to recover $5,000 in 12 months, with US$ 100/month of operation and 
 
 These values make the pilot economically relevant to intensive users. They do not guarantee that the machine can produce the required volume with the same quality. It should be measured especially if the high cost comes from a repeated context that can be eliminated, from well-defined local tasks or difficult reasoning that will continue to require cloud.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **API** — application programming interface; connects software components; **IDE** — integrated development environment; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **KV** — key–value cache; stores attention state; **OS** — operating system; **MCP** — Model Context Protocol; connects agents to tools and data; **US$** — United States dollars; **HP** — Hewlett-Packard; company name used in the cited context; **REST** — Representational State Transfer; API architecture style; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Hardware in this budget and effective data protection
 
 For pure weights, before metadata and execution memory, 27B requires approximately 13.5 GB in 4 bits or 27 GB in 8 bits; 35B requires 17.5 GB or 35 GB, respectively. They're decimal calculations of parameters × bits, **not measured total consumption**. OS, IDE, view, buffers and KV cache also occupy memory. In MoE, low active parameters do not eliminate the need to store experts. For 64 GB, the four combinations are plausible candidates for residence, with context and simultaneous load adjusted; the previous benchmark tables detail results effectively measured.
@@ -1131,6 +1935,12 @@ The [Dell Pro AI Studio](https://www.dell.com/en-us/shop/software/lp/dell-pro-ai
 
 **Proposed architecture for the team:** maintain repositories, indexing, embeddings, running tests, logs and main model in the controlled environment. Directing to the cloud only authorized tasks and their necessary minimum context, with appropriate contract and budget per task. Restrict network output, telemetry and tools/MCP. If a confidential task cannot come out, the fallback must remain local or human. Running only the weights locally, keeping the whole context in a remote tool, does not produce the same result of privacy.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components.
+
+<!-- acronym-note:end -->
+
 ### Sustainability: what can be said
 
 It is demonstrable by calculation that a tariff per decreasing token does not guarantee a fall in invoice when volume, context and concurrency grow faster. Dell herself uses this argument in her ad. There are also premises where local processing substantially reduces the cost — and the Pegatron case, previously documented, shows that rating and repair costs can reverse the result.
@@ -1139,9 +1949,21 @@ No demonstration was found that **any current API price is below its marginal co
 
 Sustained formulation: **full dependence on tariff inference creates exposure to volume, tariffs, versions and policies of the supplier; local capacity can reduce this exposure and conserve knowledge and data when quality and use justify its total cost.** Return must be demonstrated by avoided expense and approved tasks, not only by tokens/s.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SWE** — software engineering; benchmark family for software tasks; **Q4** — 4-bit quantization family; suffixes identify the specific format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Qwen3.8-27B: substantial improvement with 27B, no proof of exclusive cause
 
 Results published in [official model card Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B), compared to Qwen3.6-27B. These are evaluations by the authors, not an independent replication:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **SWE** — software engineering; benchmark family for software tasks; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Benchmark | Qwen3.6-27B | Qwen3.8-27B | Absolute gain |
 |---|---:|---:|---:|
@@ -1152,9 +1974,21 @@ Results published in [official model card Qwen3.8-27B](https://huggingface.co/Qw
 
 The nominal count remains 27B. This shows that increasing parameters **It's not necessary for every advance**. It does not isolate dataset quality as a single cause: training, post-training, reasoning budget and integration with the harness also matter. The comparison published with Opus in SWE-bench Pro uses external results for Opus and retests suitable for other models; do not treat it as a uniform duel. Nor automatically transfer the score to Q4, short context or specific Mac.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GUI** — graphical user interface; **SFT** — supervised fine-tuning; **MBPP** — Mostly Basic Python Problems; programming benchmark; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 #### More direct evidence of data and specialization: Qwen3.8-27B + FigmaTrace
 
 [Article FigmaTrace](https://arxiv.org/html/2608.21460v1), [dataset](https://huggingface.co/datasets/PatronusAI/figmatrace) and [adjusted weights](https://huggingface.co/PatronusAI/Qwen3.8-27B-Figmatrace-SFT). The study applies SFT to the same 27B, compares task phase preparation with length segmentation and measures accuracy by action in GUI:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GUI** — graphical user interface; **SFT** — supervised fine-tuning; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Evaluation | Base 27B | Phase SFT | SFT per length |
 |---|---:|---:|---:|
@@ -1167,9 +2001,21 @@ Data preparation influences results without increasing the model, but there are 
 
 As a code antecedent, [Textbooks Are All You Need, Microsoft Research, 2023](https://arxiv.org/abs/2306.11644), describes Phi-1 of 1.3B, selected and synthetic data, HumanEval 50.6% and MBPP 55.5%. It supports the value of specialized data; they are historical benchmarks of functions, insufficient to prove current equivalence in complete engineering. The Snorkel case already documented offers other evidence of behavioral change by training in financial tools.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SSD** — solid-state drive; **KV** — key–value cache; stores attention state; **CSA2** — compressed-attention component of the cited DeepSeek architecture.
+
+<!-- acronym-note:end -->
+
 ### DeepSeek V4.1 Flash: correction of the premise on size
 
 The [Official technical report](https://arxiv.org/html/2609.19969v1), Table 1, contradicts the statement of unaltered size:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Measure | DeepSeek V4 Flash | DeepSeek V4.1 Flash |
 |---|---:|---:|
@@ -1177,6 +2023,12 @@ The [Official technical report](https://arxiv.org/html/2609.19969v1), Table 1, c
 | Token active parameters | 13B | 8B in prefill / 16B in decode |
 
 Backbone increased approximately **94.4%**. The report assigns efficiency to Causal Encoder-Decoder, CSA2, cache accuracy and execution strategy: global KV in approximately 1/4 and persistent in approximately 1/8 of the previous. Data and post-training have also changed. So, smaller cache **does not mean** less weights or constant size. This model does not serve as an experiment that isolates dataset while maintaining fixed architecture and size. The separation between weights/experts, Engram and KV cache remains necessary to analyze offloading on SSD.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence; **IBM** — International Business Machines; company; **HP** — Hewlett-Packard; company name used in the cited context; **NIST** — US National Institute of Standards and Technology; **FTC** — US Federal Trade Commission; **IP** — intellectual property, or Internet Protocol in network controls; context determines the meaning.
+
+<!-- acronym-note:end -->
 
 ### Record of searches and unresolved items in this update
 
@@ -1189,9 +2041,21 @@ Clues not promoted to facts: two divergent permalinks of X; tariff claim below t
 
 The experience of programmers is relevant evidence for a purchase decision. It doesn't depend on recognition of the supplier to be registered. In this review, the question was divided into three: what problems were reported; what changes were measured; and what is known about its cause. The absence of proof of intention does not erase reports of loss of quality or cost of rework.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **JSON** — JavaScript Object Notation; structured data format.
+
+<!-- acronym-note:end -->
+
 ### observable volume: traceable sample, not estimate of the entire internet
 
 On October 16, 2026, the public API of GitHub returned **102 issues** for consultation `repo:anthropics/claude-code is:issue "4.8" "degradation"`. The two pages were collected; the list is in [data/github-search.json](../pesquisa_html/dados/github-search.json). These are search correspondences in title/body/comments, including possible duplicates and indirect references. **There are not 102 confirmed incidents, neither 102 people, nor a measure of the proportion of dissatisfied users.** The search does not constitute Reddit, X or LinkedIn census.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **JSONL** — JSON Lines; one JSON record per line.
+
+<!-- acronym-note:end -->
 
 | Primary registration | Documented content | Quantitative signal available |
 |---|---|---|
@@ -1206,9 +2070,21 @@ On October 16, 2026, the public API of GitHub returned **102 issues** for consul
 
 Metadata from the three issues were preserved in JSON. The 28 comments added include discussion and possible repeated participants. They are not equivalent to 28 affected developers. The Reddit API returned 403; counts were not invented to fill the gap. The sample also contains favorable opinions, avoiding presenting unanimity that the sources do not show.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **SWE** — software engineering; benchmark family for software tasks; **HTML** — HyperText Markup Language; web document format.
+
+<!-- acronym-note:end -->
+
 ### External measurement and recognition of previous regressions
 
 The [Marginlab, 29/05/2026](https://marginlab.ai/blog/claude-code-degraded-before-opus-4-8/), accompanied Claude Code daily in a subset of SWE-bench Pro. Published five days below the 65% baseline, followed by recovery. The original table was captured for visual inspection:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **CLI** — command-line interface.
+
+<!-- acronym-note:end -->
 
 | Date of May/2026 | CLI | Published Pass Rate |
 |---|---|---:|
@@ -1231,9 +2107,21 @@ The [Anthropic recognized on 23/04/2026](https://www.anthropic.com/engineering/a
 
 **Consequence for management:** evaluate the stability of the set model + harness + configuration + serving, maintain sentinel tests and an alternative route. Weights and local versions under control allow you to freeze an approved configuration. Tests are still required when exchanging quantization, model, runtime or instructions. The specific hypothesis of deliberate reduction to release datacenters follows without causal demonstration in this sample.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **IDE** — integrated development environment.
+
+<!-- acronym-note:end -->
+
 ## Local model security: enforceable controls and real limits
 
 Open-weight models can integrate a controlled business architecture. Accessible weights are not a barrier to identity, isolation, audit or network control. Security stems from the entire system: files, runtime, IDE, agents, credentials, tools, updates, infrastructure and people. The objective is to prevent unauthorized actions and data flows, even when the model produces inadequate instruction.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **VM** — virtual machine.
+
+<!-- acronym-note:end -->
 
 ### What Google and NVIDIA effectively document
 
@@ -1243,9 +2131,21 @@ The [NVIDIA documents OpenShell](https://docs.nvidia.com/openshell/latest/securi
 
 **Platform limit:** Landlock and seccomp are Linux mechanisms. On Mac, deployment should define an equivalent border — for example, run agent tools on an isolated Linux VM and expose only the authenticated MLX service API on the host. This also requires controlling the network, volumes and credentials of VM; it does not make Linux controls native to macOS. It's an architecture proposal, validating on the pilot.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **IDE** — integrated development environment; **MCP** — Model Context Protocol; connects agents to tools and data; **FAQ** — frequently asked questions.
+
+<!-- acronym-note:end -->
+
 ### Protection matrix for code, testing, backend and UI
 
 The measures below are an engineering proposal based on the cited sources, to be validated in the company environment. “Manageable” means available controls and defined responsibilities; not immunity to all vulnerability.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **API** — application programming interface; connects software components; **IDE** — integrated development environment; **VM** — virtual machine; **TLS** — Transport Layer Security; protects data in transit; **RBAC** — role-based access control; **ACL** — access control list.
+
+<!-- acronym-note:end -->
 
 | Risk | Recommended control | How to demonstrate it works | Residual risk |
 |---|---|---|---|
@@ -1264,9 +2164,21 @@ The [Brave](https://brave.com/blog/indirect-prompt-injection/) demonstrated prom
 
 In tools already available, [LM Studio documents offline operation](https://lmstudio.ai/docs/app/offline) and [authentication while serving on the network](https://lmstudio.ai/docs/developer/core/server/serve-on-network). The [Official Ollama FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) documentation `OLLAMA_NO_CLOUD=1`. These controls do not replace the verification of IDE, MCP, logs and traffic. In the workspace of this research there are scripts configured for **Ollama Cloud**; they are not, by themselves, the local deployment proposed in this document.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **URL** — uniform resource locator; address of a resource; **PII** — personally identifiable information; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Critical reading of the first transcript provided
 
 No identifiable video URL or title was provided; the times below refer to the sent transcript. The underlying publications were searched separately.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **PII** — personally identifiable information; **AAAI** — Association for the Advancement of Artificial Intelligence.
+
+<!-- acronym-note:end -->
 
 | Excerpt | Verification and correction | Source |
 |---|---|---|
@@ -1283,6 +2195,12 @@ No identifiable video URL or title was provided; the times below refer to the se
 The [OpenAI Privacy Filter](https://openai.com/index/introducing-openai-privacy-filter/) it was announced on 22/04/2026: 1.5B total parameters, 50M active, local execution and eight data categories. OpenAI declares to use an adjusted version in its own privacy streams. It can compose a minimization barrier before a remote fallback. **Removing PII does not automatically remove intellectual property, business logic or all secrets.** The filter has false negatives and requires domain evaluation.
 
 [Eguard](https://ojs.aaai.org/index.php/AAAI/article/view/40876) reports protection of more than 95% of tokens against the inversion attacks evaluated, preserving utility. The result is specific to embeddings and tested opponents. It is not “95% security” of a computer deployment, nor electromagnetic protection.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **GPU** — graphics processing unit; **CPU** — central processing unit; **NPU** — neural processing unit; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **Q4** — 4-bit quantization family; suffixes identify the specific format; **VM** — virtual machine; **EM** — electromagnetic; refers here to physical emissions; **SDR** — software-defined radio; **USB** — Universal Serial Bus; peripheral connection standard; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Second transcription: real physical channel, overly generalized narrative
 
@@ -1301,6 +2219,12 @@ For common corporate environments, the first steps are to protect the host, limi
 **Security conclusion:** local inference reduces an important class of exposure — routine transmission to third parties — and increases operational control. It can be protected with practices already documented by large providers. It does not offer physical invisibility, just as cloud services must also protect hardware and isolate customers. The proper approach is to compare threat models and residual risk, rather than equating all scenarios.
 
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **IBM** — International Business Machines; company.
+
+<!-- acronym-note:end -->
+
 ## Conclusions and open questions
 
 The Snorkel case shows that a small expert can overcome a much larger generalist in the use of financial tools. The published weights allow testing local inference. The evidence supports the strategy of centrally training and distributing smaller specialists, but the financial return and programming utility depend on the flow and hardware measured.
@@ -1311,7 +2235,19 @@ Additional cases demonstrate local code product, commercial experts and gains in
 
 Update October 16, 2026. The development interface, model that produces tokens and execution permissions are separate layers. You can keep a known agent and change your backend to an internal station or server. Therefore, security problems of an agent with unrestricted access do not invalidate local inference: there is choice of harness, permission setting and external isolation. The documentation below confirms integration paths; it is not a performance test or a comparative product audit.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **OMP** — Oh My Pi; coding agent.
+
+<!-- acronym-note:end -->
+
 ### Compatibility and documented controls
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **CLI** — command-line interface; **OS** — operating system; **BYOK** — bring your own key; supply a provider credential.
+
+<!-- acronym-note:end -->
 
 | Interface | Path to local inference | Controls and checkpoints | Primary source |
 |---|---|---|---|
@@ -1325,6 +2261,12 @@ Update October 16, 2026. The development interface, model that produces tokens a
 **Oh My Pi and OpenCode are configurable alternatives; “safer” is not a property demonstrated by name only.** In the Oh My Pi consulted, `tools.approvalMode` defaults to `yolo`, while `always-ask` and policies by tool allow to restrict actions. Documentation shows that project configuration can replace global lists, including `disabledProviders`. A corporate policy needs to validate the effective outcome. In OpenCode, most permissions start at `allow`; there is specific processing for files `.env` and confirmation for external directories. These defaults should be reviewed before processing sensitive projects. Sources: [OMP Settings](https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md) and [OpenCode Permissions](https://opencode.ai/docs/permissions/).
 
 A proper comparison considers a specific configuration: exposed tools, mounted files, available credentials, network destinations, extensions and whether the repository can change policies. An open harness allows these components to be inspected and adapted; this facilitates governance but does not constitute certification. This update did not find an independent benchmark ranking these six environments by resistance to exfiltration under equivalent conditions.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **IDE** — integrated development environment; **KV** — key–value cache; stores attention state; **BYOK** — bring your own key; supply a provider credential.
+
+<!-- acronym-note:end -->
 
 ### Connection examples, without changing the developer’s workflow
 
@@ -1362,13 +2304,31 @@ The model needs to support tool calling and streaming. The documentation recomme
 
 In [VS Code](https://code.visualstudio.com/docs/agent-customization/language-models), the documented path is `Chat: Manage Language Models`, add a local provider and select the model. `chat.utilityModel` and `chat.utilitySmallModel` can also point to local models. The documentation distinguishes local chat from inline suggestions and dependent features of Copilot embeddings/services, which do not automatically go offline. The BYOK support for Copilot harness sessions in Agent Host is indicated as experimental. You should not extrapolate terminal support to every IDE extension.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **VM** — virtual machine; **WSL2** — Windows Subsystem for Linux, version 2.
+
+<!-- acronym-note:end -->
+
 ### Real Sandbox also exists on Mac
 
 The previous section highlighted OpenShell Linux controls. There is another relevant option: the [Claude Code sandbox](https://code.claude.com/docs/en/sandboxing) documents Seatbelt on macOS and bubblewrap on Linux/WSL2, with rules for files and network. Therefore, a Linux VM is not the only possibility of isolation on Mac. It is necessary to check the range of Bash sandbox, the tools executed outside it and the treatment of exceptions. It is not proposed to enable flags that remove approvals or isolation.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface.
+
+<!-- acronym-note:end -->
+
 ### How to choose for backend, testing and UI
 
 The pilot should compare at least two harnesses with the same model and access policy. In the first run, allow repository reading and a proposed diff; then allow workspace writes and tests in a disposable environment. For UI work, expose a browser and test application without an authenticated corporate session. For backend work, use a test database and minimally scoped credentials. For QA, run fixtures and tests without write access to production. These are proposed deployment criteria, not controls already installed in this research.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **OS** — operating system.
+
+<!-- acronym-note:end -->
 
 | Proposed acceptance criterion | Evidence that the pilot must keep |
 |---|---|
@@ -1383,6 +2343,12 @@ The potential economic benefit is to retain a familiar editor and workflow while
 
 
 ## Update History
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **AI** — artificial intelligence; **QA** — quality assurance; **QE** — quality engineering; **UI** — user interface; **CLI** — command-line interface; **SWE** — software engineering; benchmark family for software tasks; **TCO** — total cost of ownership, including acquisition and operation; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **HERA** — local–cloud task-allocation system evaluated in the cited study; **HTML** — HyperText Markup Language; web document format; **UC** — University of California; **IP** — intellectual property, or Internet Protocol in network controls; context determines the meaning; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Date | Embedded content |
 |---|---|

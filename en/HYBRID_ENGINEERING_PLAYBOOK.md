@@ -2,7 +2,19 @@
 
 Research update: October 19, 2026. The economic target is recurring engineering work with executable acceptance criteria. Three paths must be compared: deterministic automation, a local model, and local + cloud collaboration. A cloud model can also build reusable procedures offline; that investment need not recur on every task. The following separates measured results, vendor implementations and the proposed enterprise architecture. No model-performance or penetration tests were executed for this update.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **SLM** — small language model; **HERA** — local–cloud task-allocation system evaluated in the cited study; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Hybrid economics: the evidence that most directly informs engineering
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **GB** — gigabyte, a decimal unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **HERA** — local–cloud task-allocation system evaluated in the cited study; **US$** — United States dollars; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Evidence | Configuration and workload | Published result | Decision implication |
 |---|---|---|---|
@@ -19,13 +31,31 @@ Sources: [Nav measurement report](https://raw.githubusercontent.com/navikt/mlx-w
 
 HERA also reports the quality and local-use tradeoff for HumanEval: Mistral + GPT-4 reaches 47.8% accuracy with 28.4% SLM use and US$ 0.044/request; Llama + Claude reaches 44.2%, 36.6% and US$ 0.053. These compare two hybrid pairs, not hybrid against their cloud-only baselines. More local use does not by itself establish better quality or lower cost. [HERA table 4](https://arxiv.org/html/2504.00434v1).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **DTO** — data transfer object; **LRU** — least recently used; cache eviction policy; **TTL** — time to live; expiry interval.
+
+<!-- acronym-note:end -->
+
 ### Real repositories and test cases, rather than generic chat prompts
 
 Nav identifies `navikt/isoppfolgingstilfelle` (Ktor), `navikt/ia-tjenester-metrikker` (Spring) and `navikt/familie-tilbake-frontend` (React/Express). These are public repositories from a real organization serving the welfare system. Checks include compilation and repository tests; the frontend uses 61 test files and 572 tests. The baseline backend suite already had failures, so “verified” means no new failures, not universal correctness. Local-only sessions passed simple questions, comments, renames and DTO changes in small samples; creating a new test file succeeded in 0/3 attempts. These results support qualification by task, not blanket replacement of QA. [Nav study and limitations](https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md).
 
 Arena's harder D6 suite contains an LRU/TTL cache, a token bucket, topological sorting and a mini-template parser: four tasks with 80 tests, repeated with three seeds. The published results are 8/12 local-only, 9/12 cascade and 12/12 cloud-only. The headline success on easier tasks therefore does not transfer unchanged to harder work. Release notes and README also differ on some failure classifications and cloud fractions; preserve raw runs and the selected revision when reproducing. [D6 specification and results](https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.5.0.md).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **QA** — quality assurance.
+
+<!-- acronym-note:end -->
+
 ### Industry evidence for specialization and reusable automation
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **SQL** — Structured Query Language; database query language; **US$** — United States dollars; **NUS** — National University of Singapore; **ACH** — Meta's Automated Compliance Hardening system for finding faults through tests.
+
+<!-- acronym-note:end -->
 
 | Organization or study | Concrete engineering activity | Evidence and boundary |
 |---|---|---|
@@ -35,6 +65,12 @@ Arena's harder D6 suite contains an LRU/TTL cache, a token bucket, topological s
 | NUS, Gungnir | Evolve reusable SQL test generators for SQLite, DuckDB and PostgreSQL | 44 developer-confirmed bugs, 34 fixed; a separate DuckDB run reports five confirmed bugs for US$ 20.85. After evolution, generation runs without LLM calls. This is research on real database engines, not a demonstrated local-LLM deployment. [Paper](https://arxiv.org/html/2610.14161v1) |
 
 Gungnir is particularly relevant to recurring QA: spend inference on improving the generator, validate the change, then reuse the program. This is a complementary savings mechanism, not a local + cloud LLM benchmark. A local model can later assist triage, but that extension is proposed here, not measured in the paper.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GRPO** — Group Relative Policy Optimization; reinforcement-learning method; **GEPA** — reflective prompt-optimization method discussed in the cited study; **US$** — United States dollars; **ICLR** — International Conference on Learning Representations; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Cloud-assisted harness development, with local execution afterward
 
@@ -46,6 +82,12 @@ Microsoft also reports an internal Rust formal-verification agent improved by ov
 
 **Proposed lifecycle:** select one recurring task family; assemble de-identified training cases and an untouched evaluation set; establish the existing cloud-only baseline; ask the cloud model to propose concise instructions, tool schemas and bounded recovery procedures; run candidates locally; promote only candidates that improve accepted-task cost without violating quality or security thresholds; retain rollback and periodically reassess drift. The optimizer must not edit its own acceptance tests or security policy. Hidden tests and final human review remain outside the agent's writable workspace.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **UI** — user interface; **API** — application programming interface; connects software components; **CI** — continuous integration; automated build and test checks; **E2E** — end-to-end tests covering the complete workflow; **DTO** — data transfer object; **AST** — abstract syntax tree; structured representation of source code.
+
+<!-- acronym-note:end -->
+
 | Reusable harness | Local work | Independent acceptance gate | Escalation condition |
 |---|---|---|---|
 | DTO/API propagation | Apply a specified field through types, mappers and call sites | Build, schema compatibility and contract tests | Ambiguous business rule or incompatible contract |
@@ -56,6 +98,12 @@ Microsoft also reports an internal Rust formal-verification agent improved by ov
 | CI triage/documentation | Classify sanitized failures and draft references | Links to actual code/log evidence; human acceptance | Missing evidence, sensitive data or uncertain diagnosis |
 
 These are pilot candidates, not a measured claim that most of the organization's workload is already covered. Measure their frequency in completed tickets and pull requests. Start with repetitive, bounded operations; retain human ownership of requirements, architecture and production approval.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GPU** — graphics processing unit; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **VM** — virtual machine.
+
+<!-- acronym-note:end -->
 
 ### Secure internet-enabled workstations: practical architecture
 
@@ -76,9 +124,21 @@ On Apple Silicon, MLX can remain on the host for GPU access while agent tools ex
 
 **Industrial implementations demonstrate feasibility, not immunity.** Docker documents OpenCode in local microVM sandboxes and policy-controlled connectivity. Anthropic reports an 84% reduction in permission prompts in its internal sandbox usage and publishes a runtime for filesystem/network restrictions on arbitrary processes. That percentage measures prompts, not attack prevention. These mechanisms can support a local-model architecture without adopting Hermes or OpenClaw. [Docker OpenCode integration](https://docs.docker.com/ai/sandboxes/agents/opencode/), [Anthropic implementation](https://www.anthropic.com/engineering/claude-code-sandboxing), [sandbox-runtime](https://github.com/anthropics/sandbox-runtime).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **VM** — virtual machine; **OS** — operating system; **MCP** — Model Context Protocol; connects agents to tools and data; **SSH** — Secure Shell; authenticated remote access protocol; **DLP** — data loss prevention.
+
+<!-- acronym-note:end -->
+
 ### Control design and acceptance tests
 
 The table is a proposed enterprise baseline. Each control must be verified on the exact OS, runtime, agent and policy version. Tests use synthetic secrets and isolated fixtures, never actual production credentials.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **UI** — user interface; **API** — application programming interface; connects software components; **CI** — continuous integration; automated build and test checks; **MCP** — Model Context Protocol; connects agents to tools and data; **DNS** — Domain Name System; resolves network names; **SSH** — Secure Shell; authenticated remote access protocol; **URL** — uniform resource locator; address of a resource.
+
+<!-- acronym-note:end -->
 
 | Surface | Required control | Acceptance test and evidence |
 |---|---|---|
@@ -101,7 +161,19 @@ Domain allowlists alone do not prevent leaks to an allowed service, including a 
 
 Docker's documentation explicitly notes that clone mode can still expose untracked `.env` files and that SSH forwarding grants usable authority even when keys stay outside the VM. A local MCP process can also execute with host privileges outside sandbox isolation. These are configuration obligations, not reasons to abandon containment. [Docker isolation layers](https://docs.docker.com/ai/sandboxes/security/isolation), [Docker security boundaries](https://docs.docker.com/ai/sandboxes/security/).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **OMP** — Oh My Pi; coding agent.
+
+<!-- acronym-note:end -->
+
 ### Runtime and agent-specific implementation decisions
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **MLX-LM** — language-model tools built on MLX; **OS** — operating system; **TLS** — Transport Layer Security; protects data in transit.
+
+<!-- acronym-note:end -->
 
 | Component | Verified capability or limitation | Deployment consequence |
 |---|---|---|
@@ -113,6 +185,12 @@ Docker's documentation explicitly notes that clone mode can still expose untrack
 
 There is no demonstrated universal security ranking placing one of these agents above all others. OMP, OpenCode and Aider are the proposed qualification candidates. Hermes and OpenClaw are outside the proposed deployment. Physical side channels remain a specialist appendix; the primary workstation controls address code execution, credential theft, network export, supply chain and persistence.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Measure savings without confusing tokens, requests and money
 
 Record local and cloud input/output tokens, cache reads/writes, retries, routing decisions, tool use, latency and acceptance. The remote bill must use each provider's actual billing categories; raw token counts alone are misleading when cached tokens dominate. Report both cost per attempted task and cost per accepted task, counting failed attempts and repairs. Include human review and waiting, amortized hardware, energy, operations and harness development.
@@ -120,6 +198,12 @@ Record local and cloud input/output tokens, cache reads/writes, retries, routing
 For a task family, let B be cloud-only cost per accepted task, L local operating cost, q the fraction requiring cloud fallback, F its average additional cloud cost, H harness maintenance per task and R incremental review/rework. The proposal is favorable when **L + q × F + H + R < B**, at acceptable quality and latency. A token-based cloud fraction cannot be substituted for q. For a continuously orchestrated hybrid workflow, account for all planning and coordination calls rather than using a fallback-only equation.
 
 Illustrative assumptions, not market measurements: B = US$ 0.50, L = US$ 0.04, q = 0.20, F = US$ 0.60, H = US$ 0.03, R = US$ 0.06 gives US$ 0.25/task, a 50% reduction. Adding US$ 0.30 of incremental review makes it US$ 0.55 and removes the economic advantage. If building and validating a harness costs US$ 300 and saves US$ 0.25 per subsequent accepted task after recurring costs, break-even is 1,200 tasks. Charge that initial investment once; do not also amortize it into H in the same calculation.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface.
+
+<!-- acronym-note:end -->
 
 ### Pilot with business-relevant repositories and measurable gates
 

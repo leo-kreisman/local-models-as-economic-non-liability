@@ -1,6 +1,18 @@
 # Local AI capacity for engineering
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **AI** — artificial intelligence.
+
+<!-- acronym-note:end -->
+
 Decision proposal • Problem/Context + Solution + Required Investment • October 16, 2026
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **US$** — United States dollars; **IBM** — International Business Machines; company; **HP** — Hewlett-Packard; company name used in the cited context.
+
+<!-- acronym-note:end -->
 
 ## Problem / Context — the problem and its context
 
@@ -14,6 +26,12 @@ Stability also has economic value. Programmers have reported Opus 4.8 regression
 
 Code sent for remote inference does not automatically become the provider’s property. Enterprise contracts can restrict training, as in [Anthropic’s commercial policy](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller). Even so, the company must decide where context, logs, evaluations and feedback may be processed and retained. [Satya Nadella’s reflection](https://snscratchpad.com/posts/reverse-information-paradox/) reinforces the strategic value of this knowledge. No transfer of IBM, HP or Dell systems was demonstrated; the issue addressed here is exposure and dependence that can be managed.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GUI** — graphical user interface; **API** — application programming interface; connects software components; **IDE** — integrated development environment; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ## Solution — proposed solution
 
 The proposed architecture keeps a primary local model, the repository, context retrieval and test execution inside the controlled environment. Eligible tasks use this path by default. A gateway applies data and budget rules to send only the necessary context of authorized tasks to the cloud. Content that cannot leave remains local; difficulty encountered by the model does not automatically authorize export. This is a **local + cloud** combination, not merely routing between two external APIs.
@@ -21,6 +39,12 @@ The proposed architecture keeps a primary local model, the repository, context r
 The initial selection should compare a dense 27B and a 35B MoE, in 4 and 8 bits, within the team’s harness. Total MoE parameter count determines storage, while the active portion helps explain computation cost; these measures are not interchangeable. A configuration of approximately 64 GB is a practical candidate for these models, but context, the IDE, test containers and concurrent processes must be included in measurements. Flash-Next with SSD offloading joins the 64 GB pilot; DeepSeek V4.1 will have its own qualification: I/O cost and latency must be compared with the quality gain.
 
 The [Qwen3.8-27B model card](https://huggingface.co/Qwen/Qwen3.8-27B) shows improvement while retaining 27B, and [FigmaTrace](https://arxiv.org/html/2608.21460v1) shows specialization of the same model with GUI data. These justify evaluating compact models; they do not guarantee universal equivalence. [DeepSeek V4.1 Flash](https://arxiv.org/html/2609.19969v1) is a larger architecture with a more efficient cache; its evolution should not be described as simply improving the dataset while keeping size constant.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **QA** — quality assurance; **UI** — user interface; **API** — application programming interface; connects software components; **SQL** — Structured Query Language; database query language.
+
+<!-- acronym-note:end -->
 
 | Work | Initial path | Validation before acceptance |
 |---|---|---|
@@ -32,6 +56,12 @@ The [Qwen3.8-27B model card](https://huggingface.co/Qwen/Qwen3.8-27B) shows impr
 
 There are two ways to provide this capacity. Individual machines retain isolation and avoid a shared queue, but may have low utilization. An internal API server facilitates maintenance and cost allocation, but requires concurrency planning and access controls between projects. A Mac cluster should not be purchased on the assumption that RAM or tokens/s add linearly: splitting a model across nodes, independent replicas and task queues have different costs. The report’s cases and benchmarks guide trials; they do not replace sizing for the team.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **OMP** — Oh My Pi; coding agent; **VM** — virtual machine; **BYOK** — bring your own key; supply a provider credential.
+
+<!-- acronym-note:end -->
+
 ### Agents and editor: retain the workflow, choose the backend
 
 The pilot will include Oh My Pi, OpenCode and Aider as configurable alternatives, alongside the possibility of retaining Claude Code, Codex CLI, Copilot CLI and VS Code with local inference. The paths are documented in [OMP Providers](https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md), [OpenCode Providers](https://opencode.ai/docs/providers/), [Ollama for Claude Code](https://docs.ollama.com/integrations/claude-code), [OpenAI — CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli), [GitHub — Copilot BYOK](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) and [VS Code — models](https://code.visualstudio.com/docs/agent-customization/language-models). Integration preserves a familiar interface and may reduce adoption effort; the benefit will be measured, without assuming a budget reduction.
@@ -39,6 +69,12 @@ The pilot will include Oh My Pi, OpenCode and Aider as configurable alternatives
 Selection will consider the effective tool policy and operating-system containment. OMP and OpenCode offer granular controls, but their documented defaults are permissive: `yolo` in the former and `allow` for most tools in the latter. Sources: [OMP Settings](https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md) and [OpenCode Permissions](https://opencode.ai/docs/permissions/). The proposal is to qualify restricted configurations. No independent security ranking of these products is presented here. On Mac, the [Claude Code Bash sandbox](https://code.claude.com/docs/en/sandboxing) uses Seatbelt; a Linux VM is not the only isolation option.
 
 Acceptance must confirm the destination of inference and auxiliary services, test prohibited execution and file access, and verify that a project’s configuration does not relax corporate policy. Commands, offline-mode limitations and editor capabilities are detailed in the report. The integration budget includes this harness qualification.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **GPU** — graphics processing unit; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **OMP** — Oh My Pi; coding agent; **VM** — virtual machine; **OS** — operating system; **CI** — continuous integration; automated build and test checks; **DNS** — Domain Name System; resolves network names; **SSH** — Secure Shell; authenticated remote access protocol.
+
+<!-- acronym-note:end -->
 
 ### Internet-enabled workstation security
 
@@ -52,17 +88,35 @@ Acceptance includes synthetic-secret leakage tests, malicious instructions in re
 
 Physical side channels are a specialist secondary threat model, documented in the research appendix. The primary investment protects everyday workstation assets against credential theft, execution outside the workspace, data export, supply-chain compromise and persistence. The complete control/test matrix is in the [engineering playbook](HYBRID_ENGINEERING_PLAYBOOK.md).
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **TCO** — total cost of ownership, including acquisition and operation; **HERA** — local–cloud task-allocation system evaluated in the cited study; **DTO** — data transfer object; **SQL** — Structured Query Language; database query language; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Evidence-led task routing and recurring work
 
 The pilot will prioritize mechanical edits, DTO propagation, regression-test expansion, bounded SQL changes and UI maintenance. Nav reports paired cloud/hybrid costs of US$ 0.339/0.134 for a Ktor mapper change and US$ 0.227/0.121 for a frontend rename, but US$ 0.092/0.164 for Spring: delegation can increase the bill. The [Nav study](https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md) therefore supports qualifying task families rather than promising one savings rate for all coding.
 
 The [HERA study](https://arxiv.org/html/2504.00434v1), published in April 2025 with Microsoft-affiliated authors, demonstrates local + cloud resource allocation, not an internal Microsoft rollout. HumanEval remote cost falls from US$ 0.056 to US$ 0.044, excluding local TCO and with a quality tradeoff. The Arena README's 8% headline conflicts with [revised release notes](https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.4.1.md), which give 10.3% of tokens in the cloud. Neither is a direct invoice-saving percentage.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **QA** — quality assurance.
+
+<!-- acronym-note:end -->
+
 ### Build reusable task harnesses, then amortize their cost
 
 Use an authorized cloud model to propose two initial harnesses from public or minimized approved examples. Freeze the local model and evaluate changes to instructions, retrieval, tool schemas and recovery steps against independent tests. [SkillOpt](https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/) provides evidence for optimizing an external skill layer; its non-coding benchmarks do not establish enterprise code parity. For repetitive QA, [Gungnir](https://arxiv.org/html/2610.14161v1) demonstrates a complementary path: improve reusable test generators and run them without further LLM calls.
 
 Measure four arms: current cloud workflow, generic local harness, specialized local harness and specialized local + cloud. Include deterministic codemods where appropriate. Count all retries, cloud planning, cache categories, human review, operations and harness development. Cloud optimization must never modify hidden acceptance tests or enterprise security policy. The existing integration and security hours remain provisional; expansion beyond two harnesses requires a revised estimate.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **QA** — quality assurance; **UI** — user interface; **FinOps** — financial operations practice for managing technology consumption and cost.
+
+<!-- acronym-note:end -->
 
 ### Six-week pilot and expansion decision
 
@@ -72,11 +126,29 @@ An initial set of 100 real tasks, distributed across backend, UI, QA and mainten
 
 The platform team is responsible for runtime and updates; security for policies and tests; FinOps for billing and cost allocation; and engineering and QA leaders for accepting the results. Expansion depends on this evidence. The proposal does not call for shutting down existing capacity before qualifying the local path.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **NR** — not reported in the cited measurement.
+
+<!-- acronym-note:end -->
+
 ## 32, 48 and 64 GB workstations: local capacity with proportional investment
 
 Update: October 19, 2026. The pilot should also start on existing 32, 48 and 64 GB machines. Memory capacity, chip speed, quantization and implementation are separate variables. Published measurements reach 20–30 tokens/s and above in selected configurations; a 128–512 GB workstation is not required to begin. The figures below were published by their executors, not reproduced in this research. NR means not reported in this selection.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **WARP** — Weight-Aware Runtime and Paging; weight-streaming inference runtime.
+
+<!-- acronym-note:end -->
+
 ### Benchmarks directly useful for smaller configurations
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **GPU** — graphics processing unit; **CPU** — central processing unit; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **oMLX** — model-serving software built on MLX; **MTP** — multi-token prediction; predicts multiple tokens for speculative generation; **PP** — prompt processing or prefill; processes input tokens; **TTFT** — time to first token; **KV** — key–value cache; stores attention state; **NR** — not reported in the cited measurement; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **IQ2_K** — low-bit quantization format used for model weights; **NVFP4** — NVIDIA 4-bit floating-point format; **WARP** — Weight-Aware Runtime and Paging; weight-streaming inference runtime; **tok/s** — tokens per second; a throughput measure; **K4/V4** — key and value caches quantized to 4 bits; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Physical machine | Model / format | Runtime and residency | PP tok/s | Decode tok/s | Condition and source |
 |---|---|---|---:|---:|---|
@@ -95,7 +167,19 @@ Update: October 19, 2026. The pilot should also start on existing 32, 48 and 64 
 
 The WARP result fills the earlier gap in documented DeepSeek V4.1 Flash execution on a 64 GB Mac; it does not demonstrate 20–30 tokens/s for this model and hardware, or establish the ceiling of other runtimes. The Bonsai model remains excluded. Colibri remains in the earlier technical comparison, without turning DeepSeek V4 results into V4.1 results.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **GB** — gigabyte, a decimal unit of data capacity; **GiB** — gibibyte, a binary unit of data capacity; **TTFT** — time to first token.
+
+<!-- acronym-note:end -->
+
 ### What to buy or reuse at each capacity
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **IDE** — integrated development environment; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **MoE** — mixture of experts; activates a subset of expert networks per token; **Q4** — 4-bit quantization family; suffixes identify the specific format; **Q8** — 8-bit quantization family; suffixes identify the specific format; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 | Memory | Priority path | Precision and headroom | Expansion criterion |
 |---|---|---|---|
@@ -107,6 +191,12 @@ In the [Nav capacity experiment](https://github.com/navikt/mlx-workspace/blob/ma
 
 The llm-speed 48 GiB experiment published TTFT of 8.17 / 27.66 / 113.21 s for the table's three inputs, with thinking disabled. Its peak of 27.17 tokens/s on the smallest input does not replace the median of 13.70. Concurrent load explains why testing must include the working environment, although this study does not isolate its causal contribution.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **TCO** — total cost of ownership, including acquisition and operation; **GPU** — graphics processing unit; **RAM** — random-access memory; working memory; **VRAM** — video memory available to the graphics processor; **SSD** — solid-state drive; **GB** — gigabyte, a decimal unit of data capacity; **PP** — prompt processing or prefill; processes input tokens; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### From speed to engineering savings
 
 A home-operation account reports approximately 60 tokens/s with a 32 GB VRAM GPU, 64 GB RAM and SSD. This is evidence supplied by the proposal owner, without attached logs, GPU model, checkpoint, quantization, context or reasoning/output separation. It is not a Mac measurement and does not allow the same rate to be assigned to each cited model. Reproduction should record these fields and compare the same accepted task on smaller workstations.
@@ -117,9 +207,21 @@ The proposed economic workflow is: recurring local tasks → independent tests �
 
 The budget should compare reuse with gradual purchasing. The US$ 2500–5000 per workstation range is a planning assumption, not a quotation or an automatic mapping between price and RAM. Five workstations represent US$ 12500–25000 in hardware alone; integration, security, operation and rework remain in TCO. Do not multiply local tokens by nominal remote token prices to claim savings: measure the net invoice reduction, including caching and escalations.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **RAM** — random-access memory; working memory; **SSD** — solid-state drive; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ## Required Investment — investment required
 
 The budget below is a **planning scenario**, without a binding quotation. The user’s suggested range, US$ 2,500–5,000 per workstation, must be confirmed for the specific RAM, chip, SSD, taxes and warranty. The central scenario uses the upper end of that range, five workstations, and explicitly accounts for implementation work. It does not assume that one workstation replaces an unlimited number of agents.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Pilot component | Assumption | Amount |
 |---|---|---:|
@@ -132,9 +234,21 @@ The budget below is a **planning scenario**, without a binding quotation. The us
 
 The hours may represent internal allocation rather than additional cash expenditure, but they have an opportunity cost. Recurring cost is an assumption to validate and should not duplicate work already counted. Licenses, additional administration, specialized training, replacement SSDs and physical modifications enter the budget if needed. Remaining API consumption is ongoing operating expenditure; it is not hidden in the initial investment.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **TCO** — total cost of ownership, including acquisition and operation; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
+
 ### Payback scenarios including the full investment
 
 These assume five users, a 50% effective bill reduction, US$ 500/month in operations and US$ 41,400 upfront. No extra rework cost was assumed; if it occurs, it must be subtracted. The US$ 2 thousand–10 thousand amounts derive from the user’s report, not a published enterprise average.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 | Current API per person/month | Current team API/month | API + operations after migration | Monthly savings | Full payback | Balance after 12 months, net of investment |
 |---:|---:|---:|---:|---:|---:|
@@ -145,6 +259,12 @@ These assume five users, a 50% effective bill reduction, US$ 500/month in operat
 At US$ 2,000 per person and only a 20% bill reduction, savings fall to US$ 1,500/month and payback extends to 27.6 months. This sensitivity prevents treating high savings as guaranteed. To recover the central scenario within 12 months, at least US$ 3,950/month of the team’s API spending must be avoided before any extra human costs — 39.5% of the initial US$ 10,000 bill.
 
 If the team already has sufficient hardware, incremental investment may be much smaller. If it wants shared infrastructure, throughput, queues and isolation must be measured before reducing the machine count in the spreadsheet. The comparison should use TCO with the same delivery quality and time horizon.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **US$** — United States dollars.
+
+<!-- acronym-note:end -->
 
 ### Decision requested from management
 

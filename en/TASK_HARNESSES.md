@@ -1,6 +1,18 @@
 # Two task-specific harnesses for the pilot
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **OMP** — Oh My Pi; coding agent.
+
+<!-- acronym-note:end -->
+
 Design examples, not deployed configurations or measured success claims. Applicable to qualified OMP, OpenCode or Aider adapters. Enforce permissions in the platform; these instructions are not the security boundary.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **DTO** — data transfer object.
+
+<!-- acronym-note:end -->
 
 ## Harness A — propagate an approved DTO field
 

@@ -2,7 +2,19 @@
 
 Atualização da pesquisa: 19 de outubro de 2026. O alvo econômico é o trabalho recorrente de engenharia com critérios executáveis de aceitação. Três caminhos devem ser comparados: automação determinística, modelo local e colaboração local + nuvem. Um modelo de nuvem também pode construir procedimentos reutilizáveis em uma etapa separada; esse investimento não precisa se repetir em cada tarefa. O texto separa resultados medidos, implementações de fornecedores e a arquitetura empresarial proposta. Nenhum teste de desempenho de modelos ou de invasão foi executado nesta atualização.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **SLM** — modelo de linguagem de pequeno porte; **HERA** — sistema de alocação de tarefas entre local e nuvem avaliado no estudo citado; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ### Economia híbrida: as evidências mais diretamente aplicáveis à engenharia
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **API** — interface de programação de aplicações; conecta componentes de software; **TCO** — custo total de propriedade, incluindo aquisição e operação; **GB** — gigabyte, unidade decimal de capacidade de dados; **MLX** — framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; **HERA** — sistema de alocação de tarefas entre local e nuvem avaliado no estudo citado; **US$** — dólares dos Estados Unidos; **B / A…B** — B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.
+
+<!-- acronym-note:end -->
 
 | Evidência | Configuração e trabalho | Resultado publicado | Implicação para a decisão |
 |---|---|---|---|
@@ -19,13 +31,31 @@ Fontes: [Relatório de medição Nav](https://raw.githubusercontent.com/navikt/m
 
 O HERA também reporta a relação entre qualidade e uso local no HumanEval: Mistral + GPT-4 atinge 47,8% de precisão, 28,4% de uso de SLM e US$ 0,044/requisição; Llama + Claude atinge 44,2%, 36,6% e US$ 0,053. São comparações entre dois pares híbridos, não entre híbrido e respectivas referências somente nuvem. Mais uso local não estabelece sozinho maior qualidade ou menor custo. [HERA tabela 4](https://arxiv.org/html/2504.00434v1).
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **QA** — garantia da qualidade; **DTO** — objeto de transferência de dados; **LRU** — menos recentemente usado; política de remoção do cache; **TTL** — tempo de vida; intervalo de expiração.
+
+<!-- acronym-note:end -->
+
 ### Repositórios reais e casos de teste, em vez de prompts genéricos de chat
 
 O Nav identifica `navikt/isoppfolgingstilfelle` (Ktor), `navikt/ia-tjenester-metrikker` (Spring) e `navikt/familie-tilbake-frontend` (React/Express). São repositórios públicos de uma organização real que atende ao sistema de proteção social. As verificações incluem compilação e testes dos repositórios; o frontend usa 61 arquivos de teste e 572 testes. A suíte de backend já apresentava falhas na referência, portanto “verificado” significa ausência de novas falhas, não correção universal. Sessões inteiramente locais aprovaram perguntas simples, comentários, renomeações e alterações de DTO em pequenas amostras; a criação de um novo arquivo de teste teve 0/3 aprovações. Esses resultados apoiam qualificação por tarefa, não substituição irrestrita de QA. [Estudo Nav e limitações](https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md).
 
 A suíte mais difícil D6 do Arena contém cache LRU/TTL, token bucket, ordenação topológica e um interpretador de templates: quatro tarefas com 80 testes, repetidas com três seeds. Os resultados publicados são 8/12 somente local, 9/12 cascata e 12/12 somente nuvem. O sucesso destacado em tarefas mais fáceis, portanto, não se transfere inalterado ao trabalho mais difícil. Notas de versão e README também divergem em algumas classificações de falhas e frações de nuvem; preservar execuções brutas e revisão escolhida na reprodução. [Especificação D6 e resultados](https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.5.0.md).
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **LLM** — modelo de linguagem de grande porte; **QA** — garantia da qualidade.
+
+<!-- acronym-note:end -->
+
 ### Evidência industrial de especialização e automação reutilizável
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **LLM** — modelo de linguagem de grande porte; **SQL** — Structured Query Language; linguagem de consulta a bancos de dados; **US$** — dólares dos Estados Unidos; **NUS** — Universidade Nacional de Singapura; **ACH** — sistema Automated Compliance Hardening da Meta para encontrar falhas por meio de testes.
+
+<!-- acronym-note:end -->
 
 | Organização ou estudo | Atividade concreta de engenharia | Evidência e limite |
 |---|---|---|
@@ -35,6 +65,12 @@ A suíte mais difícil D6 do Arena contém cache LRU/TTL, token bucket, ordenaç
 | NUS, Gungnir | Evoluir geradores reutilizáveis de testes SQL para SQLite, DuckDB e PostgreSQL | 44 bugs confirmados pelos desenvolvedores, 34 corrigidos; execução separada com DuckDB relata cinco bugs confirmados por US$ 20,85. Após a evolução, a geração roda sem chamadas a LLM. Pesquisa sobre motores reais de banco, não implantação comprovada de LLM local. [Artigo](https://arxiv.org/html/2610.14161v1) |
 
 Gungnir é particularmente relevante ao QA recorrente: gastar inferência para melhorar o gerador, validar a mudança e reutilizar o programa. É um mecanismo complementar de economia, não benchmark de LLMs local + nuvem. Um modelo local pode depois auxiliar a triagem, mas essa extensão é proposta aqui, não medida no artigo.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GRPO** — Group Relative Policy Optimization; método de aprendizado por reforço; **GEPA** — método de otimização reflexiva de prompts discutido no estudo citado; **US$** — dólares dos Estados Unidos; **ICLR** — conferência internacional sobre aprendizado de representações; **B / A…B** — B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.
+
+<!-- acronym-note:end -->
 
 ### Desenvolvimento de harness com apoio da nuvem e execução local posterior
 
@@ -46,6 +82,12 @@ A Microsoft também relata um agente interno de verificação formal Rust que me
 
 **Ciclo proposto:** selecionar uma família recorrente de tarefas; reunir casos de treinamento sem dados identificáveis e um conjunto de avaliação intocado; estabelecer a referência atual somente nuvem; solicitar à nuvem instruções concisas, schemas de ferramentas e recuperação limitada; executar candidatos localmente; promover somente os que melhorarem custo por tarefa aceita sem violar limites de qualidade ou segurança; manter rollback e reavaliar mudanças de comportamento periodicamente. O otimizador não pode editar seus próprios testes de aceitação nem a política de segurança. Testes ocultos e revisão humana final permanecem fora do workspace gravável do agente.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **UI** — interface do usuário; **API** — interface de programação de aplicações; conecta componentes de software; **CI** — integração contínua; verificações automatizadas de compilação e testes; **E2E** — testes de ponta a ponta que cobrem o fluxo completo; **DTO** — objeto de transferência de dados; **AST** — árvore de sintaxe abstrata; representação estruturada do código-fonte.
+
+<!-- acronym-note:end -->
+
 | Harness reutilizável | Trabalho local | Critério independente de aceitação | Condição para escalonamento |
 |---|---|---|---|
 | Propagação DTO/API | Aplicar campo especificado em tipos, mappers e pontos de chamada | Build, compatibilidade de schema e testes de contrato | Regra de negócio ambígua ou contrato incompatível |
@@ -56,6 +98,12 @@ A Microsoft também relata um agente interno de verificação formal Rust que me
 | Triagem CI/documentação | Classificar falhas sanitizadas e redigir referências | Links para evidência real de código/log; aceitação humana | Evidência ausente, dados sensíveis ou diagnóstico incerto |
 
 São candidatos ao piloto, não uma afirmação medida de que a maior parte do trabalho da organização já está coberta. Medir sua frequência em tickets e pull requests concluídos. Começar por operações repetitivas e delimitadas; preservar responsabilidade humana por requisitos, arquitetura e aprovação de produção.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GPU** — unidade de processamento gráfico; **MLX** — framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; **VM** — máquina virtual.
+
+<!-- acronym-note:end -->
 
 ### Estações com internet e segurança: arquitetura prática
 
@@ -76,9 +124,21 @@ Em Apple Silicon, MLX pode permanecer no host para usar a GPU enquanto as ferram
 
 **Implementações industriais demonstram viabilidade, não imunidade.** Docker documenta OpenCode em sandboxes locais com microVM e conectividade controlada por políticas. Anthropic relata redução de 84% dos pedidos de permissão no uso interno de sandbox e publica um runtime para restringir filesystem/rede de processos arbitrários. O percentual mede pedidos, não prevenção de ataques. Esses mecanismos podem apoiar uma arquitetura de modelos locais sem adotar Hermes ou OpenClaw. [Integração Docker OpenCode](https://docs.docker.com/ai/sandboxes/agents/opencode/), [implementação Anthropic](https://www.anthropic.com/engineering/claude-code-sandboxing), [sandbox-runtime](https://github.com/anthropics/sandbox-runtime).
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **VM** — máquina virtual; **MCP** — Model Context Protocol; conecta agentes a ferramentas e dados; **SSH** — Secure Shell; protocolo de acesso remoto autenticado; **DLP** — prevenção de perda de dados.
+
+<!-- acronym-note:end -->
+
 ### Desenho dos controles e testes de aceitação
 
 A tabela é uma referência empresarial proposta. Cada controle deve ser verificado na versão exata de sistema operacional, runtime, agente e política. Os testes usam segredos sintéticos e fixtures isoladas, nunca credenciais reais de produção.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **UI** — interface do usuário; **API** — interface de programação de aplicações; conecta componentes de software; **CI** — integração contínua; verificações automatizadas de compilação e testes; **MCP** — Model Context Protocol; conecta agentes a ferramentas e dados; **DNS** — sistema de nomes de domínio; resolve nomes na rede; **SSH** — Secure Shell; protocolo de acesso remoto autenticado; **URL** — localizador uniforme de recursos; endereço de um recurso.
+
+<!-- acronym-note:end -->
 
 | Superfície | Controle necessário | Teste de aceitação e evidência |
 |---|---|---|
@@ -101,7 +161,19 @@ Allowlist de domínio sozinha não impede vazamento para um serviço permitido, 
 
 A documentação Docker observa explicitamente que clone mode ainda pode expor arquivos `.env` não rastreados e que encaminhamento SSH concede autoridade utilizável mesmo mantendo chaves fora da VM. Um processo MCP local também pode executar com privilégios do host, fora do isolamento. São obrigações de configuração, não motivos para abandonar contenção. [Camadas de isolamento Docker](https://docs.docker.com/ai/sandboxes/security/isolation), [limites de segurança Docker](https://docs.docker.com/ai/sandboxes/security/).
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **OMP** — Oh My Pi; agente de programação.
+
+<!-- acronym-note:end -->
+
 ### Decisões de implementação por runtime e agente
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **API** — interface de programação de aplicações; conecta componentes de software; **MLX** — framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; **MLX-LM** — ferramentas para modelos de linguagem construídas sobre MLX; **SO** — sistema operacional; **TLS** — Transport Layer Security; protege dados em trânsito.
+
+<!-- acronym-note:end -->
 
 | Componente | Capacidade ou limitação verificada | Consequência para implantação |
 |---|---|---|
@@ -113,6 +185,12 @@ A documentação Docker observa explicitamente que clone mode ainda pode expor a
 
 Não existe ranking universal de segurança demonstrado que coloque um desses agentes acima de todos os demais. OMP, OpenCode e Aider são os candidatos propostos à qualificação. Hermes e OpenClaw estão fora da implantação proposta. Canais laterais físicos permanecem como apêndice especializado; os controles principais de estação tratam execução de código, roubo de credenciais, exportação de rede, cadeia de suprimentos e persistência.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ### Medir economia sem confundir tokens, requisições e dinheiro
 
 Registrar tokens locais e remotos de entrada/saída, leituras/escritas de cache, tentativas, decisões de roteamento, ferramentas, latência e aceitação. A fatura remota precisa usar as categorias reais de cobrança; totais brutos de tokens enganam quando cache domina. Reportar custo por tentativa e por tarefa aceita, contando falhas e reparos. Incluir revisão e espera humana, hardware amortizado, energia, operação e desenvolvimento de harness.
@@ -120,6 +198,12 @@ Registrar tokens locais e remotos de entrada/saída, leituras/escritas de cache,
 Para uma família de tarefas, B é custo somente nuvem por tarefa aceita, L custo de operação local, q fração que exige fallback, F custo remoto adicional médio desse fallback, H manutenção de harness por tarefa e R revisão/retrabalho incremental. A proposta é favorável quando **L + q × F + H + R < B**, com qualidade e latência aceitáveis. Fração de tokens em nuvem não substitui q. Em fluxo híbrido continuamente orquestrado, contabilizar todas as chamadas de planejamento e coordenação, em vez de usar equação apenas de fallback.
 
 Premissas ilustrativas, não medições de mercado: B = US$ 0,50, L = US$ 0,04, q = 0,20, F = US$ 0,60, H = US$ 0,03, R = US$ 0,06 resultam em US$ 0,25/tarefa, redução de 50%. Acrescentar US$ 0,30 de revisão incremental leva a US$ 0,55 e elimina a vantagem econômica. Se construir e validar um harness custar US$ 300 e economizar US$ 0,25 por tarefa aceita posterior, após custos recorrentes, o equilíbrio ocorre em 1.200 tarefas. Contabilizar esse investimento inicial uma vez; não amortizá-lo também em H no mesmo cálculo.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **QA** — garantia da qualidade; **UI** — interface do usuário.
+
+<!-- acronym-note:end -->
 
 ### Piloto com repositórios relevantes ao negócio e critérios mensuráveis
 

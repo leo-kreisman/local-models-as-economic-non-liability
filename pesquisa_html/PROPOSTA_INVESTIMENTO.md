@@ -1,6 +1,18 @@
 # Capacidade local de IA para engenharia
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **IA** — inteligência artificial.
+
+<!-- acronym-note:end -->
+
 Proposta para decisão • Problem/Context + Solution + Required Investment • 16 de outubro de 2026
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **UI** — interface do usuário; **API** — interface de programação de aplicações; conecta componentes de software; **TCO** — custo total de propriedade, incluindo aquisição e operação; **US$** — dólares dos Estados Unidos; **IBM** — International Business Machines; empresa; **HP** — Hewlett-Packard; nome de empresa usado no contexto citado.
+
+<!-- acronym-note:end -->
 
 ## Problem / Context — o problema e o contexto
 
@@ -14,6 +26,12 @@ A estabilidade também tem valor econômico. Há relatos de programadores de reg
 
 Código enviado para inferência remota não se torna automaticamente propriedade do fornecedor. Há contratos empresariais que restringem treinamento, como a [política comercial Anthropic](https://privacy.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller). Ainda assim, a empresa precisa decidir onde contexto, logs, avaliações e feedback podem ser processados e retidos. A [reflexão de Satya Nadella](https://snscratchpad.com/posts/reverse-information-paradox/) reforça o valor estratégico desse conhecimento. Não foi demonstrada cessão de sistemas de IBM, HP ou Dell; o problema tratado aqui é a exposição e a dependência que podem ser administradas.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GUI** — interface gráfica do usuário; **API** — interface de programação de aplicações; conecta componentes de software; **IDE** — ambiente integrado de desenvolvimento; **RAM** — memória de acesso aleatório; memória de trabalho; **SSD** — unidade de armazenamento de estado sólido; **GB** — gigabyte, unidade decimal de capacidade de dados; **MoE** — mistura de especialistas; ativa parte das redes de especialistas por token; **B / A…B** — B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.
+
+<!-- acronym-note:end -->
+
 ## Solution — solução proposta
 
 A arquitetura proposta mantém um modelo local principal, o repositório, a busca de contexto e a execução de testes dentro do ambiente controlado. Tarefas elegíveis usam esse caminho por padrão. Um gateway aplica regras de dados e orçamento para enviar à nuvem somente o contexto necessário de tarefas autorizadas. Conteúdo que não pode sair permanece local; dificuldade do modelo não autoriza automaticamente exportação. Essa é uma combinação **local + nuvem**, não apenas roteamento entre duas APIs externas.
@@ -21,6 +39,12 @@ A arquitetura proposta mantém um modelo local principal, o repositório, a busc
 A escolha inicial deve comparar um 27B denso e um 35B MoE, em 4 e 8 bits, no harness utilizado pela equipe. A contagem total do MoE determina armazenamento, enquanto a parte ativa ajuda a explicar custo de computação; não são medidas intercambiáveis. Uma configuração de aproximadamente 64 GB é candidata prática para esses modelos, mas contexto, IDE, containers de testes e processos concorrentes precisam entrar na medição. Flash-Next com offloading em SSD integra o piloto de 64 GB; DeepSeek V4.1 terá qualificação própria: o custo de I/O e a latência devem ser comparados ao ganho de qualidade.
 
 A [model card Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) mostra evolução mantendo 27B, e o [FigmaTrace](https://arxiv.org/html/2608.21460v1) mostra especialização do mesmo modelo com dados de GUI. São justificativas para avaliar modelos compactos, não garantias de equivalência universal. O [DeepSeek V4.1 Flash](https://arxiv.org/html/2609.19969v1) é uma arquitetura maior com cache mais eficiente; sua evolução não deve ser descrita como simples melhora de dataset com tamanho constante.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **QA** — garantia da qualidade; **UI** — interface do usuário; **API** — interface de programação de aplicações; conecta componentes de software; **SQL** — Structured Query Language; linguagem de consulta a bancos de dados.
+
+<!-- acronym-note:end -->
 
 | Trabalho | Caminho inicial | Validação antes de aceitar |
 |---|---|---|
@@ -32,6 +56,12 @@ A [model card Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) mostra evolu
 
 Há dois modos de disponibilizar essa capacidade. Máquinas individuais conservam isolamento e evitam fila compartilhada, mas podem ter baixa utilização. Um servidor interno com API facilita manutenção e rateio, mas exige planejamento de concorrência e controle de acesso entre projetos. Um cluster de Macs não deve ser comprado supondo soma linear de RAM ou tokens/s: divisão de um modelo entre nós, réplicas independentes e filas de tarefas têm custos diferentes. Os casos e benchmarks do relatório orientam os ensaios; não substituem um dimensionamento do time.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **CLI** — interface de linha de comando; **OMP** — Oh My Pi; agente de programação; **VM** — máquina virtual; **BYOK** — usar sua própria chave; fornecer uma credencial do provedor.
+
+<!-- acronym-note:end -->
+
 ### Agentes e editor: conservar o fluxo, escolher o backend
 
 O piloto incluirá Oh My Pi, OpenCode e Aider como alternativas configuráveis, além da possibilidade de conservar Claude Code, Codex CLI, Copilot CLI e VS Code com inferência local. Os caminhos estão documentados em [OMP Providers](https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md), [OpenCode Providers](https://opencode.ai/docs/providers/), [Ollama para Claude Code](https://docs.ollama.com/integrations/claude-code), [OpenAI — CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli), [GitHub — Copilot BYOK](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/use-byok-models) e [VS Code — modelos](https://code.visualstudio.com/docs/agent-customization/language-models). A integração preserva a interface familiar e pode diminuir esforço de adoção; o benefício será medido, sem redução presumida do orçamento.
@@ -39,6 +69,12 @@ O piloto incluirá Oh My Pi, OpenCode e Aider como alternativas configuráveis, 
 A escolha considerará a política efetiva de ferramentas e a contenção no sistema operacional. OMP e OpenCode oferecem controles granulares, mas seus padrões documentados são permissivos: `yolo` no primeiro e `allow` para a maioria das ferramentas no segundo. Fontes: [OMP Settings](https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md) e [OpenCode Permissions](https://opencode.ai/docs/permissions/). A proposta é qualificar configurações restritas. Não há ranking independente de segurança entre esses produtos apresentado aqui. No Mac, o [sandbox de Bash do Claude Code](https://code.claude.com/docs/en/sandboxing) usa Seatbelt; VM Linux não é a única opção de isolamento.
 
 O aceite deve confirmar o destino da inferência e dos serviços auxiliares, testar execução e arquivos proibidos e verificar que a configuração de um projeto não relaxe a política corporativa. O detalhamento de comandos, limites do modo offline e recursos do editor está no relatório. A verba de integração contempla essa qualificação de harnesses.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **API** — interface de programação de aplicações; conecta componentes de software; **GPU** — unidade de processamento gráfico; **MLX** — framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; **OMP** — Oh My Pi; agente de programação; **VM** — máquina virtual; **SO** — sistema operacional; **CI** — integração contínua; verificações automatizadas de compilação e testes; **DNS** — sistema de nomes de domínio; resolve nomes na rede; **SSH** — Secure Shell; protocolo de acesso remoto autenticado.
+
+<!-- acronym-note:end -->
 
 ### Segurança de estações com acesso à internet
 
@@ -52,17 +88,35 @@ A aceitação inclui testes de vazamento de segredos sintéticos, instruções m
 
 Canais laterais físicos são ameaça especializada secundária, documentada no apêndice da pesquisa. O investimento principal protege ativos cotidianos da estação contra roubo de credenciais, execução fora do workspace, exportação de dados, comprometimento da cadeia de suprimentos e persistência. A matriz completa de controles/testes está no [guia de engenharia](GUIA_ENGENHARIA_HIBRIDA.md).
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **UI** — interface do usuário; **TCO** — custo total de propriedade, incluindo aquisição e operação; **HERA** — sistema de alocação de tarefas entre local e nuvem avaliado no estudo citado; **DTO** — objeto de transferência de dados; **SQL** — Structured Query Language; linguagem de consulta a bancos de dados; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ### Roteamento por evidência e trabalho recorrente
 
 O piloto priorizará edições mecânicas, propagação de DTO, expansão de regressões, alterações SQL delimitadas e manutenção UI. O Nav reporta custos pareados nuvem/híbrido de US$ 0,339/0,134 para mapper Ktor e US$ 0,227/0,121 para renomeação frontend, mas US$ 0,092/0,164 para Spring: delegar pode aumentar a fatura. O [estudo Nav](https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md) apoia qualificar famílias de tarefas em vez de prometer uma taxa única de economia para todo código.
 
 O [estudo HERA](https://arxiv.org/html/2504.00434v1), publicado em abril de 2025 com autores ligados à Microsoft, demonstra alocação local + nuvem, não implantação interna na Microsoft. O custo remoto HumanEval cai de US$ 0,056 para US$ 0,044, excluindo TCO local e com perda de qualidade. O destaque de 8% no README Arena conflita com as [notas revisadas](https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.4.1.md), que registram 10,3% dos tokens na nuvem. Nenhum equivale diretamente a percentual de economia na fatura.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **LLM** — modelo de linguagem de grande porte; **QA** — garantia da qualidade.
+
+<!-- acronym-note:end -->
+
 ### Construir harnesses reutilizáveis e amortizar seu custo
 
 Usar um modelo de nuvem autorizado para propor dois harnesses iniciais a partir de exemplos públicos ou minimizados e aprovados. Congelar o modelo local e avaliar mudanças de instruções, recuperação, schemas de ferramentas e recuperação de erros contra testes independentes. O [SkillOpt](https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/) oferece evidência de otimização de uma camada externa de skills; seus benchmarks não voltados a código não estabelecem equivalência de código empresarial. Para QA repetitivo, [Gungnir](https://arxiv.org/html/2610.14161v1) demonstra caminho complementar: melhorar geradores reutilizáveis de testes e executá-los sem novas chamadas a LLM.
 
 Medir quatro braços: fluxo atual de nuvem, harness local genérico, harness local especializado e local especializado + nuvem. Incluir codemods determinísticos quando apropriado. Contar tentativas, planejamento remoto, categorias de cache, revisão humana, operação e desenvolvimento de harness. A otimização pela nuvem nunca deve alterar testes ocultos de aceitação nem política empresarial de segurança. As horas existentes de integração e segurança permanecem provisórias; ampliar além de dois harnesses exige nova estimativa.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **QA** — garantia da qualidade; **UI** — interface do usuário; **FinOps** — prática de operações financeiras para gerir consumo e custo de tecnologia.
+
+<!-- acronym-note:end -->
 
 ### Piloto de seis semanas e decisão de expansão
 
@@ -72,11 +126,29 @@ Um conjunto inicial de 100 tarefas reais, distribuídas entre backend, UI, QA e 
 
 O time de plataforma responde pelo runtime e atualizações; segurança pelas políticas e testes; FinOps pela fatura e rateio; líderes de engenharia e QA pela aceitação dos resultados. A expansão depende dessas evidências. Não se propõe desligar a capacidade atual antes de qualificar o caminho local.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GB** — gigabyte, unidade decimal de capacidade de dados; **NR** — não reportado na medição citada.
+
+<!-- acronym-note:end -->
+
 ## Estações de 32, 48 e 64 GB: capacidade local com investimento proporcional
 
 Atualização: 19 de outubro de 2026. O piloto deve começar também nas máquinas existentes de 32, 48 e 64 GB. Capacidade de memória, velocidade do chip, quantização e implementação são variáveis distintas. Há medições publicadas na faixa de 20–30 tokens/s e acima dela em configurações selecionadas; não é necessário comprar uma estação de 128–512 GB para iniciar. Os números abaixo são publicados pelos executores, não reproduções desta pesquisa. NR significa não reportado nesta seleção.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GB** — gigabyte, unidade decimal de capacidade de dados; **WARP** — Weight-Aware Runtime and Paging; runtime de inferência com streaming de pesos.
+
+<!-- acronym-note:end -->
+
 ### Benchmarks diretamente úteis ao dimensionamento menor
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **GPU** — unidade de processamento gráfico; **CPU** — unidade central de processamento; **SSD** — unidade de armazenamento de estado sólido; **GB** — gigabyte, unidade decimal de capacidade de dados; **GiB** — gibibyte, unidade binária de capacidade de dados; **MLX** — framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; **oMLX** — software de serviço de modelos construído sobre MLX; **MTP** — predição de múltiplos tokens para geração especulativa; **PP** — processamento do prompt ou prefill; processa tokens de entrada; **TTFT** — tempo até o primeiro token; **KV** — cache de chaves e valores; armazena estado de atenção; **NR** — não reportado na medição citada; **Q4** — família de quantização em 4 bits; sufixos identificam o formato específico; **Q8** — família de quantização em 8 bits; sufixos identificam o formato específico; **IQ2_K** — formato de quantização de poucos bits usado para pesos do modelo; **NVFP4** — formato de ponto flutuante de 4 bits da NVIDIA; **WARP** — Weight-Aware Runtime and Paging; runtime de inferência com streaming de pesos; **tok/s** — tokens por segundo; medida de vazão; **K4/V4** — caches de chaves e valores quantizados em 4 bits; **B / A…B** — B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.
+
+<!-- acronym-note:end -->
 
 | Máquina física | Modelo / formato | Runtime e residência | PP tok/s | Decode tok/s | Condição e fonte |
 |---|---|---|---:|---:|---|
@@ -95,7 +167,19 @@ Atualização: 19 de outubro de 2026. O piloto deve começar também nas máquin
 
 O resultado WARP preenche a lacuna anterior de execução documentada do DeepSeek V4.1 Flash em Mac de 64 GB; não demonstra 20–30 tokens/s nesse modelo e hardware, nem estabelece o teto de outros runtimes. O modelo Bonsai continua excluído. Colibri permanece na comparação técnica anterior, sem transformar resultados de DeepSeek V4 em V4.1.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **GB** — gigabyte, unidade decimal de capacidade de dados; **GiB** — gibibyte, unidade binária de capacidade de dados; **TTFT** — tempo até o primeiro token.
+
+<!-- acronym-note:end -->
+
 ### O que comprar ou reutilizar por capacidade
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **IDE** — ambiente integrado de desenvolvimento; **SSD** — unidade de armazenamento de estado sólido; **GB** — gigabyte, unidade decimal de capacidade de dados; **MoE** — mistura de especialistas; ativa parte das redes de especialistas por token; **Q4** — família de quantização em 4 bits; sufixos identificam o formato específico; **Q8** — família de quantização em 8 bits; sufixos identificam o formato específico; **B / A…B** — B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.
+
+<!-- acronym-note:end -->
 
 | Memória | Caminho prioritário | Precisão e folga | Critério de expansão |
 |---|---|---|---|
@@ -107,6 +191,12 @@ No [ensaio de capacidade do Nav](https://github.com/navikt/mlx-workspace/blob/ma
 
 O ensaio de 48 GiB do llm-speed publicou TTFT de 8,17 / 27,66 / 113,21 s nas três entradas da tabela, com thinking desligado. Seu pico de 27,17 tokens/s na menor entrada não substitui a mediana de 13,70. A carga concorrente explica por que o teste deve incluir o ambiente de trabalho, embora esse estudo não isole sua contribuição causal.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **TCO** — custo total de propriedade, incluindo aquisição e operação; **GPU** — unidade de processamento gráfico; **RAM** — memória de acesso aleatório; memória de trabalho; **VRAM** — memória de vídeo disponível ao processador gráfico; **SSD** — unidade de armazenamento de estado sólido; **GB** — gigabyte, unidade decimal de capacidade de dados; **PP** — processamento do prompt ou prefill; processa tokens de entrada; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ### Da velocidade à economia de engenharia
 
 Um relato de operação doméstica informa aproximadamente 60 tokens/s com GPU de 32 GB de VRAM, 64 GB de RAM e SSD. É evidência fornecida pelo responsável pela proposta, sem logs anexados, modelo de GPU, checkpoint, quantização, contexto ou separação de reasoning/output. Não corresponde a uma medição em Mac nem permite atribuir a mesma taxa a cada modelo citado. A reprodução deve registrar esses campos e comparar a mesma tarefa aceita nas estações menores.
@@ -117,9 +207,21 @@ O fluxo econômico proposto é: tarefas recorrentes locais → testes independen
 
 O orçamento deve comparar reaproveitamento com compra gradual. A faixa de US$ 2500–5000 por estação é uma hipótese de planejamento, não cotação nem correspondência automática entre preço e RAM. Cinco estações representam US$ 12500–25000 somente em hardware; integração, segurança, operação e retrabalho continuam no TCO. Não multiplicar tokens locais pelo preço nominal de tokens remotos para declarar economia: medir a redução líquida da fatura, inclusive cache e escalonamentos.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **API** — interface de programação de aplicações; conecta componentes de software; **RAM** — memória de acesso aleatório; memória de trabalho; **SSD** — unidade de armazenamento de estado sólido; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ## Required Investment — investimento necessário
 
 O orçamento abaixo é **cenário de planejamento**, sem cotação vinculante. A faixa sugerida pelo usuário, US$ 2.500–5.000 por estação, precisa ser confirmada para RAM, chip, SSD, impostos e garantia específicos. O cenário central usa o teto dessa faixa, cinco estações e trabalho de implantação explicitamente contabilizado. Não presume que uma estação substitua um número ilimitado de agentes.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
 
 | Componente do piloto | Premissa | Valor |
 |---|---|---:|
@@ -132,9 +234,21 @@ O orçamento abaixo é **cenário de planejamento**, sem cotação vinculante. A
 
 As horas podem representar alocação interna, não desembolso adicional, mas têm custo de oportunidade. O custo recorrente é hipótese a validar e não deve duplicar trabalho já contabilizado. Licenças, administração adicional, treinamento especializado, SSD de reposição e adequações físicas entram no orçamento se necessários. A API remanescente é despesa operacional contínua; não está escondida no investimento inicial.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **API** — interface de programação de aplicações; conecta componentes de software; **TCO** — custo total de propriedade, incluindo aquisição e operação; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
+
 ### Cenários de retorno com investimento completo
 
 Assumem cinco usuários, redução efetiva de 50% da fatura, US$ 500/mês de operação e US$ 41.400 iniciais. Nenhum custo extra de retrabalho foi presumido; se surgir, deve ser subtraído. Os valores de US$ 2 mil–10 mil derivam do relato do usuário, não de média empresarial publicada.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **API** — interface de programação de aplicações; conecta componentes de software; **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
 
 | API atual por pessoa/mês | API atual do time/mês | API + operação após migração | Economia mensal | Payback completo | Saldo em 12 meses após investimento |
 |---:|---:|---:|---:|---:|---:|
@@ -145,6 +259,12 @@ Assumem cinco usuários, redução efetiva de 50% da fatura, US$ 500/mês de ope
 Com conta de US$ 2.000 por pessoa e apenas 20% de redução da fatura, a economia cai para US$ 1.500/mês e o retorno vai a 27,6 meses. Essa sensibilidade impede tratar economia alta como garantida. Para recuperar o cenário central em 12 meses, é preciso evitar pelo menos US$ 3.950/mês de API do time, antes de eventuais custos humanos extras — 39,5% da conta inicial de US$ 10.000.
 
 Se o time já possui hardware suficiente, o investimento incremental pode ser muito menor. Se pretende compartilhar infraestrutura, é necessário medir throughput, fila e isolamento antes de reduzir a quantidade de máquinas na planilha. A comparação deve usar TCO com a mesma qualidade de entrega e o mesmo horizonte.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **US$** — dólares dos Estados Unidos.
+
+<!-- acronym-note:end -->
 
 ### Decisão solicitada à gestão
 

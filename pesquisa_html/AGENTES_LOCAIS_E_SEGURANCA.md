@@ -2,7 +2,19 @@
 
 Atualização de 16 de outubro de 2026. A interface de desenvolvimento, o modelo que produz tokens e as permissões de execução são camadas separadas. É possível manter um agente conhecido e mudar seu backend para uma estação ou servidor interno. Portanto, problemas de segurança de um agente com acesso irrestrito não invalidam a inferência local: existe escolha de harness, configuração de permissões e isolamento externo. A documentação abaixo confirma caminhos de integração; não é um teste de desempenho ou uma auditoria comparativa dos produtos.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **OMP** — Oh My Pi; agente de programação.
+
+<!-- acronym-note:end -->
+
 ### Compatibilidade e controles documentados
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **API** — interface de programação de aplicações; conecta componentes de software; **CLI** — interface de linha de comando; **SO** — sistema operacional; **BYOK** — usar sua própria chave; fornecer uma credencial do provedor.
+
+<!-- acronym-note:end -->
 
 | Interface | Caminho para inferência local | Controles e pontos de verificação | Fonte primária |
 |---|---|---|---|
@@ -16,6 +28,12 @@ Atualização de 16 de outubro de 2026. A interface de desenvolvimento, o modelo
 **Oh My Pi e OpenCode são alternativas configuráveis; “mais seguros” não é uma propriedade demonstrada apenas pelo nome.** No Oh My Pi consultado, `tools.approvalMode` tem padrão `yolo`, enquanto `always-ask` e políticas por ferramenta permitem restringir ações. A documentação mostra que configuração de projeto pode substituir listas globais, inclusive `disabledProviders`. Uma política corporativa precisa validar o resultado efetivo. No OpenCode, a maioria das permissões inicia em `allow`; há tratamento específico para arquivos `.env` e confirmação para diretórios externos. Esses padrões devem ser revistos antes de processar projetos sensíveis. Fontes: [OMP Settings](https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md) e [OpenCode Permissions](https://opencode.ai/docs/permissions/).
 
 A comparação correta considera uma configuração concreta: ferramentas expostas, arquivos montados, credenciais disponíveis, destinos de rede, extensões e possibilidade de o repositório alterar políticas. Um harness aberto permite inspecionar e adaptar esses componentes; isso facilita governança, mas não constitui certificação. Não foi localizado nesta atualização um benchmark independente que classifique esses seis ambientes por resistência a exfiltração sob condições equivalentes.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **CLI** — interface de linha de comando; **IDE** — ambiente integrado de desenvolvimento; **KV** — cache de chaves e valores; armazena estado de atenção; **BYOK** — usar sua própria chave; fornecer uma credencial do provedor.
+
+<!-- acronym-note:end -->
 
 ### Exemplos de conexão, sem trocar o trabalho do desenvolvedor
 
@@ -53,13 +71,31 @@ O modelo precisa suportar tool calling e streaming. A documentação recomenda c
 
 No [VS Code](https://code.visualstudio.com/docs/agent-customization/language-models), o caminho documentado é `Chat: Manage Language Models`, adicionar um provedor local e selecionar o modelo. `chat.utilityModel` e `chat.utilitySmallModel` também podem apontar para modelos locais. A documentação distingue chat local de sugestões inline e recursos dependentes de embeddings/serviços Copilot, que não passam automaticamente a funcionar offline. O suporte BYOK em sessões do Copilot harness no Agent Host é indicado como experimental. Não se deve extrapolar suporte do terminal para toda extensão de IDE.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **VM** — máquina virtual; **WSL2** — Subsistema Windows para Linux, versão 2.
+
+<!-- acronym-note:end -->
+
 ### Sandbox real também existe no Mac
 
 A seção anterior destacou controles Linux do OpenShell. Há outra opção relevante: o [sandbox do Claude Code](https://code.claude.com/docs/en/sandboxing) documenta Seatbelt no macOS e bubblewrap no Linux/WSL2, com regras para arquivos e rede. Portanto, uma VM Linux não é a única possibilidade de isolamento no Mac. É preciso verificar o alcance do sandbox de Bash, as ferramentas executadas fora dele e o tratamento de exceções. Não se propõe habilitar flags que removam aprovações ou isolamento.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **QA** — garantia da qualidade; **UI** — interface do usuário.
+
+<!-- acronym-note:end -->
+
 ### Como escolher para backend, testes e UI
 
 O piloto deve comparar pelo menos dois harnesses com o mesmo modelo e a mesma política de acesso. Na primeira execução, permitir leitura do repositório e proposta de diff; depois liberar escrita no workspace e testes em ambiente descartável. Para UI, expor navegador e aplicação de teste sem sessão corporativa autenticada. Para backend, usar banco de testes e credenciais de escopo mínimo. Para QA, executar fixtures e testes sem acesso de escrita à produção. São critérios de implantação propostos, não controles já instalados nesta pesquisa.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações da tabela:** **API** — interface de programação de aplicações; conecta componentes de software; **SO** — sistema operacional.
+
+<!-- acronym-note:end -->
 
 | Critério de aceitação proposto | Evidência que o piloto deve guardar |
 |---|---|

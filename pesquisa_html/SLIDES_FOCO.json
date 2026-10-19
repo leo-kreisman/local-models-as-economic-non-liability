@@ -1,7 +1,7 @@
 {
   "3": {
     "title": "Economia híbrida depende da tarefa",
-    "body": "<table><tr><th>Tarefa</th><th>Nuvem → híbrido</th><th>Variação</th></tr><tr><td>Mapper Ktor</td><td>US$ 0,339 → 0,134</td><td>−60,5%</td></tr><tr><td>Renomeação TypeScript</td><td>US$ 0,227 → 0,121</td><td>−46,7%</td></tr><tr><td>Campo Spring</td><td>US$ 0,092 → 0,164</td><td>+78,3%</td></tr></table><p>Qwen local no Mac + Sonnet remoto. Selecionar famílias pelo custo por tarefa aceita; não são economias mensais de time.</p>",
+    "body": "<!-- acronym-note:start --><p class=\"acronym-note\"><strong>Siglas e notações:</strong> <b>US$</b>: dólares dos Estados Unidos.</p><!-- acronym-note:end -->\n\n<table><tr><th>Tarefa</th><th>Nuvem → híbrido</th><th>Variação</th></tr><tr><td>Mapper Ktor</td><td>US$ 0,339 → 0,134</td><td>−60,5%</td></tr><tr><td>Renomeação TypeScript</td><td>US$ 0,227 → 0,121</td><td>−46,7%</td></tr><tr><td>Campo Spring</td><td>US$ 0,092 → 0,164</td><td>+78,3%</td></tr></table><p>Qwen local no Mac + Sonnet remoto. Selecionar famílias pelo custo por tarefa aceita; não são economias mensais de time.</p>",
     "source": "<a href=\"https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md\">Nav — experimentos pareados em repositórios</a>"
   },
   "6": {
@@ -11,7 +11,7 @@
   },
   "7": {
     "title": "Qualificar OMP, OpenCode e Aider",
-    "body": "<table><tr><th>Camada</th><th>Decisão</th></tr><tr><td>MLX / llama.cpp</td><td>Gateway privado de inferência autenticada</td></tr><tr><td>Agente</td><td>Política efetiva restrita de ferramentas</td></tr><tr><td>Execução</td><td>Limite de SO/VM e rede controlada</td></tr><tr><td>Aceitação</td><td>Testes independentes e revisão humana</td></tr></table><p>Implantação open weight é gerenciável. O nome do agente não garante segurança.</p>",
+    "body": "<!-- acronym-note:start --><p class=\"acronym-note\"><strong>Siglas e notações:</strong> <b>MLX</b>: framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; <b>OMP</b>: Oh My Pi; agente de programação; <b>VM</b>: máquina virtual; <b>SO</b>: sistema operacional.</p><!-- acronym-note:end -->\n\n<table><tr><th>Camada</th><th>Decisão</th></tr><tr><td>MLX / llama.cpp</td><td>Gateway privado de inferência autenticada</td></tr><tr><td>Agente</td><td>Política efetiva restrita de ferramentas</td></tr><tr><td>Execução</td><td>Limite de SO/VM e rede controlada</td></tr><tr><td>Aceitação</td><td>Testes independentes e revisão humana</td></tr></table><p>Implantação open weight é gerenciável. O nome do agente não garante segurança.</p>",
     "source": "<a href=\"https://opencode.ai/docs/permissions/\">OpenCode</a> · <a href=\"https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md\">OMP</a> · <a href=\"https://aider.chat/docs/usage/lint-test.html\">Aider</a>"
   },
   "8": {
@@ -28,7 +28,7 @@
   },
   "4": {
     "title": "Começar também com 32, 48 e 64 GB",
-    "body": "<table><tr><th>Mac</th><th>Modelo / runtime</th><th>Decode tok/s</th></tr><tr><td>M1 Pro · 32 GB</td><td>35B MoE Q4 · llama.cpp</td><td>25,4</td></tr><tr><td>M4 Pro · 48 GB</td><td>27B Q4 · Rapid-MLX</td><td>15,2</td></tr><tr><td>M4 Pro · 64 GB</td><td>27B Q4 / Q8 · oMLX + MTP</td><td>20,8 / 16,6</td></tr></table><p>Reutilizar estações antes de comprar. Protocolos distintos; o teste de 32 GB registra swap no host. Memória não determina sozinha velocidade ou qualidade.</p>",
+    "body": "<!-- acronym-note:start --><p class=\"acronym-note\"><strong>Siglas e notações:</strong> <b>GB</b>: gigabyte, unidade decimal de capacidade de dados; <b>MoE</b>: mistura de especialistas; ativa parte das redes de especialistas por token; <b>MLX</b>: framework de aprendizado de máquina da Apple; nome de runtime, não de quantização; <b>oMLX</b>: software de serviço de modelos construído sobre MLX; <b>MTP</b>: predição de múltiplos tokens para geração especulativa; <b>Q4</b>: família de quantização em 4 bits; sufixos identificam o formato específico; <b>Q8</b>: família de quantização em 8 bits; sufixos identificam o formato específico; <b>tok/s</b>: tokens por segundo; medida de vazão; <b>B / A…B</b>: B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token.</p><!-- acronym-note:end -->\n\n<table><tr><th>Mac</th><th>Modelo / runtime</th><th>Decode tok/s</th></tr><tr><td>M1 Pro · 32 GB</td><td>35B MoE Q4 · llama.cpp</td><td>25,4</td></tr><tr><td>M4 Pro · 48 GB</td><td>27B Q4 · Rapid-MLX</td><td>15,2</td></tr><tr><td>M4 Pro · 64 GB</td><td>27B Q4 / Q8 · oMLX + MTP</td><td>20,8 / 16,6</td></tr></table><p>Reutilizar estações antes de comprar. Protocolos distintos; o teste de 32 GB registra swap no host. Memória não determina sozinha velocidade ou qualidade.</p>",
     "source": "<a href=\"https://raw.githubusercontent.com/marcofariasmx/local-llm-apple-silicon/main/README.md\">M1 Pro 32 GB</a> · <a href=\"https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro\">M4 Pro 48 GB</a> · <a href=\"https://github.com/jundot/omlx/discussions/2811\">M4 Pro 64 GB</a>"
   }
 }

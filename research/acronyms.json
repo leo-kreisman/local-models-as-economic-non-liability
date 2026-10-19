@@ -1,0 +1,526 @@
+{
+  "AI": {
+    "en": "artificial intelligence",
+    "pt": "inteligência artificial"
+  },
+  "IA": {
+    "en": "artificial intelligence",
+    "pt": "inteligência artificial"
+  },
+  "LLM": {
+    "en": "large language model",
+    "pt": "modelo de linguagem de grande porte"
+  },
+  "SLM": {
+    "en": "small language model",
+    "pt": "modelo de linguagem de pequeno porte"
+  },
+  "QA": {
+    "en": "quality assurance",
+    "pt": "garantia da qualidade"
+  },
+  "QE": {
+    "en": "quality engineering",
+    "pt": "engenharia da qualidade"
+  },
+  "UI": {
+    "en": "user interface",
+    "pt": "interface do usuário"
+  },
+  "GUI": {
+    "en": "graphical user interface",
+    "pt": "interface gráfica do usuário"
+  },
+  "API": {
+    "en": "application programming interface; connects software components",
+    "pt": "interface de programação de aplicações; conecta componentes de software"
+  },
+  "CLI": {
+    "en": "command-line interface",
+    "pt": "interface de linha de comando"
+  },
+  "IDE": {
+    "en": "integrated development environment",
+    "pt": "ambiente integrado de desenvolvimento"
+  },
+  "SWE": {
+    "en": "software engineering; benchmark family for software tasks",
+    "pt": "engenharia de software; família de benchmarks de tarefas de software"
+  },
+  "TCO": {
+    "en": "total cost of ownership, including acquisition and operation",
+    "pt": "custo total de propriedade, incluindo aquisição e operação"
+  },
+  "CAPEX": {
+    "en": "capital expenditure; initial investment",
+    "pt": "despesa de capital; investimento inicial"
+  },
+  "OPEX": {
+    "en": "operating expenditure; recurring operating costs",
+    "pt": "despesa operacional; custos recorrentes de operação"
+  },
+  "ROI": {
+    "en": "return on investment",
+    "pt": "retorno sobre investimento"
+  },
+  "GPU": {
+    "en": "graphics processing unit",
+    "pt": "unidade de processamento gráfico"
+  },
+  "CPU": {
+    "en": "central processing unit",
+    "pt": "unidade central de processamento"
+  },
+  "NPU": {
+    "en": "neural processing unit",
+    "pt": "unidade de processamento neural"
+  },
+  "RAM": {
+    "en": "random-access memory; working memory",
+    "pt": "memória de acesso aleatório; memória de trabalho"
+  },
+  "VRAM": {
+    "en": "video memory available to the graphics processor",
+    "pt": "memória de vídeo disponível ao processador gráfico"
+  },
+  "SSD": {
+    "en": "solid-state drive",
+    "pt": "unidade de armazenamento de estado sólido"
+  },
+  "NVMe": {
+    "en": "Non-Volatile Memory Express; storage access protocol",
+    "pt": "Non-Volatile Memory Express; protocolo de acesso ao armazenamento"
+  },
+  "GB": {
+    "en": "gigabyte, a decimal unit of data capacity",
+    "pt": "gigabyte, unidade decimal de capacidade de dados"
+  },
+  "GiB": {
+    "en": "gibibyte, a binary unit of data capacity",
+    "pt": "gibibyte, unidade binária de capacidade de dados"
+  },
+  "TB": {
+    "en": "terabyte, a decimal unit of data capacity",
+    "pt": "terabyte, unidade decimal de capacidade de dados"
+  },
+  "KB": {
+    "en": "kilobyte, a decimal unit of data capacity",
+    "pt": "kilobyte, unidade decimal de capacidade de dados"
+  },
+  "MoE": {
+    "en": "mixture of experts; activates a subset of expert networks per token",
+    "pt": "mistura de especialistas; ativa parte das redes de especialistas por token"
+  },
+  "MLX": {
+    "en": "Apple machine-learning framework; runtime name, not a quantization",
+    "pt": "framework de aprendizado de máquina da Apple; nome de runtime, não de quantização"
+  },
+  "oMLX": {
+    "en": "model-serving software built on MLX",
+    "pt": "software de serviço de modelos construído sobre MLX"
+  },
+  "MTPLX": {
+    "en": "MLX-based inference runtime with speculative generation",
+    "pt": "runtime de inferência baseado em MLX com geração especulativa"
+  },
+  "MLX-LM": {
+    "en": "language-model tools built on MLX",
+    "pt": "ferramentas para modelos de linguagem construídas sobre MLX"
+  },
+  "MTP": {
+    "en": "multi-token prediction; predicts multiple tokens for speculative generation",
+    "pt": "predição de múltiplos tokens para geração especulativa"
+  },
+  "PP": {
+    "en": "prompt processing or prefill; processes input tokens",
+    "pt": "processamento do prompt ou prefill; processa tokens de entrada"
+  },
+  "TG": {
+    "en": "token generation or decode; generates new tokens",
+    "pt": "geração de tokens ou decode; gera tokens novos"
+  },
+  "TTFT": {
+    "en": "time to first token",
+    "pt": "tempo até o primeiro token"
+  },
+  "KV": {
+    "en": "key–value cache; stores attention state",
+    "pt": "cache de chaves e valores; armazena estado de atenção"
+  },
+  "NR": {
+    "en": "not reported in the cited measurement",
+    "pt": "não reportado na medição citada"
+  },
+  "Q4": {
+    "en": "4-bit quantization family; suffixes identify the specific format",
+    "pt": "família de quantização em 4 bits; sufixos identificam o formato específico"
+  },
+  "Q8": {
+    "en": "8-bit quantization family; suffixes identify the specific format",
+    "pt": "família de quantização em 8 bits; sufixos identificam o formato específico"
+  },
+  "IQ4": {
+    "en": "importance-aware quantization family near 4 bits per weight",
+    "pt": "família de quantização orientada por importância próxima de 4 bits por peso"
+  },
+  "IQ2_K": {
+    "en": "low-bit quantization format used for model weights",
+    "pt": "formato de quantização de poucos bits usado para pesos do modelo"
+  },
+  "BF16": {
+    "en": "bfloat16; 16-bit floating-point format",
+    "pt": "bfloat16; formato de ponto flutuante de 16 bits"
+  },
+  "FP4": {
+    "en": "4-bit floating point",
+    "pt": "ponto flutuante de 4 bits"
+  },
+  "FP8": {
+    "en": "8-bit floating point",
+    "pt": "ponto flutuante de 8 bits"
+  },
+  "NVFP4": {
+    "en": "NVIDIA 4-bit floating-point format",
+    "pt": "formato de ponto flutuante de 4 bits da NVIDIA"
+  },
+  "GGUF": {
+    "en": "model file format commonly used by llama.cpp",
+    "pt": "formato de arquivo de modelos usado com frequência pelo llama.cpp"
+  },
+  "VLM": {
+    "en": "vision-language model",
+    "pt": "modelo de visão e linguagem"
+  },
+  "RL": {
+    "en": "reinforcement learning",
+    "pt": "aprendizado por reforço"
+  },
+  "GRPO": {
+    "en": "Group Relative Policy Optimization; reinforcement-learning method",
+    "pt": "Group Relative Policy Optimization; método de aprendizado por reforço"
+  },
+  "SFT": {
+    "en": "supervised fine-tuning",
+    "pt": "ajuste fino supervisionado"
+  },
+  "DPO": {
+    "en": "Direct Preference Optimization; training from preference pairs",
+    "pt": "Direct Preference Optimization; treinamento com pares de preferência"
+  },
+  "GEPA": {
+    "en": "reflective prompt-optimization method discussed in the cited study",
+    "pt": "método de otimização reflexiva de prompts discutido no estudo citado"
+  },
+  "HERA": {
+    "en": "local–cloud task-allocation system evaluated in the cited study",
+    "pt": "sistema de alocação de tarefas entre local e nuvem avaliado no estudo citado"
+  },
+  "FinQA": {
+    "en": "financial question answering; verify the dataset variant in each study",
+    "pt": "respostas a perguntas financeiras; verificar a variante do conjunto de dados em cada estudo"
+  },
+  "BFCL": {
+    "en": "Berkeley Function Calling Leaderboard; evaluates tool/function calls",
+    "pt": "Berkeley Function Calling Leaderboard; avalia chamadas de funções e ferramentas"
+  },
+  "MBPP": {
+    "en": "Mostly Basic Python Problems; programming benchmark",
+    "pt": "Mostly Basic Python Problems; benchmark de programação"
+  },
+  "OMP": {
+    "en": "Oh My Pi; coding agent",
+    "pt": "Oh My Pi; agente de programação"
+  },
+  "WARP": {
+    "en": "Weight-Aware Runtime and Paging; weight-streaming inference runtime",
+    "pt": "Weight-Aware Runtime and Paging; runtime de inferência com streaming de pesos"
+  },
+  "VM": {
+    "en": "virtual machine",
+    "pt": "máquina virtual"
+  },
+  "OS": {
+    "en": "operating system",
+    "pt": "sistema operacional"
+  },
+  "SO": {
+    "en": "operating system",
+    "pt": "sistema operacional"
+  },
+  "CI": {
+    "en": "continuous integration; automated build and test checks",
+    "pt": "integração contínua; verificações automatizadas de compilação e testes"
+  },
+  "E2E": {
+    "en": "end-to-end tests covering the complete workflow",
+    "pt": "testes de ponta a ponta que cobrem o fluxo completo"
+  },
+  "DTO": {
+    "en": "data transfer object",
+    "pt": "objeto de transferência de dados"
+  },
+  "SQL": {
+    "en": "Structured Query Language; database query language",
+    "pt": "Structured Query Language; linguagem de consulta a bancos de dados"
+  },
+  "AST": {
+    "en": "abstract syntax tree; structured representation of source code",
+    "pt": "árvore de sintaxe abstrata; representação estruturada do código-fonte"
+  },
+  "MCP": {
+    "en": "Model Context Protocol; connects agents to tools and data",
+    "pt": "Model Context Protocol; conecta agentes a ferramentas e dados"
+  },
+  "BYOK": {
+    "en": "bring your own key; supply a provider credential",
+    "pt": "usar sua própria chave; fornecer uma credencial do provedor"
+  },
+  "DNS": {
+    "en": "Domain Name System; resolves network names",
+    "pt": "sistema de nomes de domínio; resolve nomes na rede"
+  },
+  "SSH": {
+    "en": "Secure Shell; authenticated remote access protocol",
+    "pt": "Secure Shell; protocolo de acesso remoto autenticado"
+  },
+  "TLS": {
+    "en": "Transport Layer Security; protects data in transit",
+    "pt": "Transport Layer Security; protege dados em trânsito"
+  },
+  "HTTP": {
+    "en": "Hypertext Transfer Protocol; web communication protocol",
+    "pt": "Hypertext Transfer Protocol; protocolo de comunicação web"
+  },
+  "URL": {
+    "en": "uniform resource locator; address of a resource",
+    "pt": "localizador uniforme de recursos; endereço de um recurso"
+  },
+  "PII": {
+    "en": "personally identifiable information",
+    "pt": "informações de identificação pessoal"
+  },
+  "DLP": {
+    "en": "data loss prevention",
+    "pt": "prevenção de perda de dados"
+  },
+  "RBAC": {
+    "en": "role-based access control",
+    "pt": "controle de acesso baseado em papéis"
+  },
+  "ACL": {
+    "en": "access control list",
+    "pt": "lista de controle de acesso"
+  },
+  "VPC": {
+    "en": "virtual private cloud; isolated cloud network",
+    "pt": "nuvem privada virtual; rede isolada na nuvem"
+  },
+  "RDMA": {
+    "en": "remote direct memory access",
+    "pt": "acesso remoto direto à memória"
+  },
+  "RPC": {
+    "en": "remote procedure call",
+    "pt": "chamada de procedimento remoto"
+  },
+  "LRU": {
+    "en": "least recently used; cache eviction policy",
+    "pt": "menos recentemente usado; política de remoção do cache"
+  },
+  "TTL": {
+    "en": "time to live; expiry interval",
+    "pt": "tempo de vida; intervalo de expiração"
+  },
+  "EM": {
+    "en": "electromagnetic; refers here to physical emissions",
+    "pt": "eletromagnético; refere-se aqui a emissões físicas"
+  },
+  "SDR": {
+    "en": "software-defined radio",
+    "pt": "rádio definido por software"
+  },
+  "USB": {
+    "en": "Universal Serial Bus; peripheral connection standard",
+    "pt": "Universal Serial Bus; padrão de conexão de periféricos"
+  },
+  "TTS": {
+    "en": "test-time scaling; additional inference effort such as multiple candidates and verification",
+    "pt": "escalonamento em tempo de teste; esforço adicional de inferência, como múltiplos candidatos e verificação"
+  },
+  "VAD": {
+    "en": "voice activity detection",
+    "pt": "detecção de atividade de voz"
+  },
+  "JSON": {
+    "en": "JavaScript Object Notation; structured data format",
+    "pt": "JavaScript Object Notation; formato de dados estruturados"
+  },
+  "JSONL": {
+    "en": "JSON Lines; one JSON record per line",
+    "pt": "JSON Lines; um registro JSON por linha"
+  },
+  "CSV": {
+    "en": "comma-separated values; tabular data format",
+    "pt": "valores separados por vírgulas; formato de dados tabulares"
+  },
+  "HTML": {
+    "en": "HyperText Markup Language; web document format",
+    "pt": "HyperText Markup Language; formato de documentos web"
+  },
+  "PDF": {
+    "en": "Portable Document Format",
+    "pt": "formato portátil de documento"
+  },
+  "ZIP": {
+    "en": "compressed archive format",
+    "pt": "formato de arquivo compactado"
+  },
+  "SHA-256": {
+    "en": "Secure Hash Algorithm with a 256-bit digest; integrity check",
+    "pt": "algoritmo de hash seguro com resumo de 256 bits; verificação de integridade"
+  },
+  "USD": {
+    "en": "United States dollars",
+    "pt": "dólares dos Estados Unidos"
+  },
+  "US$": {
+    "en": "United States dollars",
+    "pt": "dólares dos Estados Unidos"
+  },
+  "IBM": {
+    "en": "International Business Machines; company",
+    "pt": "International Business Machines; empresa"
+  },
+  "HP": {
+    "en": "Hewlett-Packard; company name used in the cited context",
+    "pt": "Hewlett-Packard; nome de empresa usado no contexto citado"
+  },
+  "HPE": {
+    "en": "Hewlett Packard Enterprise; company",
+    "pt": "Hewlett Packard Enterprise; empresa"
+  },
+  "AWS": {
+    "en": "Amazon Web Services; cloud provider",
+    "pt": "Amazon Web Services; provedor de nuvem"
+  },
+  "CTO": {
+    "en": "chief technology officer",
+    "pt": "diretor de tecnologia"
+  },
+  "NIST": {
+    "en": "US National Institute of Standards and Technology",
+    "pt": "Instituto Nacional de Padrões e Tecnologia dos Estados Unidos"
+  },
+  "FTC": {
+    "en": "US Federal Trade Commission",
+    "pt": "Comissão Federal de Comércio dos Estados Unidos"
+  },
+  "NUS": {
+    "en": "National University of Singapore",
+    "pt": "Universidade Nacional de Singapura"
+  },
+  "TUM": {
+    "en": "Technical University of Munich",
+    "pt": "Universidade Técnica de Munique"
+  },
+  "ICLR": {
+    "en": "International Conference on Learning Representations",
+    "pt": "conferência internacional sobre aprendizado de representações"
+  },
+  "AAAI": {
+    "en": "Association for the Advancement of Artificial Intelligence",
+    "pt": "associação para o avanço da inteligência artificial"
+  },
+  "ACH": {
+    "en": "Meta's Automated Compliance Hardening system for finding faults through tests",
+    "pt": "sistema Automated Compliance Hardening da Meta para encontrar falhas por meio de testes"
+  },
+  "WCA": {
+    "en": "watsonx Code Assistant; IBM coding-assistance product",
+    "pt": "watsonx Code Assistant; produto de assistência à programação da IBM"
+  },
+  "BOSS": {
+    "en": "BOSS Zhipin; company participating in the cited research",
+    "pt": "BOSS Zhipin; empresa participante da pesquisa citada"
+  },
+  "HAMS": {
+    "en": "organization publishing the cited offshore-agent case study",
+    "pt": "organização que publica o estudo de caso citado sobre agentes e equipes offshore"
+  },
+  "MSRP": {
+    "en": "manufacturer's suggested retail price",
+    "pt": "preço de varejo sugerido pelo fabricante"
+  },
+  "WSL2": {
+    "en": "Windows Subsystem for Linux, version 2",
+    "pt": "Subsistema Windows para Linux, versão 2"
+  },
+  "REST": {
+    "en": "Representational State Transfer; API architecture style",
+    "pt": "Representational State Transfer; estilo de arquitetura de APIs"
+  },
+  "CSA2": {
+    "en": "compressed-attention component of the cited DeepSeek architecture",
+    "pt": "componente de atenção comprimida da arquitetura DeepSeek citada"
+  },
+  "IT": {
+    "en": "information technology",
+    "pt": "tecnologia da informação"
+  },
+  "TI": {
+    "en": "information technology",
+    "pt": "tecnologia da informação"
+  },
+  "ID": {
+    "en": "identifier",
+    "pt": "identificador"
+  },
+  "FAQ": {
+    "en": "frequently asked questions",
+    "pt": "perguntas frequentes"
+  },
+  "UC": {
+    "en": "University of California",
+    "pt": "Universidade da Califórnia"
+  },
+  "AIE": {
+    "en": "AI Engineer; conference series referenced in the research",
+    "pt": "AI Engineer; série de conferências referenciada na pesquisa"
+  },
+  "tok/s": {
+    "en": "tokens per second; a throughput measure",
+    "pt": "tokens por segundo; medida de vazão"
+  },
+  "IP": {
+    "en": "intellectual property, or Internet Protocol in network controls; context determines the meaning",
+    "pt": "propriedade intelectual, ou protocolo de internet em controles de rede; o contexto determina o sentido"
+  },
+  "pp": {
+    "en": "percentage points when comparing percentages; lowercase pp in benchmark commands denotes prompt processing",
+    "pt": "pontos percentuais ao comparar porcentagens; pp minúsculo em comandos de benchmark indica processamento do prompt"
+  },
+  "FCR": {
+    "en": "share of commits classified as fixes in the cited study",
+    "pt": "proporção de commits classificados como correções no estudo citado"
+  },
+  "PI": {
+    "en": "personal information",
+    "pt": "informações pessoais"
+  },
+  "FinOps": {
+    "en": "financial operations practice for managing technology consumption and cost",
+    "pt": "prática de operações financeiras para gerir consumo e custo de tecnologia"
+  },
+  "K4/V4": {
+    "en": "key and value caches quantized to 4 bits",
+    "pt": "caches de chaves e valores quantizados em 4 bits"
+  },
+  "B / A…B": {
+    "en": "B denotes billions of parameters; A before the count denotes active parameters per token",
+    "pt": "B indica bilhões de parâmetros; A antes da contagem indica parâmetros ativos por token"
+  },
+  "UD": {
+    "en": "Unsloth Dynamic; quantization label in the cited checkpoints",
+    "pt": "Unsloth Dynamic; rótulo de quantização nos checkpoints citados"
+  }
+}

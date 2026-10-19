@@ -2,6 +2,12 @@
 
 Pesquisa acumulada em português, com fontes, casos empresariais, benchmarks e cenários de investimento. Escopo híbrido: **local + nuvem**. Atualização: 19 de outubro de 2026.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **CLI** — interface de linha de comando; **HTML** — HyperText Markup Language; formato de documentos web.
+
+<!-- acronym-note:end -->
+
 ## Documentos principais
 
 - [Guia de engenharia híbrida](pesquisa_html/GUIA_ENGENHARIA_HIBRIDA.md) — economia medida, segurança de estações com internet e harnesses reutilizáveis.
@@ -15,6 +21,12 @@ Pesquisa acumulada em português, com fontes, casos empresariais, benchmarks e c
 
 O GitHub mostra o código dos HTMLs. Para a apresentação renderizada, clone ou baixe o repositório e abra os arquivos no navegador, mantendo a pasta `assets` junto deles. Não exige servidor nem serviços externos para leitura. Links de fontes exigem internet. Não foi ativado GitHub Pages.
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **CSV** — valores separados por vírgulas; formato de dados tabulares; **HTML** — HyperText Markup Language; formato de documentos web; **SHA-256** — algoritmo de hash seguro com resumo de 256 bits; verificação de integridade.
+
+<!-- acronym-note:end -->
+
 ## Evidências e reprodução
 
 A pesquisa distingue resultados de fornecedores, medições independentes, relatos de usuários, inferências e cenários calculados. Os benchmarks dos modelos não foram executados neste projeto. A verificação automatizada cobre os documentos HTML, a calculadora, imagens, navegação, responsividade e ausência de requisições externas durante a leitura.
@@ -25,6 +37,12 @@ A pesquisa distingue resultados de fornecedores, medições independentes, relat
 - [Manifesto de integridade SHA-256](MANIFESTO_SHA256.txt), cobrindo os arquivos publicados, exceto o próprio manifesto e os metadados Git.
 
 Para regenerar: instalar a dependência Python `Markdown` e executar `python pesquisa_html/gerar_html.py`. A verificação em `pesquisa_html/dados/verificar_html.py` requer Playwright e Google Chrome no caminho indicado pelo script. Os Markdown são as fontes editáveis dos documentos.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **HTML** — HyperText Markup Language; formato de documentos web; **ZIP** — formato de arquivo compactado.
+
+<!-- acronym-note:end -->
 
 ## Escopo e arquivos de apoio
 

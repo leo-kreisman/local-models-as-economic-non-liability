@@ -2,9 +2,21 @@
 
 The experience of programmers is relevant evidence for a purchase decision. It doesn't depend on recognition of the supplier to be registered. In this review, the question was divided into three: what problems were reported; what changes were measured; and what is known about its cause. The absence of proof of intention does not erase reports of loss of quality or cost of rework.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **JSON** — JavaScript Object Notation; structured data format.
+
+<!-- acronym-note:end -->
+
 ### observable volume: traceable sample, not estimate of the entire internet
 
 On October 16, 2026, the public API of GitHub returned **102 issues** for consultation `repo:anthropics/claude-code is:issue "4.8" "degradation"`. The two pages were collected; the list is in [data/github-search.json](dados/github-search.json). These are search correspondences in title/body/comments, including possible duplicates and indirect references. **There are not 102 confirmed incidents, neither 102 people, nor a measure of the proportion of dissatisfied users.** The search does not constitute Reddit, X or LinkedIn census.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **JSONL** — JSON Lines; one JSON record per line.
+
+<!-- acronym-note:end -->
 
 | Primary registration | Documented content | Quantitative signal available |
 |---|---|---|
@@ -19,9 +31,21 @@ On October 16, 2026, the public API of GitHub returned **102 issues** for consul
 
 Metadata from the three issues were preserved in JSON. The 28 comments added include discussion and possible repeated participants. They are not equivalent to 28 affected developers. The Reddit API returned 403; counts were not invented to fill the gap. The sample also contains favorable opinions, avoiding presenting unanimity that the sources do not show.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **SWE** — software engineering; benchmark family for software tasks; **HTML** — HyperText Markup Language; web document format.
+
+<!-- acronym-note:end -->
+
 ### External measurement and recognition of previous regressions
 
 The [Marginlab, 29/05/2026](https://marginlab.ai/blog/claude-code-degraded-before-opus-4-8/), accompanied Claude Code daily in a subset of SWE-bench Pro. Published five days below the 65% baseline, followed by recovery. The original table was captured for visual inspection:
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **CLI** — command-line interface.
+
+<!-- acronym-note:end -->
 
 | Date of May/2026 | CLI | Published Pass Rate |
 |---|---|---:|
@@ -44,9 +68,21 @@ The [Anthropic recognized on 23/04/2026](https://www.anthropic.com/engineering/a
 
 **Consequence for management:** evaluate the stability of the set model + harness + configuration + serving, maintain sentinel tests and an alternative route. Weights and local versions under control allow you to freeze an approved configuration. Tests are still required when exchanging quantization, model, runtime or instructions. The specific hypothesis of deliberate reduction to release datacenters follows without causal demonstration in this sample.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **IDE** — integrated development environment.
+
+<!-- acronym-note:end -->
+
 ## Local model security: enforceable controls and real limits
 
 Open-weight models can integrate a controlled business architecture. Accessible weights are not a barrier to identity, isolation, audit or network control. Security stems from the entire system: files, runtime, IDE, agents, credentials, tools, updates, infrastructure and people. The objective is to prevent unauthorized actions and data flows, even when the model produces inadequate instruction.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **API** — application programming interface; connects software components; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **VM** — virtual machine.
+
+<!-- acronym-note:end -->
 
 ### What Google and NVIDIA effectively document
 
@@ -56,9 +92,21 @@ The [NVIDIA documents OpenShell](https://docs.nvidia.com/openshell/latest/securi
 
 **Platform limit:** Landlock and seccomp are Linux mechanisms. On Mac, deployment should define an equivalent border — for example, run agent tools on an isolated Linux VM and expose only the authenticated MLX service API on the host. This also requires controlling the network, volumes and credentials of VM; it does not make Linux controls native to macOS. It's an architecture proposal, validating on the pilot.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **UI** — user interface; **IDE** — integrated development environment; **MCP** — Model Context Protocol; connects agents to tools and data; **FAQ** — frequently asked questions.
+
+<!-- acronym-note:end -->
+
 ### Protection matrix for code, testing, backend and UI
 
 The measures below are an engineering proposal based on the cited sources, to be validated in the company environment. “Manageable” means available controls and defined responsibilities; not immunity to all vulnerability.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **LLM** — large language model; **API** — application programming interface; connects software components; **IDE** — integrated development environment; **VM** — virtual machine; **TLS** — Transport Layer Security; protects data in transit; **RBAC** — role-based access control; **ACL** — access control list.
+
+<!-- acronym-note:end -->
 
 | Risk | Recommended control | How to demonstrate it works | Residual risk |
 |---|---|---|---|
@@ -77,9 +125,21 @@ The [Brave](https://brave.com/blog/indirect-prompt-injection/) demonstrated prom
 
 In tools already available, [LM Studio documents offline operation](https://lmstudio.ai/docs/app/offline) and [authentication while serving on the network](https://lmstudio.ai/docs/developer/core/server/serve-on-network). The [Official Ollama FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) documentation `OLLAMA_NO_CLOUD=1`. These controls do not replace the verification of IDE, MCP, logs and traffic. In the workspace of this research there are scripts configured for **Ollama Cloud**; they are not, by themselves, the local deployment proposed in this document.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **URL** — uniform resource locator; address of a resource; **PII** — personally identifiable information; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
+
 ### Critical reading of the first transcript provided
 
 No identifiable video URL or title was provided; the times below refer to the sent transcript. The underlying publications were searched separately.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this table:** **API** — application programming interface; connects software components; **PII** — personally identifiable information; **AAAI** — Association for the Advancement of Artificial Intelligence.
+
+<!-- acronym-note:end -->
 
 | Excerpt | Verification and correction | Source |
 |---|---|---|
@@ -96,6 +156,12 @@ No identifiable video URL or title was provided; the times below refer to the se
 The [OpenAI Privacy Filter](https://openai.com/index/introducing-openai-privacy-filter/) it was announced on 22/04/2026: 1.5B total parameters, 50M active, local execution and eight data categories. OpenAI declares to use an adjusted version in its own privacy streams. It can compose a minimization barrier before a remote fallback. **Removing PII does not automatically remove intellectual property, business logic or all secrets.** The filter has false negatives and requires domain evaluation.
 
 [Eguard](https://ojs.aaai.org/index.php/AAAI/article/view/40876) reports protection of more than 95% of tokens against the inversion attacks evaluated, preserving utility. The result is specific to embeddings and tested opponents. It is not “95% security” of a computer deployment, nor electromagnetic protection.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **LLM** — large language model; **GPU** — graphics processing unit; **CPU** — central processing unit; **NPU** — neural processing unit; **MLX** — Apple machine-learning framework; runtime name, not a quantization; **Q4** — 4-bit quantization family; suffixes identify the specific format; **VM** — virtual machine; **EM** — electromagnetic; refers here to physical emissions; **SDR** — software-defined radio; **USB** — Universal Serial Bus; peripheral connection standard; **B / A…B** — B denotes billions of parameters; A before the count denotes active parameters per token.
+
+<!-- acronym-note:end -->
 
 ### Second transcription: real physical channel, overly generalized narrative
 

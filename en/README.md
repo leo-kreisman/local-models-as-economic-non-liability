@@ -4,6 +4,12 @@
 
 Research available in English and Portuguese, with sources, business cases, benchmarks and investment scenarios. Hybrid Scope: **local + cloud**. Update: October 19, 2026.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CLI** — command-line interface; **HTML** — HyperText Markup Language; web document format.
+
+<!-- acronym-note:end -->
+
 ## Main documents
 
 - [Hybrid engineering playbook](HYBRID_ENGINEERING_PLAYBOOK.md) — measured savings, internet-enabled workstation security and reusable task harnesses.
@@ -17,6 +23,12 @@ Research available in English and Portuguese, with sources, business cases, benc
 
 GitHub shows the HTML code. For the rendered presentation, clone or download the repository and open the files in the browser, preserving the repository directory structure. It does not require server or external services for reading. Source links require internet. GitHub Pages has not been activated.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **CSV** — comma-separated values; tabular data format; **HTML** — HyperText Markup Language; web document format; **SHA-256** — Secure Hash Algorithm with a 256-bit digest; integrity check.
+
+<!-- acronym-note:end -->
+
 ## Evidence and reproduction
 
 The research distinguishes results from suppliers, independent measurements, user reports, inferences and calculated scenarios. Model benchmarks were not executed in this project. Automated verification covers HTML documents, calculator, images, navigation, responsiveness and absence of external requests during reading.
@@ -28,11 +40,23 @@ The research distinguishes results from suppliers, independent measurements, use
 
 To regenerate: install Python dependency `Markdown` and execute `python scripts/build_english.py`. The check in `pesquisa_html/dados/verificar_html.py` requires Playwright and Google Chrome on the path indicated by the script. The Markdowns are the editable sources of the documents.
 
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **HTML** — HyperText Markup Language; web document format; **ZIP** — compressed archive format.
+
+<!-- acronym-note:end -->
+
 ## Scope and support files
 
 This repository contains the research for this session and the useful features to consult, edit, regenerate and verify the documents. Includes Markdown, HTML, original and optimized images, source data, Python scripts for generation and verification, ZIP and integrity manifest.
 
 Old installation scripts, experimental settings and Node cache from the workspace are not part of the research. They were removed from the current version of the repository, preserving local copies. The initial commit remains in the Git history.
+
+<!-- acronym-note:start -->
+
+**Acronyms and notation in this section:** **URL** — uniform resource locator; address of a resource.
+
+<!-- acronym-note:end -->
 
 ## Parallel translations
 

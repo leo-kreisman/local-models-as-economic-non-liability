@@ -10,6 +10,7 @@ CSS='''
 @media(max-width:760px){body{font-size:16px}.layout{display:block;padding:22px}.sidebar{position:static;max-height:none;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:30px}.sidebar details:not([open]){margin:0}.hero{padding:38px 22px 30px}.dek{font-size:19px}.topbar{flex-wrap:wrap;padding:10px 18px}.topbar .brand{width:100%}.topbar nav{gap:20px}.topbar button{margin-left:auto;font-size:12px}h2{font-size:27px}h3{font-size:21px}.results{grid-template-columns:1fr}.calc{padding:18px}.figure{padding:10px}.calc-grid{gap:12px}td,th{padding:10px;min-width:100px}}
 @media print{@page{size:A4;margin:17mm 14mm}body{background:white;font-size:10pt;line-height:1.5;color:#111}.topbar,.sidebar,.copy,.progress,.no-print{display:none!important}.hero{padding:0 0 20px}.hero h1{font-size:28pt}.dek{font-size:13pt}.layout{display:block;padding:0}main{max-width:none}h2{font-size:19pt;margin-top:24px;break-after:avoid}h3{font-size:14pt;break-after:avoid}.chapter{display:block!important}.table-scroll{overflow:visible}table{font-size:8pt}tr{break-inside:avoid}thead{display:table-header-group}th{background:#e8eeee!important;color:#111!important}td,th{padding:6px;min-width:0}a{color:#133c48;text-decoration:none}.figure{break-inside:avoid;padding:10px;max-height:230mm}.figure img{max-height:190mm}.foot{padding:10px 0}.calc-grid{display:none}.print-only{display:block}.calc{break-inside:avoid}.references li{font-size:8pt}.hero{break-after:avoid}}
 '''
+CSS+='\n.acronym-note{font-size:13px;line-height:1.55;color:var(--muted);border-left:2px solid var(--accent);padding-left:12px;break-after:avoid}.slide .acronym-note{font-size:12px;line-height:1.4;margin-bottom:14px}.dark .acronym-note{color:#bbcece}@media print{.slide .acronym-note{font-size:8pt;line-height:1.3;margin-bottom:3mm}}\n'
 JS='''
 const $$=(q)=>[...document.querySelectorAll(q)];
 $$('.print').forEach(b=>b.onclick=()=>window.print());
@@ -23,6 +24,7 @@ SOURCES={}
 def convert(md):
  obj=markdown.Markdown(extensions=['tables','fenced_code','toc','sane_lists'],extension_configs={'toc':{'permalink':False}})
  body=obj.convert(md)
+ body=re.sub(r'<p><strong>(Siglas e notações[^<]*</strong>)',r'<p class="acronym-note"><strong>\1',body)
  refs=[];mapping={}
  def link(m):
   url,label=m.group(1),m.group(2)
@@ -106,6 +108,11 @@ for index, update in json.loads((ROOT/'SLIDES_FOCO.json').read_text()).items():
 
 for item in json.loads((ROOT/'SLIDES_APOIO.json').read_text()):
  slide(item['label'],item['title'],item['body'],item['source'],item.get('dark',False))
+
+import sys
+sys.path.insert(0,str(ROOT.parent/'scripts'))
+from annotate_acronyms import slide_note
+slides=[(k,t,slide_note(b,t,'pt'),src,dark) for k,t,b,src,dark in slides]
 
 DECKCSS='''
 .deck .topbar{position:fixed;top:0;left:0;right:0}.deck{background:var(--paper)}.deck main{max-width:none}.slide{min-height:100svh;padding:110px max(6vw,24px) 76px;display:flex;flex-direction:column;justify-content:center;position:relative;border-bottom:1px solid var(--line);scroll-margin-top:0}.slide>*{width:100%;max-width:1150px;margin-left:auto;margin-right:auto}.slide h2{font-size:clamp(32px,4vw,57px);margin-top:15px;margin-bottom:28px;max-width:1150px}.slide p{font-size:clamp(17px,1.65vw,24px);line-height:1.5;max-width:1150px;margin-bottom:22px}.slide table{font-size:clamp(14px,1.3vw,19px)}.slide td,.slide th{padding:16px}.slide .copy{display:none}.slide .table-wrap{margin-top:0;margin-bottom:24px}.slide .small{font-size:14px}.slide .source{font-size:11px;line-height:1.4;margin-top:28px;color:var(--muted)}.slide .source a{color:inherit}.dark{background:var(--navy);color:#f5f7f3}.dark .eyebrow,.dark a{color:#8ee2cb}.dark .source{color:#bbcece}.bigline{font-size:clamp(30px,3.7vw,55px);line-height:1.25;font-weight:650;letter-spacing:-.03em;margin-top:20px;margin-bottom:25px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:20px auto 28px}.metrics>div{border-top:2px solid var(--accent);padding-top:15px}.metrics strong{display:block;font-size:clamp(32px,4.5vw,66px);letter-spacing:-.04em;line-height:1.3}.metrics span{display:block;font-size:15px;color:var(--muted)}.two{display:grid;grid-template-columns:1fr 1fr;gap:44px}.two h3{margin-top:10px}.slide-photo{max-width:100%;max-height:410px;object-fit:contain;border-radius:5px}.flow{display:flex;gap:18px;align-items:center;margin-top:20px;margin-bottom:30px}.flow>div{flex:1;border:1px solid #597c83;padding:23px;min-height:150px}.flow b{display:block;font-size:22px;line-height:1.25}.flow span{display:block;font-size:15px;line-height:1.5;margin-top:18px;color:#bad4d4}.flow i{font-style:normal;transform:rotate(-90deg);font-size:30px}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin:20px auto}.timeline b{font-size:40px;color:var(--accent)}.timeline h3{font-size:21px;margin:12px 0}.timeline p{font-size:17px}.slide-controls{position:fixed;bottom:15px;right:20px;z-index:30;display:flex;align-items:center;gap:8px;background:#fbfaf6;border:1px solid var(--line);padding:7px;border-radius:7px;box-shadow:0 2px 12px #0001;font-size:12px}.slide-controls button{font-size:13px;padding:5px 12px}.slide-count{min-width:50px;text-align:center}.slide-number{width:auto;position:absolute;bottom:30px;left:6vw;font-size:12px;opacity:.6}.slide-lead{max-width:900px!important;margin-left:0!important}

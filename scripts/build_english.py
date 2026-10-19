@@ -18,6 +18,7 @@ SOURCES={}
 def convert(md):
  obj=markdown.Markdown(extensions=['tables','fenced_code','toc','sane_lists'])
  body=obj.convert(md);refs=[];mapping={}
+ body=re.sub(r'<p><strong>(Acronyms and notation[^<]*</strong>)',r'<p class="acronym-note"><strong>\1',body)
  def link(m):
   url,label=m.group(1),m.group(2)
   if not url.startswith(('https://','http://')):return m.group(0)

@@ -1,6 +1,18 @@
 # Dois harnesses especializados para o piloto
 
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **OMP** — Oh My Pi; agente de programação.
+
+<!-- acronym-note:end -->
+
 Exemplos de projeto, não configurações implantadas nem alegações de sucesso medido. Aplicáveis a adaptadores qualificados de OMP, OpenCode ou Aider. As permissões são impostas pela plataforma; estas instruções não são o limite de segurança.
+
+<!-- acronym-note:start -->
+
+**Siglas e notações desta seção:** **API** — interface de programação de aplicações; conecta componentes de software; **DTO** — objeto de transferência de dados.
+
+<!-- acronym-note:end -->
 
 ## Harness A — propagar um campo de DTO aprovado
 
