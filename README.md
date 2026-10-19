@@ -31,9 +31,3 @@ To regenerate: install Python dependency `Markdown` and execute `python scripts/
 This repository contains the research for this session and the useful features to consult, edit, regenerate and verify the documents. Includes Markdown, HTML, original and optimized images, source data, Python scripts for generation and verification, ZIP and integrity manifest.
 
 Old installation scripts, experimental settings and Node cache from the workspace are not part of the research. They were removed from the current version of the repository, preserving local copies. The initial commit remains in the Git history.
-
-## Parallel translations
-
-Portuguese originals remain in their original locations. English documents are in `en/`, including the full report, investment proposal, security updates, research history and slides. Figures reproduce the original sources; translated captions accompany them. The English edition preserves the research date and claims rather than updating the evidence.
-
-Run `python scripts/verify_translation.py` to check table structures, numeric values, heading counts and source URLs against the Portuguese originals. Run `python scripts/verify_documents.py` for browser checks of both editions (requires Python Playwright and Google Chrome).
