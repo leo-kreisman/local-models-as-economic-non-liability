@@ -3,12 +3,12 @@
     "pt": "RELATORIO_PESQUISA_MODELOS_LOCAIS.md",
     "en": "en/RESEARCH_REPORT.md",
     "tables": [
-      46,
-      46
+      51,
+      51
     ],
     "headings": [
-      109,
-      109
+      119,
+      119
     ],
     "urls_equal": true,
     "table_numeric_differences": []
@@ -21,8 +21,8 @@
       3
     ],
     "headings": [
-      9,
-      9
+      11,
+      11
     ],
     "urls_equal": true,
     "table_numeric_differences": []
@@ -51,6 +51,34 @@
     "headings": [
       8,
       8
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  },
+  {
+    "pt": "pesquisa_html/GUIA_ENGENHARIA_HIBRIDA.md",
+    "en": "en/HYBRID_ENGINEERING_PLAYBOOK.md",
+    "tables": [
+      5,
+      5
+    ],
+    "headings": [
+      10,
+      10
+    ],
+    "urls_equal": true,
+    "table_numeric_differences": []
+  },
+  {
+    "pt": "pesquisa_html/HARNESSES_POR_TAREFA.md",
+    "en": "en/TASK_HARNESSES.md",
+    "tables": [
+      0,
+      0
+    ],
+    "headings": [
+      4,
+      4
     ],
     "urls_equal": true,
     "table_numeric_differences": []

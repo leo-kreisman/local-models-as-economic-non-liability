@@ -1,0 +1,29 @@
+{
+  "3": {
+    "title": "Economia híbrida depende da tarefa",
+    "body": "<table><tr><th>Tarefa</th><th>Nuvem → híbrido</th><th>Variação</th></tr><tr><td>Mapper Ktor</td><td>US$ 0,339 → 0,134</td><td>−60,5%</td></tr><tr><td>Renomeação TypeScript</td><td>US$ 0,227 → 0,121</td><td>−46,7%</td></tr><tr><td>Campo Spring</td><td>US$ 0,092 → 0,164</td><td>+78,3%</td></tr></table><p>Qwen local no Mac + Sonnet remoto. Selecionar famílias pelo custo por tarefa aceita; não são economias mensais de time.</p>",
+    "source": "<a href=\"https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md\">Nav — experimentos pareados em repositórios</a>"
+  },
+  "6": {
+    "title": "Internet com limites verificáveis",
+    "body": "<p>Executor isolado do agente → modelo local autenticado → testes descartáveis.</p><p>Documentação por intermediário restrito. Exportação para nuvem por autorização separada.</p><p>Sem credenciais de produção, mounts amplos do host ou saída irrestrita pelo shell. Revisar workflows e hooks gerados, além do código.</p>",
+    "source": "<a href=\"https://docs.docker.com/ai/sandboxes/security/\">Modelo de segurança Docker</a> · <a href=\"https://github.com/anthropics/sandbox-runtime\">Runtime de sandbox</a>"
+  },
+  "7": {
+    "title": "Qualificar OMP, OpenCode e Aider",
+    "body": "<table><tr><th>Camada</th><th>Decisão</th></tr><tr><td>MLX / llama.cpp</td><td>Gateway privado de inferência autenticada</td></tr><tr><td>Agente</td><td>Política efetiva restrita de ferramentas</td></tr><tr><td>Execução</td><td>Limite de SO/VM e rede controlada</td></tr><tr><td>Aceitação</td><td>Testes independentes e revisão humana</td></tr></table><p>Implantação open weight é gerenciável. O nome do agente não garante segurança.</p>",
+    "source": "<a href=\"https://opencode.ai/docs/permissions/\">OpenCode</a> · <a href=\"https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md\">OMP</a> · <a href=\"https://aider.chat/docs/usage/lint-test.html\">Aider</a>"
+  },
+  "8": {
+    "title": "Demonstrar contenção antes de ampliar",
+    "body": "<p>Testar instruções maliciosas no repositório, redirecionamentos web, exportação de segredo sintético, scripts de dependências e acesso fora do worktree.</p><p>Verificar que configurações de projeto não relaxam políticas corporativas e que fallback não ignora restrições de dados.</p><p>Evidência: operações negadas, tráfego, patches aceitos e execução limitada. Canais físicos ficam no apêndice especializado.</p>",
+    "source": "<a href=\"https://docs.docker.com/ai/sandboxes/security/isolation\">Camadas de isolamento e limitações documentadas</a>",
+    "label": "07 / Validação de segurança"
+  },
+  "9": {
+    "title": "Usar nuvem para melhorar fluxos locais reutilizáveis",
+    "body": "<p>Otimizador de nuvem propõe harness por tarefa. Testes independentes selecionam a versão. O modelo local executa o trabalho recorrente.</p><p>Versionar instruções, recuperação, ferramentas e reparo limitado; manter rollback e testes de aceitação intocados.</p><p>SkillOpt apoia otimizar skills sem alterar pesos. Economia de código ainda exige medição no repositório real.</p>",
+    "source": "<a href=\"https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/\">Microsoft SkillOpt</a>",
+    "label": "08 / Harnesses reutilizáveis"
+  }
+}

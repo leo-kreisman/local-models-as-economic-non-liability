@@ -1,0 +1,33 @@
+{
+  "status": "arithmetic_verified_only",
+  "published_cost_checks": [
+    {
+      "case": "nav-ktor-mapper",
+      "recomputed_saving_percent": 60.471976401179944,
+      "verified": true
+    },
+    {
+      "case": "nav-typescript-rename",
+      "recomputed_saving_percent": 46.69603524229075,
+      "verified": true
+    },
+    {
+      "case": "nav-spring-field",
+      "recomputed_saving_percent": -78.26086956521739,
+      "verified": true
+    },
+    {
+      "case": "hera-humaneval",
+      "recomputed_saving_percent": 21.428571428571427,
+      "verified": true
+    },
+    {
+      "case": "hera-hotpotqa",
+      "recomputed_saving_percent": 20.37037037037037,
+      "verified": true
+    }
+  ],
+  "illustrative_harness_break_even_tasks": 1200,
+  "model_benchmarks_executed": false,
+  "security_tests_executed": false
+}

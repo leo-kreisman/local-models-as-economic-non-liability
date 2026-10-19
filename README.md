@@ -2,11 +2,13 @@
 
 **English (primary)** · [Português](README.pt-BR.md)
 
-Research available in English and Portuguese, with sources, business cases, benchmarks and investment scenarios. Hybrid Scope: **local + cloud**. Update: October 16, 2026.
+Research available in English and Portuguese, with sources, business cases, benchmarks and investment scenarios. Hybrid Scope: **local + cloud**. Update: October 19, 2026.
 
 ## Main documents
 
-- [Full report on Markdown](en/RESEARCH_REPORT.md) — 199 references in the corresponding HTML.
+- [Hybrid engineering playbook](en/HYBRID_ENGINEERING_PLAYBOOK.md) — measured savings, internet-enabled workstation security and reusable task harnesses.
+
+- [Full report on Markdown](en/RESEARCH_REPORT.md) — 220 references in the corresponding HTML.
 - [HTML Report](en/report.html) — copyable tables, images of sources and navigation.
 - [HTML Proposal](en/proposal.html) — Problem/Context + Solution + Required Investment and calculator.
 - [HTML Slideshow](en/slides.html) — 16 slides for management and board.

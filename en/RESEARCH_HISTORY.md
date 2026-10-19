@@ -1,5 +1,9 @@
 # Research history
 
+## October 19, 2026 — Hybrid engineering and workstation security
+
+Expanded coverage of Nav, Arena, HERA, SkillOpt, GEPA, Gungnir and industrial isolation tools. Recorded the Arena 8%/10.3% discrepancy. Proposal and slides prioritize internet-enabled workstation security, recurring tasks and specialized harnesses. Arithmetic verified; model benchmarks and penetration tests were not executed.
+
 ## 16 October 2026 — Documents and publication
 
 Updated report, proposal and presentation with integration of Oh My Pi, OpenCode, Claude Code, Codex CLI, Copilot CLI and VS Code with local models; security limitations and controls per platform, with primary documentation. HTML report with 199 references and presentation with 16 slides. Desktop/mobile verification, anchors, images, calculator and navigation completed without JavaScript errors or HTTP requests while reading. Requested publication in leo-kreisman/local-models-as-economic-non-liability repository. 

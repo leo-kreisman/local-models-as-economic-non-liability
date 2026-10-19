@@ -39,6 +39,8 @@ def nums(s,pt):
  return Counter(out)
 
 pairs=[('RELATORIO_PESQUISA_MODELOS_LOCAIS.md','en/RESEARCH_REPORT.md'),('pesquisa_html/PROPOSTA_INVESTIMENTO.md','en/INVESTMENT_PROPOSAL.md'),('pesquisa_html/AGENTES_LOCAIS_E_SEGURANCA.md','en/LOCAL_AGENTS_AND_SECURITY.md'),('pesquisa_html/ATUALIZACAO_SEGURANCA_E_REGRESSOES.md','en/SECURITY_AND_REGRESSIONS_UPDATE.md')]
+pairs.append(('pesquisa_html/GUIA_ENGENHARIA_HIBRIDA.md','en/HYBRID_ENGINEERING_PLAYBOOK.md'))
+pairs.append(('pesquisa_html/HARNESSES_POR_TAREFA.md','en/TASK_HARNESSES.md'))
 report=[]
 for a,b in pairs:
  pt=(r/a).read_text();en=(r/b).read_text();t1=tables(pt);t2=tables(en)

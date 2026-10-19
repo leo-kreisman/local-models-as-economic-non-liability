@@ -1,0 +1,169 @@
+{
+  "retrieved_on": "2026-10-19",
+  "method": "Primary-source web research and direct repository-document inspection; no model benchmark or penetration test executed.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md",
+      "label": "Nav study and limitations"
+    },
+    {
+      "url": "https://github.com/RunanywhereAI/hybrid-arena",
+      "label": "Arena README"
+    },
+    {
+      "url": "https://arxiv.org/html/2504.00434v1",
+      "label": "HERA tables 3\u20134"
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.15964",
+      "label": "MinionS"
+    },
+    {
+      "url": "https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.4.1.md",
+      "label": "Release notes v1.4.1"
+    },
+    {
+      "url": "https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.5.0.md",
+      "label": "D6 specification and results"
+    },
+    {
+      "url": "https://research.google/blog/accelerating-code-migrations-with-ai/",
+      "label": "Google Research"
+    },
+    {
+      "url": "https://engineering.fb.com/2025/02/05/security/revolutionizing-software-testing-llm-powered-bug-catchers-meta-ach/",
+      "label": "Meta Engineering"
+    },
+    {
+      "url": "https://www.tigerdata.com/blog/we-taught-ai-to-write-real-postgres-code-open-sourced-it",
+      "label": "Tiger Data"
+    },
+    {
+      "url": "https://github.com/timescale/pg-aiguide",
+      "label": "repository"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.14161v1",
+      "label": "Paper"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/",
+      "label": "SkillOpt"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/0e9e708b6f48e14fd0ac29e167413f76-Abstract-Conference.html",
+      "label": "GEPA, ICLR 2026"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/video/agent-lightning-one-learning-system-that-makes-all-agents-evolve/",
+      "label": "Microsoft presentation"
+    },
+    {
+      "url": "https://github.com/microsoft/agent-lightning",
+      "label": "Agent Lightning repository"
+    },
+    {
+      "url": "https://docs.docker.com/ai/sandboxes/agents/opencode/",
+      "label": "Docker OpenCode integration"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      "label": "Anthropic implementation"
+    },
+    {
+      "url": "https://github.com/anthropics/sandbox-runtime",
+      "label": "sandbox-runtime"
+    },
+    {
+      "url": "https://docs.docker.com/ai/sandboxes/security/isolation",
+      "label": "Docker isolation layers"
+    },
+    {
+      "url": "https://docs.docker.com/ai/sandboxes/security/",
+      "label": "Docker security boundaries"
+    },
+    {
+      "url": "https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/SERVER.md",
+      "label": "MLX server"
+    },
+    {
+      "url": "https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md",
+      "label": "Server documentation"
+    },
+    {
+      "url": "https://opencode.ai/docs/permissions/",
+      "label": "Permissions"
+    },
+    {
+      "url": "https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md",
+      "label": "Settings"
+    },
+    {
+      "url": "https://aider.chat/docs/llms/other.html",
+      "label": "Providers"
+    },
+    {
+      "url": "https://aider.chat/docs/usage/lint-test.html",
+      "label": "Testing"
+    }
+  ],
+  "inconsistencies": [
+    {
+      "source": "https://github.com/RunanywhereAI/hybrid-arena",
+      "claim": "8% cloud fraction in README",
+      "comparison": "10.3% cloud-token fraction in revised v1.4.1 notes; earlier call counting explicitly corrected",
+      "resolution": "Do not present 8% as a verified token fraction or 92% as bill savings; pin revision and recompute raw traces."
+    }
+  ],
+  "download_fingerprints": [
+    {
+      "name": "arena-readme.md",
+      "sha256": "0f3df8b12edb37104eb67cee6841e169a1ccec9a7a637ee2c51ee66fed666dc7",
+      "bytes": 17228
+    },
+    {
+      "name": "arena-notes.md",
+      "sha256": "38f3c985fb3413df04a8784e61f3fbc59134d3eea946cf8a39228793533edf2d",
+      "bytes": 4595
+    },
+    {
+      "name": "arena-prev.md",
+      "sha256": "f72c379e476cebcd095a15108186ca585bad42e7a80b746e6a721b0834bb3802",
+      "bytes": 3953
+    },
+    {
+      "name": "omp.md",
+      "sha256": "7d9ee9d6c30daf3c33e5d9069636704ea3879ab23d0df24196fa591f7f63e44f",
+      "bytes": 147940
+    },
+    {
+      "name": "nav.md",
+      "sha256": "5ae9a2ad91df6d92b57dddd78f30ee7cb9e172f3a6dcebb6eb0a68f564c95ab7",
+      "bytes": 34236
+    }
+  ],
+  "scope_notes": {
+    "security": "Proposed controls with official implementation references; not a penetration-test certification.",
+    "harness": "Reusable skill optimization, RL and deterministic generator synthesis are distinct interventions.",
+    "economics": "Local plus cloud only; no cloud-only routing presented as local savings.",
+    "industry": "Nav is a public-sector organization; Google and Meta illustrate verified workflows but not workstation-local savings; Tiger Data provides domain tooling rather than a controlled cost benchmark."
+  },
+  "excluded_or_limited_evidence": [
+    {
+      "url": "https://fireworks.ai/case-study/story-sourcegraph-code-generation?rp=4",
+      "reason": "Hosted inference case; not evidence of workstation-local plus cloud savings."
+    },
+    {
+      "url": "https://aider.chat/docs/usage/security.html",
+      "reason": "Page retrieval failed; replaced by verified provider/testing documentation and external containment references."
+    },
+    {
+      "url": "https://docs.docker.com/ai/sandboxes/network-policies/",
+      "reason": "Page retrieval failed; relied on accessible security and isolation documentation."
+    },
+    {
+      "url": "https://www.tigerdata.com/blog/we-taught-ai-to-write-real-postgres-code-open-sourced-it",
+      "reason": "Original article reports qualitative evaluation; numerical claims from mirrors were not imported as controlled benchmark results."
+    }
+  ]
+}

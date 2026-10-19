@@ -48,7 +48,7 @@ def calculator():
 def document(file,title,subtitle,eyebrow,md,calc=False):
  body,toc,count=convert(md)
  if calc:body=calculator()+body
- out=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(subtitle)}"><title>{html.escape(title)}</title><style>{CSS}</style></head><body>{topbar(file)}<div class="hero"><div class="eyebrow">{eyebrow}</div><h1>{title}</h1><p class="dek">{subtitle}</p><div class="meta">October 16, 2026 edition · {count} linked references · Static HTML, no external services</div></div><div class="layout"><aside class="sidebar"><details open><summary>In this document</summary><label class="visually-hidden" for="toc-search">Search the table of contents</label><input id="toc-search" type="search" placeholder="Filter contents · Ctrl K">{toc}</details></aside><main id="content">{body}</main></div><footer class="foot">Cumulative research for business decisions. No model benchmark was run by this research. Sources, assumptions and limitations are identified. Open the three HTML files directly in your browser; preserve the shared assets folder.</footer><script>{JS}</script></body></html>'''
+ out=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="{html.escape(subtitle)}"><title>{html.escape(title)}</title><style>{CSS}</style></head><body>{topbar(file)}<div class="hero"><div class="eyebrow">{eyebrow}</div><h1>{title}</h1><p class="dek">{subtitle}</p><div class="meta">October 19, 2026 edition · {count} linked references · Static HTML, no external services</div></div><div class="layout"><aside class="sidebar"><details open><summary>In this document</summary><label class="visually-hidden" for="toc-search">Search the table of contents</label><input id="toc-search" type="search" placeholder="Filter contents · Ctrl K">{toc}</details></aside><main id="content">{body}</main></div><footer class="foot">Cumulative research for business decisions. No model benchmark was run by this research. Sources, assumptions and limitations are identified. Open the three HTML files directly in your browser; preserve the shared assets folder.</footer><script>{JS}</script></body></html>'''
  (ROOT/file).write_text(out)
  return count
 
@@ -58,7 +58,7 @@ This dossier brings together the accumulated research, including benchmarks, cos
 
 The material has three reading levels: this report preserves the detail and sources; the [investment proposal](proposal.html) organizes the problem, solution and budget; the [leadership slides](slides.html) highlight the decision and its limitations. HTML tables can be copied. Source images are accompanied by provenance and were visually checked.
 
-**Updates in this edition:** reports of Opus 4.8 regression were expanded with public data; the two transcripts were checked claim by claim; Google, NVIDIA and local runtimes provide examples of applicable controls. The absence of proof of corporate intent does not negate the experience reported by programmers. Local security is manageable, but must cover tools, networking, logs and physical access.
+**Focus of this edition:** measured local + cloud economics, real repositories, internet-enabled workstation security and reusable task harnesses. Historical physical-channel experiments remain supporting evidence, not the primary deployment model.
 
 '''
 md=(ROOT/'RESEARCH_REPORT.md').read_text()

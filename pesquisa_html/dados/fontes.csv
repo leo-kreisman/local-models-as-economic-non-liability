@@ -1,4 +1,30 @@
 url,rotulo_no_documento
+https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md,Relatório de medição Nav
+https://github.com/RunanywhereAI/hybrid-arena,README Arena
+https://arxiv.org/html/2504.00434v1,HERA tabelas 3–4
+https://arxiv.org/abs/2502.15964,MinionS
+https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.4.1.md,Notas v1.4.1
+https://github.com/RunanywhereAI/hybrid-arena/blob/main/docs/release-notes/v1.5.0.md,Especificação D6 e resultados
+https://research.google/blog/accelerating-code-migrations-with-ai/,Google Research
+https://engineering.fb.com/2025/02/05/security/revolutionizing-software-testing-llm-powered-bug-catchers-meta-ach/,Meta Engineering
+https://www.tigerdata.com/blog/we-taught-ai-to-write-real-postgres-code-open-sourced-it,Tiger Data
+https://github.com/timescale/pg-aiguide,repositório
+https://arxiv.org/html/2610.14161v1,Artigo
+https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/,SkillOpt
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/0e9e708b6f48e14fd0ac29e167413f76-Abstract-Conference.html,"GEPA, ICLR 2026"
+https://www.microsoft.com/en-us/research/video/agent-lightning-one-learning-system-that-makes-all-agents-evolve/,Apresentação Microsoft
+https://github.com/microsoft/agent-lightning,repositório Agent Lightning
+https://docs.docker.com/ai/sandboxes/agents/opencode/,Integração Docker OpenCode
+https://www.anthropic.com/engineering/claude-code-sandboxing,implementação Anthropic
+https://github.com/anthropics/sandbox-runtime,sandbox-runtime
+https://docs.docker.com/ai/sandboxes/security/isolation,Camadas de isolamento Docker
+https://docs.docker.com/ai/sandboxes/security/,limites de segurança Docker
+https://github.com/ml-explore/mlx-lm/blob/main/mlx_lm/SERVER.md,Servidor MLX
+https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md,Documentação do servidor
+https://opencode.ai/docs/permissions/,Permissões
+https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md,Configuração
+https://aider.chat/docs/llms/other.html,Provedores
+https://aider.chat/docs/usage/lint-test.html,Testes
 https://research.google/blog/ml-enhanced-code-completion-improves-developer-productivity/?hl=en_GB&version=v1,Fonte
 https://arxiv.org/abs/2410.12944,Artigo
 https://www.ibm.com/case-studies/ibm-software-team,Caso
@@ -47,10 +73,7 @@ https://aider.chat/docs/leaderboards/edit.html,Tabela original e protocolo
 https://swe-lego.github.io/,"Projeto, método e resultados"
 https://github.com/navikt/mlx-workspace/blob/main/reports/local-inference-findings.md,Relatório técnico
 https://arxiv.org/abs/2603.05974,Artigo
-https://github.com/RunanywhereAI/hybrid-arena,Repositório e limitações
-https://arxiv.org/abs/2502.15964,Artigo Minions
 https://hazyresearch.stanford.edu/blog/2025-02-24-minions,demonstração técnica
-https://arxiv.org/html/2504.00434v1,"HERA, configuração e tabela 3"
 https://arxiv.org/html/2607.13080v1,"Estudo, seção VI-C e tabela XIV"
 https://www.deloitte.com/content/dam/assets-zone3/us/en/docs/services/consulting/2025/deloittesage-case-study.pdf,"Caso DeloitteSage, especialmente páginas 3–4"
 https://arxiv.org/html/2604.12301v1,Limitações e configuração
@@ -188,9 +211,7 @@ https://arxiv.org/html/2610.14215v1,"Physical Side-Channel Attacks on Edge LLMs,
 https://www.usenix.org/conference/usenixsecurity25/presentation/gao-zibo,"I Know What You Said, USENIX Security 2025"
 https://www.usenix.org/system/files/usenixsecurity25-gao-zibo.pdf,paper completo
 https://github.com/can1357/oh-my-pi/blob/main/docs/providers.md,Providers
-https://github.com/can1357/oh-my-pi/blob/main/docs/settings.md,Settings
 https://opencode.ai/docs/providers/,Providers
-https://opencode.ai/docs/permissions/,Permissions
 https://docs.ollama.com/integrations/claude-code,Integração Ollama
 https://code.claude.com/docs/en/sandboxing,Sandbox Anthropic
 https://learn.chatgpt.com/docs/developer-commands?surface=cli,Referência oficial OpenAI

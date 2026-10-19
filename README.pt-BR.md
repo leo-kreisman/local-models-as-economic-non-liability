@@ -1,10 +1,12 @@
 # Modelos locais para engenharia de software: economia, desempenho e governança
 
-Pesquisa acumulada em português, com fontes, casos empresariais, benchmarks e cenários de investimento. Escopo híbrido: **local + nuvem**. Atualização: 16 de outubro de 2026.
+Pesquisa acumulada em português, com fontes, casos empresariais, benchmarks e cenários de investimento. Escopo híbrido: **local + nuvem**. Atualização: 19 de outubro de 2026.
 
 ## Documentos principais
 
-- [Relatório completo em Markdown](RELATORIO_PESQUISA_MODELOS_LOCAIS.md) — 199 referências no HTML correspondente.
+- [Guia de engenharia híbrida](pesquisa_html/GUIA_ENGENHARIA_HIBRIDA.md) — economia medida, segurança de estações com internet e harnesses reutilizáveis.
+
+- [Relatório completo em Markdown](RELATORIO_PESQUISA_MODELOS_LOCAIS.md) — 220 referências no HTML correspondente.
 - [Relatório HTML](pesquisa_html/relatorio.html) — tabelas copiáveis, imagens das fontes e navegação.
 - [Proposta HTML](pesquisa_html/proposta.html) — Problem/Context + Solution + Required Investment e calculadora.
 - [Apresentação HTML](pesquisa_html/slides.html) — 16 slides para gestão e diretoria.

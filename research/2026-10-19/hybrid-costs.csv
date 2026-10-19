@@ -1,0 +1,6 @@
+case,cloud_usd_per_task_or_request,hybrid_usd_per_task_or_request,calculated_remote_saving_percent,source,scope
+nav-ktor-mapper,0.339,0.134,60.472,https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md,Published task/request API costs; not measured enterprise TCO
+nav-typescript-rename,0.227,0.121,46.696,https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md,Published task/request API costs; not measured enterprise TCO
+nav-spring-field,0.092,0.164,-78.2609,https://raw.githubusercontent.com/navikt/mlx-workspace/main/reports/local-inference-findings.md,Published task/request API costs; not measured enterprise TCO
+hera-humaneval,0.056,0.044,21.4286,https://arxiv.org/html/2504.00434v1,Published task/request API costs; not measured enterprise TCO
+hera-hotpotqa,0.054,0.043,20.3704,https://arxiv.org/html/2504.00434v1,Published task/request API costs; not measured enterprise TCO
