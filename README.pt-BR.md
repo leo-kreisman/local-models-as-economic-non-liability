@@ -6,7 +6,7 @@ Pesquisa acumulada em português, com fontes, casos empresariais, benchmarks e c
 
 - [Guia de engenharia híbrida](pesquisa_html/GUIA_ENGENHARIA_HIBRIDA.md) — economia medida, segurança de estações com internet e harnesses reutilizáveis.
 
-- [Relatório completo em Markdown](RELATORIO_PESQUISA_MODELOS_LOCAIS.md) — 220 referências no HTML correspondente.
+- [Relatório completo em Markdown](RELATORIO_PESQUISA_MODELOS_LOCAIS.md) — 226 referências no HTML correspondente.
 - [Relatório HTML](pesquisa_html/relatorio.html) — tabelas copiáveis, imagens das fontes e navegação.
 - [Proposta HTML](pesquisa_html/proposta.html) — Problem/Context + Solution + Required Investment e calculadora.
 - [Apresentação HTML](pesquisa_html/slides.html) — 16 slides para gestão e diretoria.

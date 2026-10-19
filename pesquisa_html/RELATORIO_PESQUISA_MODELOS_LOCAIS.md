@@ -1,6 +1,6 @@
 # Modelos locais e especializados para desenvolvimento e QA
 
-Relatório cumulativo de pesquisa. Atualizado em 16 de outubro de 2026.
+Relatório cumulativo de pesquisa. Atualizado em 19 de outubro de 2026.
 
 Modelos menores especializados podem superar modelos generalistas maiores em fluxos delimitados. A implantação local pode reduzir dependências externas e tornar a inferência acessível em estações de trabalho. A decisão depende da qualidade no fluxo real, da memória necessária, da concorrência e do custo completo da operação.
 
@@ -590,6 +590,51 @@ O custo do grande após escalada pode incluir todo o contexto anterior e uma nov
 
 A evidência favorece especialistas pequenos para trabalhos delimitados e híbridos avaliados por custo por tarefa correta. Ainda não encontramos, nessas fontes, um caso que reúna simultaneamente pequena LLM local de código, empresa usuária identificada, economia total auditada e comparação independente controlada. Isso delimita o que foi demonstrado, sem invalidar os resultados parciais de produto e pesquisa.
 
+## Estações de 32, 48 e 64 GB: capacidade local com investimento proporcional
+
+Atualização: 19 de outubro de 2026. O piloto deve começar também nas máquinas existentes de 32, 48 e 64 GB. Capacidade de memória, velocidade do chip, quantização e implementação são variáveis distintas. Há medições publicadas na faixa de 20–30 tokens/s e acima dela em configurações selecionadas; não é necessário comprar uma estação de 128–512 GB para iniciar. Os números abaixo são publicados pelos executores, não reproduções desta pesquisa. NR significa não reportado nesta seleção.
+
+### Benchmarks diretamente úteis ao dimensionamento menor
+
+| Máquina física | Modelo / formato | Runtime e residência | PP tok/s | Decode tok/s | Condição e fonte |
+|---|---|---|---:|---:|---|
+| M1 Pro, 32 GB, GPU 14 núcleos | Qwen3.6-35B-A3B Q4_K_S | llama.cpp b9466 / Metal; pesos em memória | NR | 25,4 | 22,4 GB wired a 32K; swap do host ~7,6 GB no trabalho de agente. [Executor](https://raw.githubusercontent.com/marcofariasmx/local-llm-apple-silicon/main/README.md) |
+| M1 Max, 32 GB | Qwen3.8-27B MLX 4-bit | MLX; residente | 81,76 | 15,81 | 512 entrada / 700 saída; 3 execuções; pico 16,39 GB. [Executor](https://www.reddit.com/r/LocalLLM/comments/1wa0dl3/qwen3827b_on_m1_max_32gb_mlx_158_toks_vs_llamacpp/) |
+| M1 Max, 32 GB | Qwen3.8-Flash-Next; especialistas principalmente IQ2_K | MoEspresso 3; SSD; KV K4/V4; Cache-Prior | NR | 12–15 | Autor exige folga de memória; viés favorece especialistas residentes e altera roteamento. [Executor](https://www.reddit.com/r/LocalLLaMA/comments/1wrqql8/qwen38flashnext_125b_at_1215_toks_on_a_2021_32gb/) |
+| M4 Pro, 48 GB | Qwen3.8-27B 4-bit | Rapid-MLX 0.13.1; residente | 117 | 15,2 | Pico 18,9 GB; TTFT 18,2 s; submissão comunitária. [Registro](https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro) |
+| M5 Max, 48 GiB, GPU 40 núcleos | Qwen3.8-27B 4-bit | MLX 0.32.1 / mlx-lm 0.31.3; sem draft | NR | 13,70 / 13,62 / 13,34 | Medianas em 840 / 3156 / 12263 tokens de entrada; carga de fundo não controlada. [Estudo](https://llm-speed.com/blog/qwen3-8-27b-m5-max-48gb) |
+| M5 Pro, 48 GB | Qwen3.8-Flash-Next 4-bit; arquivo ~104 GB | Slotstream, MLX / Swift; especialistas no SSD | NR | ~12 | MTP ainda planejado no relato; contexto e repetições NR. [Autor](https://www.reddit.com/r/Qwen_AI/comments/1w3tjkw/running_the_104_gb_qwen38flashnext_on_a_48_gb_mac/) |
+| M4 Pro, 64 GB | Qwen3.8-27B oQ4e / oQ8 | oMLX 0.6.1, MTP | NR | 20,8 / 16,6 | Contexto 8K; comparação de quantizações do mesmo master. [Discussão](https://github.com/jundot/omlx/discussions/2811) |
+| M1 Max, 64 GB | Qwen3.6-35B-A3B 8-bit / Q8_0 | MLX / llama.cpp Metal; residente | ~190 / ~245 | 26,22 / 34 | Entrada ~1K; picos 42 / 44 GB; versões incompletas. [Executor](https://sleepyquant.rest/blog/mlx-vs-llama-cpp-35b-m1-max-benchmark/) |
+| M2 Max, 64 GB | Qwen3.6-35B-A3B NVFP4 | Ollama / MLX; residente | NR | 71,3 / 69,3 / 67,8 | Prompts curto / médio / longo; thinking off; mediana de 3. [Experimento](https://github.com/robgil/local-ai-benchmark-mac-stuido-m2) |
+| M5 Pro, 64 GB | Qwen3.8-Flash-Next V3; 95,5 GiB, quantização mista | Fork llama.cpp; SSD; draft ativo | ~367 | ~27,6 | Prompt ~4K. [Executor](https://www.reddit.com/r/LocalLLaMA/comments/1wk14il/qwen38flashnext_955_gib_on_a_64gb_mac_at_27_toks/) |
+| M5 Pro, 64 GB | Mesmo Flash-Next V3 | Slipstream; SSD | NR | 35,0 / 37,5 | Tarefas Python / Rust, temperatura 0. [Comparação](https://www.reddit.com/r/LocalLLaMA/comments/1wva7l2/running_955_gib_qwen38flashnext_at_4152_toks_on_a/) |
+| M5 Pro, 64 GB | DeepSeek-V4.1-Flash; container 299 GiB | WARP, caminho CPU; SSD interno | NR | 3,77 / 3,71 | Saídas 64 / 200 tokens; orçamento 46,45 GB. [Projeto](https://raw.githubusercontent.com/sqliteai/warp/main/README.md) |
+
+O resultado WARP preenche a lacuna anterior de execução documentada do DeepSeek V4.1 Flash em Mac de 64 GB; não demonstra 20–30 tokens/s nesse modelo e hardware, nem estabelece o teto de outros runtimes. O modelo Bonsai continua excluído. Colibri permanece na comparação técnica anterior, sem transformar resultados de DeepSeek V4 em V4.1.
+
+### O que comprar ou reutilizar por capacidade
+
+| Memória | Caminho prioritário | Precisão e folga | Critério de expansão |
+|---|---|---|---|
+| 32 GB | Reutilizar para 27B Q4 e 35B MoE Q4 em tarefas delimitadas | Medir IDE, navegador e containers; não presumir 27B ou 35B Q8 confortáveis | Expandir se pressão de memória ou tempo por tarefa prejudicarem o trabalho |
+| 48 GB | Comparar 27B Q4/Q8 e 35B MoE Q4; Flash-Next SSD como alternativa experimental | Q8 do 35B requer qualificação de pico, contexto e ferramentas; Q8 do 27B não garante folga de prefill | Comprar após teste com carga real, não apenas tamanho dos pesos |
+| 64 GB | Comparar 27B e 35B Q4/Q8; incluir Flash-Next SSD desde o piloto | Mais margem para ambiente de desenvolvimento; SSD não equivale a swap | DeepSeek V4.1 SSD em trilha de qualificação própria, sem meta de velocidade presumida |
+
+No [ensaio de capacidade do Nav](https://github.com/navikt/mlx-workspace/blob/main/reports/48gb-question.md), um limite wired de 36 GB foi aplicado a uma máquina maior: isso não é benchmark de velocidade de um Mac físico de 48 GB. O texto registra loops e falhas de prefill apesar de pesos que cabiam. A consequência operacional é testar memória de trabalho e limitar chamadas repetidas no cliente.
+
+O ensaio de 48 GiB do llm-speed publicou TTFT de 8,17 / 27,66 / 113,21 s nas três entradas da tabela, com thinking desligado. Seu pico de 27,17 tokens/s na menor entrada não substitui a mediana de 13,70. A carga concorrente explica por que o teste deve incluir o ambiente de trabalho, embora esse estudo não isole sua contribuição causal.
+
+### Da velocidade à economia de engenharia
+
+Um relato de operação doméstica informa aproximadamente 60 tokens/s com GPU de 32 GB de VRAM, 64 GB de RAM e SSD. É evidência fornecida pelo responsável pela proposta, sem logs anexados, modelo de GPU, checkpoint, quantização, contexto ou separação de reasoning/output. Não corresponde a uma medição em Mac nem permite atribuir a mesma taxa a cada modelo citado. A reprodução deve registrar esses campos e comparar a mesma tarefa aceita nas estações menores.
+
+PP processa o contexto; decode gera tokens. Sem eventos separados, a tabela não divide reasoning e resposta final. SSD de embeddings/Engram, streaming de especialistas e swap têm custos diferentes. Especulação, quantização e alteração do roteamento também precisam ser declaradas; tokens/s não demonstram qualidade de código.
+
+O fluxo econômico proposto é: tarefas recorrentes locais → testes independentes → reparo limitado → nuvem autorizada quando necessário. O harness deve reduzir contexto desnecessário, escolher ferramentas adequadas e impedir loops; a nuvem pode aperfeiçoá-lo uma vez para muitas execuções locais. Comparar quatro braços: nuvem, local genérico, local com harness e local com harness + nuvem. Medir custo por tarefa aceita, fatura remota, revisão, latência e energia. Segurança mantém executor isolado, gateway autenticado e saída de rede controlada, inclusive nas máquinas menores.
+
+O orçamento deve comparar reaproveitamento com compra gradual. A faixa de US$ 2500–5000 por estação é uma hipótese de planejamento, não cotação nem correspondência automática entre preço e RAM. Cinco estações representam US$ 12500–25000 somente em hardware; integração, segurança, operação e retrabalho continuam no TCO. Não multiplicar tokens locais pelo preço nominal de tokens remotos para declarar economia: medir a redução líquida da fatura, inclusive cache e escalonamentos.
+
 ## Benchmarks de Macs de 16 a 512 GB: RAM, SSD e geração
 
 Pesquisa consultada em **16/10/2026**. Os números abaixo são medições publicadas por usuários e desenvolvedores de runtimes, não testes executados por nós. Não existe aqui um ensaio único que controle simultaneamente chip, quantização, contexto e software em todas as capacidades. **Não interpretar a tabela como um ranking de RAM.** A seção “Ampliação: 4 e 8 bits” abaixo complementa este recorte com pares controlados e configurações mais rápidas; as primeiras tabelas não representam um teto de desempenho. NR significa não reportado/verificado na fonte consultada.
@@ -663,7 +708,7 @@ O [experimento de 16 GB](https://github.com/atbender/deepseek-v41-flash-mac-mini
 
 A [Argonaut Labs](https://argonautlabs.ai/) compara o mesmo hardware e checkpoint, com saídas idênticas verificadas por hash. “Steady decode” exclui o primeiro passo; incluindo esse passo, os três resultados são 9,90, 17,45 e 20,74 tok/s. Uma configuração posterior de 04/10 prioriza prefill: 75,06 PP e 19,31 TG com três discos. Não combinar o melhor PP dessa configuração com o melhor TG da anterior como se fossem uma execução. É pesquisa dos desenvolvedores do sistema, com dados publicados, não auditoria externa.
 
-**Lacuna específica:** não encontramos benchmark suficientemente documentado do **DeepSeek V4.1 Flash em Mac de 64 GB**. Há uma [discussão com alegação de 8,2–9,5 tok/s em M3 Ultra 256 GB a 2-bit](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/discussions/56), mas ela reúne referências de terceiros e não controla runtime/quantização frente ao M5 Max. Não a usamos para concluir que SSD supera RAM.
+**Atualização de 19/10:** o benchmark WARP de 64 GB foi acrescentado na seção de estações menores. A lacuna anterior de execução documentada foi preenchida; a meta de 20–30 tokens/s permanece sem comprovação nessa configuração. Há uma [discussão com alegação de 8,2–9,5 tok/s em M3 Ultra 256 GB a 2-bit](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/discussions/56), mas ela reúne referências de terceiros e não controla runtime/quantização frente ao M5 Max. Não a usamos para concluir que SSD supera RAM.
 
 ### Contexto longo: a mesma máquina pode entregar velocidades muito diferentes
 

@@ -11,3 +11,8 @@ Atualizados relatório, proposta e apresentação com integração de Oh My Pi, 
 ## Correção do escopo da publicação
 
 Mantidos todos os documentos e recursos de apoio produzidos para esta pesquisa. Retirados do versionamento os scripts de setup anteriores, a pasta experimental qwen38-flash-next, o cache Node e o histórico anterior de desenvolvimento. As cópias locais foram preservadas. O gerador HTML, a verificação de renderização e funcionalidades, seus resultados, fontes, imagens, ZIP e manifesto continuam disponíveis.
+
+
+## 19/10/2026 — Estações de 32, 48 e 64 GB
+
+Relatório e proposta ampliados com matriz de 12 configurações residentes e SSD, condições de quantização e limites de evidência. Apresentações equivalentes ampliadas para 18 slides, mantendo economia híbrida, tarefas recorrentes, harnesses e segurança como eixo executivo. DeepSeek V4.1 em 64 GB agora tem resultado publicado WARP; não equivale à meta de 20–30 tokens/s. Relato doméstico preservado como não reproduzido.

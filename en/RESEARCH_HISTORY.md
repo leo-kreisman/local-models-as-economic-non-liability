@@ -11,3 +11,8 @@ Updated report, proposal and presentation with integration of Oh My Pi, OpenCode
 ## Correction of the scope of publication
 
 Maintained all documents and support resources produced for this research. Removed from the version the previous setup scripts, the experimental folder qwen38-flash-next, the cache Node and the previous development history. The local copies have been preserved. The HTML generator, rendering check and features, its results, sources, images, ZIP and manifest remain available.
+
+
+## 2026-10-19 — 32, 48 and 64 GB workstations
+
+Report and proposal expanded with a matrix of 12 resident and SSD configurations, quantization conditions and evidence limits. Equivalent presentations expanded to 18 slides, retaining hybrid savings, recurring tasks, harnesses and security as the executive focus. DeepSeek V4.1 on 64 GB now has a published WARP result; it does not establish the 20–30 tokens/s target. Home account preserved as not reproduced.

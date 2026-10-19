@@ -28,7 +28,7 @@ def convert(md):
   return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{label}</a><sup class="ref"><a href="#ref-{n}" aria-label="Reference {n}">[{n}]</a></sup>'
  body=re.sub(r'<a href="([^"]+)">(.*?)</a>',link,body,flags=re.S)
  body=re.sub(r'<p><img alt="([^"]*)" src="([^"]*)" ?/?></p>',lambda m:f'<figure class="figure"><a href="{m[2]}" aria-label="Open full-size image"><img src="{m[2]}" alt="{m[1]}" loading="lazy" decoding="async"></a><figcaption>{m[1]}</figcaption></figure>',body)
- bibliography='<section class="references chapter" id="references"><h2>References and traceability</h2><p class="small">Links collected in this edition. Caveats about access, date and strength of evidence remain alongside the findings. Sources consulted through October 16, 2026.</p><ol>'
+ bibliography='<section class="references chapter" id="references"><h2>References and traceability</h2><p class="small">Links collected in this edition. Caveats about access, date and strength of evidence remain alongside the findings. Sources consulted through October 19, 2026.</p><ol>'
  for i,(u,l) in enumerate(refs,1):bibliography+=f'<li id="ref-{i}"><a href="{html.escape(u)}" target="_blank" rel="noopener noreferrer">{html.escape(l)}</a><span class="url">{html.escape(u)}</span></li>'
  bibliography+='</ol></section>'
  heads=re.findall(r'<h2 id="([^"]+)">(.*?)</h2>',body)

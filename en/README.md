@@ -8,7 +8,7 @@ Research available in English and Portuguese, with sources, business cases, benc
 
 - [Hybrid engineering playbook](HYBRID_ENGINEERING_PLAYBOOK.md) — measured savings, internet-enabled workstation security and reusable task harnesses.
 
-- [Full report on Markdown](RESEARCH_REPORT.md) — 220 references in the corresponding HTML.
+- [Full report on Markdown](RESEARCH_REPORT.md) — 226 references in the corresponding HTML.
 - [HTML Report](report.html) — copyable tables, images of sources and navigation.
 - [HTML Proposal](proposal.html) — Problem/Context + Solution + Required Investment and calculator.
 - [HTML Slideshow](slides.html) — 16 slides for management and board.

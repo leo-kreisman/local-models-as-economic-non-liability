@@ -29,9 +29,9 @@
   },
   {
     "label": "04 / Performance",
-    "title": "27B and 35B also fit in the larger Macs",
-    "body": "<table><thead><tr><th>Hardware/runtime</th><th>Model / Quant</th><th>Tok/s generation</th></tr></thead><tbody><tr><td>M5 Max 128 GB · MLX + MTP</td><td>Qwen3.8-27B · 4/8 bits</td><td>47.00 / 28.72</td></tr><tr><td>M5 Max 128 GB · oMLX + MTP</td><td>Qwen3.6-35B · 4/8 bits</td><td>119.2 / 117.5</td></tr><tr><td>M3 Ultra 512 GB · oMLX + MTP</td><td>Qwen3.8-27B · 4/8 bits</td><td>65.0 / 43.0</td></tr></tbody></table><p>Protocols and acceleration vary between lines. tok/s does not measure quality. Prefill and decode are separated in the full report.</p>",
-    "source": "<a href=\"https://github.com/NathanMaine/qwen-mlx-offline/blob/main/docs/BENCHMARKS.md\" target=\"_blank\" rel=\"noopener noreferrer\">27B / M5 Max</a> · <a href=\"https://jacar.es/en/how-to-install-and-tune-omlx-on-m5-max-128-gb/\" target=\"_blank\" rel=\"noopener noreferrer\">35B / M5 Max</a> · <a href=\"https://github.com/jundot/omlx/discussions/2811\" target=\"_blank\" rel=\"noopener noreferrer\">27B / M3 Ultra</a>",
+    "title": "Start with 32, 48 and 64 GB too",
+    "body": "<table><tr><th>Mac</th><th>Model / runtime</th><th>Decode tok/s</th></tr><tr><td>M1 Pro · 32 GB</td><td>35B MoE Q4 · llama.cpp</td><td>25.4</td></tr><tr><td>M4 Pro · 48 GB</td><td>27B Q4 · Rapid-MLX</td><td>15.2</td></tr><tr><td>M4 Pro · 64 GB</td><td>27B Q4 / Q8 · oMLX + MTP</td><td>20.8 / 16.6</td></tr></table><p>Reuse workstations before purchasing. Different protocols; the 32 GB test records host swap. Memory alone does not determine speed or quality.</p>",
+    "source": "<a href=\"https://raw.githubusercontent.com/marcofariasmx/local-llm-apple-silicon/main/README.md\">M1 Pro 32 GB</a> · <a href=\"https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro\">M4 Pro 48 GB</a> · <a href=\"https://github.com/jundot/omlx/discussions/2811\">M4 Pro 64 GB</a>",
     "dark": false
   },
   {
@@ -109,6 +109,20 @@
     "title": "From decision to detail",
     "body": "<div class=\"two\"><div><h3>Full research</h3><p>Business cases, Macs tables 16–512 GB, MLX/llama.cpp, SSD, experts and security.</p><p><a href=\"report.html\">Open Report →</a></p></div><div><h3>Investment proposal</h3><p>Problem/Context, Solution, Required Investment and sensitivity calculator.</p><p><a href=\"proposal.html\">Open Proposal →</a></p></div></div><p class=\"small\">Sources appear in the footnotes and documents. Arrow keys navigate between slides; “Print / PDF” exports the entire presentation.</p>",
     "source": "Offline package · 16 October 2026",
+    "dark": false
+  },
+  {
+    "label": "Technical support / SSD",
+    "title": "Larger models on the same workstations",
+    "body": "<table><tr><th>Mac / model</th><th>SSD path</th><th>Decode tok/s</th></tr><tr><td>32 GB M1 Max · Flash-Next</td><td>MoEspresso · mainly IQ2_K</td><td>12–15</td></tr><tr><td>48 GB M5 Pro · Flash-Next</td><td>Slotstream · 4-bit</td><td>~12</td></tr><tr><td>64 GB M5 Pro · Flash-Next</td><td>llama.cpp fork / Slipstream</td><td>27.6 / 35.0–37.5</td></tr><tr><td>64 GB M5 Pro · DeepSeek V4.1</td><td>WARP · CPU</td><td>3.77 / 3.71</td></tr></table><p>Authors’ results, without a common protocol. MoEspresso changes routing. WARP measures 64 / 200 tokens; it does not establish the 20–30 target.</p>",
+    "source": "<a href=\"https://www.reddit.com/r/LocalLLaMA/comments/1wrqql8/qwen38flashnext_125b_at_1215_toks_on_a_2021_32gb/\">MoEspresso</a> · <a href=\"https://www.reddit.com/r/Qwen_AI/comments/1w3tjkw/running_the_104_gb_qwen38flashnext_on_a_48_gb_mac/\">Slotstream</a> · <a href=\"https://www.reddit.com/r/LocalLLaMA/comments/1wk14il/qwen38flashnext_955_gib_on_a_64gb_mac_at_27_toks/\">64 GB</a> · <a href=\"https://raw.githubusercontent.com/sqliteai/warp/main/README.md\">WARP</a> · <a href=\"https://www.reddit.com/r/LocalLLaMA/comments/1wva7l2/running_955_gib_qwen38flashnext_at_4152_toks_on_a/\">Slipstream</a>",
+    "dark": false
+  },
+  {
+    "label": "Decision support / investment",
+    "title": "Smaller purchase, the same economic discipline",
+    "body": "<p>Compare reuse with <strong>US$ 2500–5000</strong> workstations: five units total US$ 12500–25000 in hardware. Planning amounts; obtain configuration and SSD quotations.</p><p>The home account of ~60 tokens/s uses a 32 GB VRAM GPU + 64 GB RAM + SSD; logs and full configuration are still unavailable. It is not a Mac benchmark.</p><p>Measure four paths: cloud, generic local, local with harness, and local with harness + cloud. Approve based on net savings, quality, time and data containment.</p>",
+    "source": "Pilot proposal · account without independent reproduction · TCO includes integration and operation",
     "dark": false
   }
 ]

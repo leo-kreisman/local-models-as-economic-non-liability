@@ -25,5 +25,10 @@
     "body": "<p>Otimizador de nuvem propõe harness por tarefa. Testes independentes selecionam a versão. O modelo local executa o trabalho recorrente.</p><p>Versionar instruções, recuperação, ferramentas e reparo limitado; manter rollback e testes de aceitação intocados.</p><p>SkillOpt apoia otimizar skills sem alterar pesos. Economia de código ainda exige medição no repositório real.</p>",
     "source": "<a href=\"https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/\">Microsoft SkillOpt</a>",
     "label": "08 / Harnesses reutilizáveis"
+  },
+  "4": {
+    "title": "Começar também com 32, 48 e 64 GB",
+    "body": "<table><tr><th>Mac</th><th>Modelo / runtime</th><th>Decode tok/s</th></tr><tr><td>M1 Pro · 32 GB</td><td>35B MoE Q4 · llama.cpp</td><td>25,4</td></tr><tr><td>M4 Pro · 48 GB</td><td>27B Q4 · Rapid-MLX</td><td>15,2</td></tr><tr><td>M4 Pro · 64 GB</td><td>27B Q4 / Q8 · oMLX + MTP</td><td>20,8 / 16,6</td></tr></table><p>Reutilizar estações antes de comprar. Protocolos distintos; o teste de 32 GB registra swap no host. Memória não determina sozinha velocidade ou qualidade.</p>",
+    "source": "<a href=\"https://raw.githubusercontent.com/marcofariasmx/local-llm-apple-silicon/main/README.md\">M1 Pro 32 GB</a> · <a href=\"https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro\">M4 Pro 48 GB</a> · <a href=\"https://github.com/jundot/omlx/discussions/2811\">M4 Pro 64 GB</a>"
   }
 }

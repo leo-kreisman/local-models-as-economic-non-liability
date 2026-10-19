@@ -32,7 +32,7 @@ with sync_playwright() as p:
       assert page.locator('#payback').inner_text()==text
     if name=='slides':
      page.keyboard.press('ArrowRight');page.wait_for_timeout(700)
-     assert page.locator('.slide-count').inner_text()=='2 / 16'
+     assert page.locator('.slide-count').inner_text()==f"2 / {page.locator('.slide').count()}"
     page.screenshot(path=str(OUT/f'{lang}-{name}-{width}.png'))
     results.append({'file':str(path.relative_to(ROOT)),'width':width,'anchors_ok':True,'images_ok':True,'overflow':False})
  browser.close()

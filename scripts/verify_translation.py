@@ -57,3 +57,21 @@ print(json.dumps(report,ensure_ascii=False,indent=2))
 (r/'en/data/translation-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 
 assert all(x["urls_equal"] and x["tables"][0]==x["tables"][1] and x["headings"][0]==x["headings"][1] and not x["table_numeric_differences"] for x in report), "Translation consistency check failed"
+
+# Compare the generated decks, including table values and external sources.
+def deck(path):
+ return re.findall(r'<section class="slide .*?</section>',path.read_text(),re.S)
+pt_slides=deck(r/'pesquisa_html/slides.html')
+en_slides=deck(r/'en/slides.html')
+assert len(pt_slides)==len(en_slides)
+for i,(pt_slide,en_slide) in enumerate(zip(pt_slides,en_slides),1):
+ p=Tables();p.feed(pt_slide);q=Tables();q.feed(en_slide)
+ assert len(p.tables)==len(q.tables),f'Slide {i}: table mismatch'
+ for pt_table,en_table in zip(p.tables,q.tables):
+  assert [len(row) for row in pt_table]==[len(row) for row in en_table]
+  for pt_row,en_row in zip(pt_table,en_table):
+   for a,b in zip(pt_row,en_row):
+    assert nums(a,True)==nums(b,False),f'Slide {i}: numeric mismatch'
+ links=lambda s: Counter(re.findall(r'href="(https?://[^"]+)"',s))
+ assert links(pt_slide)==links(en_slide),f'Slide {i}: source mismatch'
+print(f'Equivalent decks: {len(pt_slides)} slides, matching table numbers and external sources.')

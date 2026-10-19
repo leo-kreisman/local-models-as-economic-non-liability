@@ -88,12 +88,20 @@ https://arxiv.org/html/2604.19201v1,Método de custo
 https://codelead.dev/case-study/,Demonstração e limites
 https://www.qamind.ai/local-ai,Arquitetura
 https://arxiv.org/abs/2601.07206,Artigo e recursos
-https://www.reddit.com/r/ollama/comments/1vrqi3d/qwen3827b_on_a_24gb_m4_pro_mac_mini_benchmarks/,Autor
-https://www.reddit.com/r/LocalLLM/comments/1wa0dl3/qwen3827b_on_m1_max_32gb_mlx_158_toks_vs_llamacpp/,Autor
+https://raw.githubusercontent.com/marcofariasmx/local-llm-apple-silicon/main/README.md,Executor
+https://www.reddit.com/r/LocalLLM/comments/1wa0dl3/qwen3827b_on_m1_max_32gb_mlx_158_toks_vs_llamacpp/,Executor
+https://www.reddit.com/r/LocalLLaMA/comments/1wrqql8/qwen38flashnext_125b_at_1215_toks_on_a_2021_32gb/,Executor
 https://rapidmlx.com/benchmarks/qwen3.8-27b-4bit/apple-m4-pro,Registro
+https://llm-speed.com/blog/qwen3-8-27b-m5-max-48gb,Estudo
+https://www.reddit.com/r/Qwen_AI/comments/1w3tjkw/running_the_104_gb_qwen38flashnext_on_a_48_gb_mac/,Autor
+https://github.com/jundot/omlx/discussions/2811,Discussão
+https://sleepyquant.rest/blog/mlx-vs-llama-cpp-35b-m1-max-benchmark/,Executor
 https://github.com/robgil/local-ai-benchmark-mac-stuido-m2,Experimento
-https://www.reddit.com/r/LocalLLaMA/comments/1wk14il/qwen38flashnext_955_gib_on_a_64gb_mac_at_27_toks/,Autor e fork
-https://www.reddit.com/r/LocalLLaMA/comments/1wva7l2/running_955_gib_qwen38flashnext_at_4152_toks_on_a/,Comparação do autor
+https://www.reddit.com/r/LocalLLaMA/comments/1wk14il/qwen38flashnext_955_gib_on_a_64gb_mac_at_27_toks/,Executor
+https://www.reddit.com/r/LocalLLaMA/comments/1wva7l2/running_955_gib_qwen38flashnext_at_4152_toks_on_a/,Comparação
+https://raw.githubusercontent.com/sqliteai/warp/main/README.md,Projeto
+https://github.com/navikt/mlx-workspace/blob/main/reports/48gb-question.md,ensaio de capacidade do Nav
+https://www.reddit.com/r/ollama/comments/1vrqi3d/qwen3827b_on_a_24gb_m4_pro_mac_mini_benchmarks/,Autor
 https://omlx.ai/benchmarks/performance/pjf8s09q,Registro
 https://heretik.io/qwen38-flash-next-262k-macbook/,Heretik
 https://www.mtplx.com/models/qwen3.8-flash-next/,Desenvolvedor
@@ -106,11 +114,9 @@ https://github.com/atbender/deepseek-v41-flash-mac-mini,experimento de 16 GB
 https://argonautlabs.ai/,Argonaut Labs
 https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/discussions/56,"discussão com alegação de 8,2–9,5 tok/s em M3 Ultra 256 GB a 2-bit"
 https://www.mtplx.com/models/qwen3.8-27b/,Condições e quantizações
-https://github.com/jundot/omlx/discussions/2811,A
 https://github.com/NathanMaine/qwen-mlx-offline/blob/main/docs/BENCHMARKS.md,B
 https://qiita.com/sukimaengineer/items/43049f30df14cb06542b,C
 https://jacar.es/en/how-to-install-and-tune-omlx-on-m5-max-128-gb/,Ensaio do autor
-https://sleepyquant.rest/blog/mlx-vs-llama-cpp-35b-m1-max-benchmark/,Experimento SleepyQuant
 https://omlx.ai/benchmarks/performance/ehzfv9r6,Registro
 https://omlx.ai/benchmarks/performance/o39q2ywa,Registro
 https://github.com/raullenchai/Rapid-MLX/issues/472,Submissão original
